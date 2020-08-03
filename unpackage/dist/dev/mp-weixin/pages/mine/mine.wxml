@@ -1,0 +1,1 @@
+<view><block wx:if="{{!userInfo}}"><view><button class="login" open-type="getUserInfo" type="primary" data-event-opts="{{[['getuserinfo',[['getUserInfo',['$event']]]]]}}" bindgetuserinfo="__e">微信授权登录</button></view></block><block wx:else><view>adsadadsa</view></block></view>

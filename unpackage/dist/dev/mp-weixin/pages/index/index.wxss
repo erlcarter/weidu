@@ -1,0 +1,32 @@
+
+.indexHead.data-v-1f969e28 {
+  background-color: #7f8971;
+}
+.indexContainer.data-v-1f969e28 {
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.banner_img.data-v-1f969e28 {
+  /*1125px x 843px
+    高=百分百*原图的高/原图的宽
+  */
+  width:750rpx;
+}
+.banenr_text.data-v-1f969e28 {
+  margin: 0 6%;
+}
+.banenr_text ._p.data-v-1f969e28 {
+  /*font-size: 12px;*/
+  font-size: calc(750rpx * 12 / 375);
+  font-weight: 300;
+  color: #7f8971;
+}
+
