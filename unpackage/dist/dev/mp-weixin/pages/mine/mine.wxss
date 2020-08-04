@@ -24,4 +24,92 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+.content_mine.data-v-6354a745 {
+  background-color: #7f8971;
+}
+.content.data-v-6354a745 {
+  background-color: #ffffff;
+  border-top-left-radius: 50rpx;
+  border-top-right-radius: 50rpx;
+  position: relative;
+  top: -80rpx;
+  z-index: 0;
+  padding: 0 5%;
+}
+.content .menu_bnt.data-v-6354a745 {
+  width: 670rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  padding-top: 17%;
+}
+.content .menu_bnt .left.data-v-6354a745 {
+  background-color: #ffffff;
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 3px 20px rgba(0, 0, 0, 0.1);
+          box-shadow: inset 0 3px 20px rgba(0, 0, 0, 0.1);
+  width: 160px;
+  height: 200px;
+  overflow: hidden;
+}
+.content .menu_bnt .right.data-v-6354a745 {
+  background-color: #ffffff;
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 3px 20px rgba(0, 0, 0, 0.1);
+          box-shadow: inset 0 3px 20px rgba(0, 0, 0, 0.1);
+  width: 160px;
+  height: 200px;
+  overflow: hidden;
+  margin-left: 5%;
+}
+.content .refer.data-v-6354a745 {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#e0e5df));
+  background-image: -webkit-linear-gradient(left, #ffffff 0%, #e0e5df 100%);
+  background-image: linear-gradient(90deg, #ffffff 0%, #e0e5df 100%);
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 3px 20px rgba(0, 0, 0, 0.1);
+          box-shadow: inset 0 3px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 200rpx;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+.content .refer ._img.data-v-6354a745 {
+  object-fit: cover !important;
+  width: 200rpx;
+  height: 200rpx;
+}
+.whether_log.data-v-6354a745 {
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  -webkit-box-shadow: inset 0 3px 20px rgba(0, 0, 0, 0.1);
+          box-shadow: inset 0 3px 20px rgba(0, 0, 0, 0.1);
+  width: 670rpx;
+  height: 164rpx;
+  overflow: hidden;
+  margin: 0 5%;
+  position: relative;
+  z-index: 1;
+}
+.login.data-v-6354a745 {
+  background-color: #a49888;
+  border-radius: 10px;
+  width: 200rpx;
+  height: 100rpx;
+  line-height: 164rpx;
+  overflow: hidden;
+  margin: 5% 5%;
+  float: right;
+}
+.login ._p.data-v-6354a745 {
+  font-size: 28rpx;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  color: #ffffff;
+  display: block;
+  line-height: 100rpx;
+  text-align: center;
+}
 
