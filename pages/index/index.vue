@@ -8,7 +8,8 @@
 
     <!--内容-->
     <div class="indexContainer">
-      <img mode="widthFix" class="banner_img" lazy-load src="/static/images/source.png" alt="">
+      <img mode="widthFix" class="banner_img" 
+	  lazy-load src="/static/images/source.png" alt="">
       <div class="banenr_text">
         <p v-html="text"></p>
       </div>
@@ -64,7 +65,9 @@
     /*1125px x 843px
       高=百分百*原图的高/原图的宽
     */
+   transform: translateY(-30rpx);
     width:750rpx;
+	z-index: -1;
   }
 
   .banenr_text {
