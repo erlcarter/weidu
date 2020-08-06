@@ -27,10 +27,10 @@
 					<p class="ac_lis_ri_date" v-text="value.acti_date"></p>
 					<p class="ac_lis_ri_cont" v-text="value.acti_cont"></p>
 
-					<div class="read_more_btn">
+					<a url="###" class="read_more_btn">
 						<p>READ MORE</p>
 						<img src="../../static/images/icon/click2.png" alt="">
-					</div>
+					</a>
 				</div>
 			</div>
 
@@ -47,15 +47,14 @@
 					<div class="site_tite">
 						<p class="shop">黄沙店</p>
 						<p class="shop_site">通宝大厦</p>
+						<!-- 查看详细地址 -->
+						<p class="shop_go"> >>> </p>
 					</div>
 					<!--店面地址Animation -->
 					<div class="show_btn">
 						<img :mode="mode" src="../../static/images/site_le.png" alt="">
 					</div>
-					<!-- 查看详细地址 -->
-					<div>
-						
-					</div>
+
 				</div>
 				<div style="width: 5%;"></div>
 				<div class="site_alone">
@@ -63,21 +62,24 @@
 					<div class="site_tite">
 						<p class="shop">白云店</p>
 						<p class="shop_site">江高爱国东路</p>
+						<p class="shop_go"> >>> </p>
 					</div>
 					<!--店面地址Animation -->
 					<div class="show_btn">
 						<img :mode="mode" src="../../static/images/site_ri.png" alt="">
 					</div>
+
 				</div>
 
 
 			</div>
 		</div>
-		
+		<!-- 技术支持 -->
 		<div>
 			<youxniao />
 		</div>
-	</div> 
+	
+	</div>
 
 </template>
 
@@ -103,8 +105,15 @@
 					acti_date: '7.22-7.31',
 					acti_cont: ` 7 月已开启了愿上半年所有的遗憾，是下半年惊喜的铺垫，
 					 维度和大家继续努力冲鸭~  `,
-				}],
-
+				},{
+					src: 'https://s1.ax1x.com/2020/08/05/asDM1s.md.jpg',
+					acti_title: 'WEDOO夏日创作营招募',
+					acti_date: '7.22-7.31',
+					acti_cont: ` 7 月已开启了愿上半年所有的遗憾，是下半年惊喜的铺垫，
+					 维度和大家继续努力冲鸭~  `,
+				}
+				],
+				
 			}
 		},
 		// 組件
@@ -299,18 +308,24 @@
 					}
 
 					.shop_site {
-						padding-top:1%;
+						padding-top: 1%;
 						font-size: 22rpx;
 						color: #b8c4b6;
 						font-weight: 300;
 						z-index: 15;
-						position: absolute;	
-						
+						position: absolute;
+
 						width: 100rpx;
 						overflow: hidden; //隐藏
 						text-overflow: ellipsis; //最后以...结尾
 						white-space: wrap; //换行
-						
+
+					}
+
+					.shop_go {
+						font-size: 24rpx;
+						color: #b8c4b6;
+						margin: 100% 0 1% 0;
 					}
 				}
 

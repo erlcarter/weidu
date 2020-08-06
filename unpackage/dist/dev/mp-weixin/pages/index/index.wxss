@@ -199,6 +199,11 @@
   text-overflow: ellipsis;
   white-space: wrap;
 }
+.site_btn .site_collect .site_alone .site_tite .shop_go.data-v-05ef098b {
+  font-size: 24rpx;
+  color: #b8c4b6;
+  margin: 100% 0 1% 0;
+}
 .site_btn .site_collect .site_alone .show_btn ._img.data-v-05ef098b {
   width: 334rpx;
   height: 266rpx;
