@@ -5,20 +5,10 @@
 			<p class="titile">WEDOO星榜作品</p>
 			<!-- 作品展示 -->
 			<div class="Portfolio_list">
-				<!-- 列表循环1 -->
-				<div class="Por_lis_left">
+				<!-- 列表 渲染 -->
+				<div class="Por_lis_fall" v-for="value in Por_lis_fall" :key="value">
 					<div class="por_sty">
-						<img mode="widthFix" src="../../static/images/por1.jpg" alt="">
-					</div>
-				</div>
-				
-				<!-- 分开  -->
-				<div style="width: 4%;"></div>
-				
-				<!-- 列表循环2 -->
-				<div class="Por_lis_right">
-					<div class="por_sty">
-						<img mode="widthFix" src="../../static/images/por5.jpg" alt="">
+						<img mode="widthFix" :src="value.src" alt="">
 					</div>
 				</div>
 			</div>
@@ -30,8 +20,34 @@
 	export default {
 		data() {
 			return {
-				
-			};
+				Por_lis_fall: [
+					{
+						src: "https://s1.ax1x.com/2020/08/06/aR1Hi9.jpg"
+					},
+					{
+						src: "https://s1.ax1x.com/2020/08/06/aR1oa4.jpg"
+					},
+					{
+						src: "https://s1.ax1x.com/2020/08/06/aR1TIJ.jpg"
+					},
+					{
+						src: "https://s1.ax1x.com/2020/08/06/aR1Hi9.jpg"
+					},
+					{
+						src: "https://s1.ax1x.com/2020/08/06/aR1TIJ.jpg"
+					},
+					{
+						src: "https://s1.ax1x.com/2020/08/06/aR1bGR.jpg"
+					},
+					{
+						src: "https://s1.ax1x.com/2020/08/06/aR1Hi9.jpg"
+					},
+					{
+						src: "https://s1.ax1x.com/2020/08/06/aR1TIJ.jpg"
+					},
+				],
+
+			}
 		}
 	}
 </script>
@@ -55,23 +71,32 @@
 		}
 
 		.Portfolio_list {
-			margin: 5% 6% 5% 6%;
-			display: flex;
-			.Por_lis_left {
-				.por_sty img {
-					// padding: 5% 3% 5% 10%;
-					width: 320rpx;
-					border-radius: 20rpx;
-				}
-			}
-			.Por_lis_right {
-				.por_sty img {
-					// padding: 5% 10% 5% 3%;
-					width: 320rpx;
-					border-radius: 20rpx;
-				}
-			}
+			margin: 5% 5% 5% 5%;
+			width: 90%;
 
+			//瀑布流
+			/* 规定的列数，设置5列 */
+			column-count: 2;
+			/* 规定的间隔距离 */
+			column-gap: 3%;
+
+		}
+
+		.Por_lis_fall {
+			break-inside: avoid;
+			width: 100%;
+
+			.por_sty img {
+				// padding: 5% 3% 5% 10%;
+				width: 100%;
+				height: auto;
+				border-radius: 20rpx;
+			}
+		}
+
+		.por_sty {
+			width: 100%;
+			height: auto;
 		}
 
 
