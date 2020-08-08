@@ -26,8 +26,7 @@
 					<p class="ac_lis_ri_tite" v-text="value.acti_title"></p>
 					<p class="ac_lis_ri_date" v-text="value.acti_date"></p>
 					<p class="ac_lis_ri_cont" v-text="value.acti_cont"></p>
-
-					<a url="###" class="read_more_btn">
+					<a url="./index_details/index_details" class="read_more_btn">
 						<p>READ MORE</p>
 						<img src="../../static/images/icon/click2.png" alt="">
 					</a>

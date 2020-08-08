@@ -1,9 +1,10 @@
 {
   "pages": [
-    "pages/show/show",
     "pages/index/index",
     "pages/course_list/course_list",
-    "pages/mine/mine"
+    "pages/show/show",
+    "pages/mine/mine",
+    "pages/index/index_details/index_details"
   ],
   "subPackages": [],
   "window": {
@@ -45,5 +46,5 @@
     ]
   },
   "usingComponents": {},
-  "sitemapLocation": "sitemap10.json"
+  "sitemapLocation": "sitemap53.json"
 }

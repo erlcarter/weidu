@@ -7,54 +7,88 @@
 			<div class="Portfolio_list">
 				<!-- 列表 渲染 -->
 				<div class="Por_lis_fall" v-for="value in Por_lis_fall" :key="value">
-					<div class="por_sty">
-						<img mode="widthFix" :src="value.src" alt="">
+					<div id="por_sty" class="por_sty">
+						<a url="###">
+							<img mode="widthFix" :src="value.src" alt="">
+						</a>
+						<div class="por_about">
+							<p class="por_name" v-text="value.por_name">逛超市简笔画.</p>
+							<p class="por_author">©<span v-text="value.por_author">用户名</span></p>
+						</div>
 					</div>
 				</div>
 			</div>
+		</div>
+		<!-- 技术支持 -->
+		<div>
+			<youxniao />
 		</div>
 	</div>
 </template>
 
 <script>
+	import youxniao from "@/components/youxniao"
 	export default {
 		data() {
 			return {
-				Por_lis_fall: [
-					{
-						src: "https://s1.ax1x.com/2020/08/06/aR1Hi9.jpg"
+				Por_lis_fall: [{
+						src: "https://s1.ax1x.com/2020/08/06/aR1Hi9.jpg",
+						por_name: "逛超市简笔画",
+						por_author:"张三"
 					},
 					{
-						src: "https://s1.ax1x.com/2020/08/06/aR1oa4.jpg"
+						src: "https://s1.ax1x.com/2020/08/06/aR1oa4.jpg",
+						por_name: "逛超市简笔画",
+						por_author:"张三"
 					},
 					{
-						src: "https://s1.ax1x.com/2020/08/06/aR1TIJ.jpg"
+						src: "https://s1.ax1x.com/2020/08/06/aR1TIJ.jpg",
+						por_name: "逛超市简笔画",
+						por_author:"张三"
 					},
 					{
-						src: "https://s1.ax1x.com/2020/08/06/aR1Hi9.jpg"
+						src: "https://s1.ax1x.com/2020/08/06/aR1Hi9.jpg",
+						por_name: "逛超市简笔画",
+						por_author:"张三"
 					},
 					{
-						src: "https://s1.ax1x.com/2020/08/06/aR1TIJ.jpg"
+						src: "https://s1.ax1x.com/2020/08/06/aR1TIJ.jpg",
+						por_name: "逛超市简笔画",
+						por_author:"张三"
 					},
 					{
-						src: "https://s1.ax1x.com/2020/08/06/aR1bGR.jpg"
+						src: "https://s1.ax1x.com/2020/08/06/aR1bGR.jpg",
+						por_name: "逛超市简笔画",
+						por_author:"张三"
 					},
 					{
-						src: "https://s1.ax1x.com/2020/08/06/aR1Hi9.jpg"
+						src: "https://s1.ax1x.com/2020/08/06/aR1Hi9.jpg",
+						por_name: "逛超市简笔画",
+						por_author:"张三"
 					},
 					{
-						src: "https://s1.ax1x.com/2020/08/06/aR1TIJ.jpg"
+						src: "https://s1.ax1x.com/2020/08/06/aR1TIJ.jpg",
+						por_name: "逛超市简笔画",
+						por_author:"张三"
 					},
 				],
-
 			}
-		}
+		},
+		// 組件
+		components: {
+			youxniao
+			// footer_btn
+		},
 	}
+	
+	
 </script>
 
 <style lang="scss" scoped>
 	.radian {
 		width: 100%;
+		position: fixed;
+		top: 0;
 	}
 
 	.Portfolio {
@@ -86,17 +120,47 @@
 			break-inside: avoid;
 			width: 100%;
 
+			.por_sty {
+				padding-bottom: 8%;
+				width: 100%;
+				height: auto;
+			}
+
 			.por_sty img {
 				// padding: 5% 3% 5% 10%;
 				width: 100%;
 				height: auto;
 				border-radius: 20rpx;
-			}
-		}
 
-		.por_sty {
-			width: 100%;
-			height: auto;
+			}
+
+			.por_about {
+				padding-left: 7%;
+
+				.por_name {
+					padding-top: 2%;
+					font-weight: 700;
+					color: #7f8971;
+
+					width: 260rpx;
+					overflow: hidden; //隐藏
+					//text-overflow: ellipsis; //最后以...结尾
+					white-space: nowrap; //不换行
+				}
+
+				.por_author {
+					padding-top: 2%;
+					font-size: 12px;
+					font-weight: 300;
+					color: #7f8971;
+					
+					width: 260rpx;
+					overflow: hidden; //隐藏
+					//text-overflow: ellipsis; //最后以...结尾
+					white-space: nowrap; //不换行
+				}
+			}
+
 		}
 
 

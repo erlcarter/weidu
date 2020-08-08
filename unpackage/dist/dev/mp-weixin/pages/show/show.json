@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "优秀作品",
-  "usingComponents": {}
+  "usingComponents": {
+    "youxniao": "/components/youxniao"
+  }
 }

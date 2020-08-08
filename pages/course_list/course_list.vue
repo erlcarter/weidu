@@ -26,7 +26,7 @@
 					</p>
 				</div>
 			</div>
-		</div>
+		</div> 
 		<!-- 技术支持 -->
 		<div>
 			<youxniao /> 
@@ -69,6 +69,8 @@
 
 <style lang="scss" scoped>
 	.radian {
+		position: fixed;
+		top: 0;
 		width: 100%;
 	}
 
