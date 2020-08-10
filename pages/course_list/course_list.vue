@@ -15,7 +15,7 @@
 
 					<div class="label">
 						<p class="grade_label" v-text="value.grade_label">7-13岁</p>
-						<a url="###" class="read_more_btn">
+						<a url="./Details_course/Details_course" class="read_more_btn">
 							<p>READ MORE</p>
 							<img :mode="mode" src="../../static/images/icon/click2.png" alt="">
 						</a>
@@ -75,7 +75,7 @@
 	}
 
 	.course_cont {
-		padding: 2% 6% 0 6%;
+		padding: 7% 6% 0 6%;
 		background-color: #ffffff;
 		width: 100%;
 

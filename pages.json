@@ -33,6 +33,30 @@
 			}
 		}
 		
+        ,{
+            "path" : "pages/reservation/reservation",
+            "style" : {
+				"navigationBarTitleText": "预约报名"
+			}
+        }
+        ,{
+            "path" : "pages/index/shop/shop",
+            "style" : {
+				"navigationBarTitleText": "店面介绍"
+			}
+        }
+        ,{
+            "path" : "pages/course_list/Details_course/Details_course",
+            "style" : {
+				"navigationBarTitleText": "课程详情"
+			}
+        }
+        ,{
+            "path" : "pages/show/details/details",
+            "style" : {
+				"navigationBarTitleText": "作品详情"
+			}
+        }
     ],
 	// 全局配置
 	"globalStyle": {

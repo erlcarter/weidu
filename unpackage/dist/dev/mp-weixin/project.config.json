@@ -41,9 +41,8 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "pages/index/index_details/index_details",
-					"pathName": "pages/index/index_details/index_details",
-					"query": "",
+					"name": "pages/show/details/details",
+					"pathName": "pages/show/details/details",
 					"scene": null
 				}
 			]

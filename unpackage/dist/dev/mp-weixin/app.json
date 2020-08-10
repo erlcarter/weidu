@@ -4,7 +4,11 @@
     "pages/course_list/course_list",
     "pages/show/show",
     "pages/mine/mine",
-    "pages/index/index_details/index_details"
+    "pages/index/index_details/index_details",
+    "pages/reservation/reservation",
+    "pages/index/shop/shop",
+    "pages/course_list/Details_course/Details_course",
+    "pages/show/details/details"
   ],
   "subPackages": [],
   "window": {
@@ -46,5 +50,5 @@
     ]
   },
   "usingComponents": {},
-  "sitemapLocation": "sitemap53.json"
+  "sitemapLocation": "sitemap99.json"
 }

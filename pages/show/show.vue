@@ -8,7 +8,7 @@
 				<!-- 列表 渲染 -->
 				<div class="Por_lis_fall" v-for="value in Por_lis_fall" :key="value">
 					<div id="por_sty" class="por_sty">
-						<a url="###">
+						<a url="./details/details">
 							<img mode="widthFix" :src="value.src" alt="">
 						</a>
 						<div class="por_about">
@@ -98,14 +98,14 @@
 
 		//课程列表--标题
 		.titile {
-			padding: 2% 0% 2% 5%;
+			padding: 7% 0% 2% 5%;
 			font-size: 32rpx;
 			font-weight: 700;
 			color: #7f8971;
 		}
 
 		.Portfolio_list {
-			margin: 5% 5% 5% 5%;
+			margin: 2% 5% 5% 5%;
 			width: 90%;
 
 			//瀑布流

@@ -51,7 +51,9 @@
 					</div>
 					<!--店面地址Animation -->
 					<div class="show_btn">
-						<img :mode="mode" src="../../static/images/site_le.png" alt="">
+						<a url="./shop/shop">
+							<img :mode="mode" src="../../static/images/site_le.png" alt="">
+						</a>
 					</div>
 
 				</div>
@@ -65,7 +67,9 @@
 					</div>
 					<!--店面地址Animation -->
 					<div class="show_btn">
-						<img :mode="mode" src="../../static/images/site_ri.png" alt="">
+						<a url="./shop/shop">
+							<img :mode="mode" src="../../static/images/site_ri.png" alt="">
+						</a>
 					</div>
 
 				</div>
@@ -311,7 +315,7 @@
 						font-size: 22rpx;
 						color: #b8c4b6;
 						font-weight: 300;
-						z-index: 15;
+						z-index: 11;
 						position: absolute;
 
 						width: 100rpx;
@@ -335,7 +339,7 @@
 						height: 266rpx;
 						transform: translate(-154rpx, -70rpx);
 						position: absolute;
-						z-index: 11;
+						z-index: 15;
 						// margin-right: -5%;
 					}
 				}
