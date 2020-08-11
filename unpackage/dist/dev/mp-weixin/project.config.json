@@ -39,8 +39,15 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "pages/show/details/details",
-					"pathName": "pages/show/details/details",
+					"name": "pages/binding/binding",
+					"pathName": "pages/binding/binding",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/mine/course_my/course_my",
+					"pathName": "pages/mine/course_my/course_my",
 					"scene": null
 				}
 			]

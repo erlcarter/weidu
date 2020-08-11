@@ -57,6 +57,18 @@
 				"navigationBarTitleText": "作品详情"
 			}
         }
+        ,{
+            "path" : "pages/binding/binding",
+            "style" : {
+				"navigationBarTitleText": "绑定信息"
+			}
+        }
+        ,{
+            "path" : "pages/mine/course_my/course_my",
+            "style" : {
+				"navigationBarTitleText": "我的课程"
+			}
+        }
     ],
 	// 全局配置
 	"globalStyle": {

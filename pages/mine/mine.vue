@@ -85,13 +85,16 @@
 				<!-- 我的课程|我的作品展 -->
 				<div class="menu_bnt">
 					<div class="left">
-						<div>
-							<p class="my_menu">我的课程</p>
-							<p class="my_number">共3个</p>
-						</div>
-						<div class="show_btn">
-							<img src="../../static/images/show_le.png" alt="">
-						</div>
+						<a url="./course_my/course_my">
+							<div>
+								<p class="my_menu">我的课程</p>
+								<p class="my_number">共3个</p>
+							</div>
+							<div class="show_btn">
+								<img src="../../static/images/show_le.png" alt="">
+							</div>
+						</a>
+
 					</div>
 
 					<div class="right">
