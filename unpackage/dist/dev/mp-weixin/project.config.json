@@ -13,8 +13,6 @@
 	"libVersion": "2.9.2",
 	"appid": "wx3d3a391b89d49f14",
 	"projectname": "weidu",
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
