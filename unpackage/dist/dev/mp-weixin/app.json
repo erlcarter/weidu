@@ -8,7 +8,9 @@
     "pages/reservation/reservation",
     "pages/index/shop/shop",
     "pages/course_list/Details_course/Details_course",
-    "pages/show/details/details"
+    "pages/show/details/details",
+    "pages/binding/binding",
+    "pages/mine/course_my/course_my"
   ],
   "subPackages": [],
   "window": {
