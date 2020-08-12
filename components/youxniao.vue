@@ -1,7 +1,7 @@
 <template>
 	<div class="skill_company">
 		<a href="###">
-			<img :mode="mode" src="../static/images/icon/company.png" alt="">
+			<img  src="../static/images/icon/company.png" alt="">
 			<p>优息鸟科技提供技术支持</p>
 		</a>
 	</div>
@@ -11,7 +11,7 @@
 	export default {
 		data() {
 			return {
-				mode: 'aspectFill',
+				
 			}
 		},
 	}
@@ -20,6 +20,7 @@
 <style lang="scss" scoped>
 		//youxiniao技术支持
 		.skill_company {
+			
 			margin-top: 25%;
 			margin-bottom: 15%;
 			text-align: center;

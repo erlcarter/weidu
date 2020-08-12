@@ -13,6 +13,8 @@
 	"libVersion": "2.9.2",
 	"appid": "wx3d3a391b89d49f14",
 	"projectname": "weidu",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -22,35 +24,13 @@
 			"current": -1,
 			"list": []
 		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
 		"game": {
-			"current": -1,
-			"list": []
-		},
-		"gamePlugin": {
 			"current": -1,
 			"list": []
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": [
-				{
-					"id": -1,
-					"name": "pages/binding/binding",
-					"pathName": "pages/binding/binding",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/mine/course_my/course_my",
-					"pathName": "pages/mine/course_my/course_my",
-					"scene": null
-				}
-			]
+			"list": []
 		}
 	}
 }

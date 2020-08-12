@@ -69,6 +69,18 @@
 				"navigationBarTitleText": "我的课程"
 			}
         }
+        ,{
+            "path" : "pages/mine/works_my/works_my",
+            "style" : {
+				"navigationBarTitleText": "我的作品展"
+			}
+        }
+        ,{
+            "path" : "pages/mine/profile_my/profile_my",
+            "style" : {
+				"navigationBarTitleText": "我的资料"
+			}
+        }
     ],
 	// 全局配置
 	"globalStyle": {

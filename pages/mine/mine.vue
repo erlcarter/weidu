@@ -42,11 +42,13 @@
 				</div>
 				<!--是否需要帮助-->
 				<div class="refer">
+					<button class="service" open-type="contact" bindcontact="handleContact"></button>
 					<div class="refer_text">
 						<p>你可能需要帮助？</p>
 						<span>有疑问请点击这里进行客服咨询</span>
 					</div>
-					<img :mode="mode" src="../../static/images/refer.png" alt="">
+
+					<img src="../../static/images/refer.png" alt="">
 				</div>
 				<!-- 提供技术支持 -->
 				<div>
@@ -71,10 +73,15 @@
 							<open-data type="userNickName"></open-data>
 						</p>
 						<img :mode="mode" class="vip_btn" src="../../static/images/icon/VIP_icon.png" alt="">
+
 					</div>
 
 					<!-- 去往我的资料 -->
 					<button type="default" class="my_data"></button>
+					<a url="./profile_my/profile_my" class="go_profile" />
+
+
+
 
 					<!-- 点击登录按钮 -->
 					<!-- <button @getuserinfo='getUserInfo' open-type="getUserInfo" type="primary" class='login'>
@@ -98,13 +105,15 @@
 					</div>
 
 					<div class="right">
-						<div>
-							<p class="my_menu">我的作品展</p>
-							<p class="my_number">共3个</p>
-						</div>
-						<div class="show_btn">
-							<img :mode="mode" src="../../static/images/show_ri.png" alt="">
-						</div>
+						<a url="./works_my/works_my">
+							<div>
+								<p class="my_menu">我的作品展</p>
+								<p class="my_number">共3个</p>
+							</div>
+							<div class="show_btn">
+								<img :mode="mode" src="../../static/images/show_ri.png" alt="">
+							</div>
+						</a>
 					</div>
 				</div>
 				<!--是否需要帮助-->
@@ -305,7 +314,7 @@
 
 			// 去往的我资料按钮
 			.my_data {
-				transform: translatey(18%);
+				// transform: translatey(18%);
 				background-color: #FFFFFF;
 				width: 40rpx;
 				height: 50rpx;
@@ -315,10 +324,11 @@
 				margin-right: 4%;
 				background: url(../../static/images/icon/click1.png);
 				background-size: cover;
+				position: relative;
 			}
 
 			.my_data:active {
-				transform: translatey(18%);
+				// transform: translatey(18%);
 				background-color: #FFFFFF;
 				width: 40rpx;
 				height: 50rpx;
@@ -329,7 +339,14 @@
 				background: url(../../static/images/icon/click2.png);
 				background-size: cover;
 			}
-
+			
+			.go_profile{
+				width: 80rpx;
+				height: 160rpx;
+				position:absolute;
+				right: 0;
+				background: transparent;
+			}
 
 		}
 
@@ -394,25 +411,25 @@
 
 		// 是否是要帮助
 		.refer {
+			position: relative;
 			background-image: linear-gradient(90deg, #ffffff 0%, #e0e5df 100%);
 			border-radius: 10px;
 			box-shadow: inset 0 3px 20px rgba(0, 0, 0, .1);
 			width: 100%;
 			height: 200rpx;
-			overflow: hidden;
 			display: flex;
 			margin-top: 8%;
 
 			// transform: translateY(-30rpx);
 			img {
-				object-fit: cover;
+				// object-fit: cover;
 				width: 250rpx;
 				height: 230rpx;
 
 				transform: translate(420rpx, -30rpx);
 				z-index: 5;
 				position: absolute;
-
+				object-fit: cover;
 			}
 
 			.refer_text {
@@ -435,6 +452,14 @@
 				}
 			}
 
+
+			.service {
+				position: absolute;
+				left: 0;
+				height: 100%;
+				width: 100%;
+				background: transparent;
+			}
 		}
 
 	}

@@ -145,7 +145,6 @@ var _self;var _default =
 
   },
   onLoad: function onLoad(opt) {
-    _self = this;
   },
   components: {},
   methods: {
@@ -185,6 +184,7 @@ var _self;var _default =
         console.log(2);
         _self.openSettingBtnHidden = true;
       }
+
     },
 
     saveEwm: function saveEwm(e) {

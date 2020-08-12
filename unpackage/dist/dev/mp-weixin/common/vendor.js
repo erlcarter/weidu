@@ -757,7 +757,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -2510,7 +2510,18 @@ var index_esm = {
 
 /***/ }),
 
-/***/ 120:
+/***/ 124:
+/*!****************************************************************!*\
+  !*** F:/Projects/vue-dome/维度小程序/weidu/static/images/promo.png ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,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"
+
+/***/ }),
+
+/***/ 147:
 /*!***********************************************************************!*\
   !*** F:/Projects/vue-dome/维度小程序/weidu/static/images/icon/company.png ***!
   \***********************************************************************/
@@ -9181,7 +9192,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -9202,14 +9213,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -9285,7 +9296,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -10737,7 +10748,7 @@ module.exports = {"_from":"@dcloudio/uni-stat@next","_id":"@dcloudio/uni-stat@2.
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": { "navigationStyle": "custom", "usingComponents": { "heada": "/components/heada", "youxniao": "/components/youxniao" }, "usingAutoImportComponents": {} }, "pages/course_list/course_list": { "navigationBarTitleText": "课程列表", "usingComponents": { "youxniao": "/components/youxniao" }, "usingAutoImportComponents": {} }, "pages/show/show": { "navigationBarTitleText": "优秀作品", "usingComponents": { "youxniao": "/components/youxniao" }, "usingAutoImportComponents": {} }, "pages/mine/mine": { "navigationBarTitleText": "我的首页", "usingComponents": { "youxniao": "/components/youxniao" }, "usingAutoImportComponents": {} }, "pages/index/index_details/index_details": { "navigationBarTitleText": "活动详情", "usingComponents": { "foote": "/components/footer" }, "usingAutoImportComponents": {} }, "pages/reservation/reservation": { "navigationBarTitleText": "预约报名", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/index/shop/shop": { "navigationBarTitleText": "店面介绍", "usingComponents": { "foote": "/components/footer" }, "usingAutoImportComponents": {} }, "pages/course_list/Details_course/Details_course": { "navigationBarTitleText": "课程详情", "usingComponents": { "foote": "/components/footer" }, "usingAutoImportComponents": {} }, "pages/show/details/details": { "navigationBarTitleText": "作品详情", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/binding/binding": { "navigationBarTitleText": "绑定信息", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/mine/course_my/course_my": { "navigationBarTitleText": "我的课程", "usingComponents": {}, "usingAutoImportComponents": {} } }, "globalStyle": { "navigationBarTextStyle": "white", "navigationBarBackgroundColor": "#7f8971", "backgroundColor": "#F8F8F8" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": { "navigationStyle": "custom" }, "pages/course_list/course_list": { "navigationBarTitleText": "课程列表" }, "pages/show/show": { "navigationBarTitleText": "优秀作品" }, "pages/mine/mine": { "navigationBarTitleText": "我的首页" }, "pages/index/index_details/index_details": { "navigationBarTitleText": "活动详情" }, "pages/reservation/reservation": { "navigationBarTitleText": "预约报名" }, "pages/index/shop/shop": { "navigationBarTitleText": "店面介绍" }, "pages/course_list/Details_course/Details_course": { "navigationBarTitleText": "课程详情" }, "pages/show/details/details": { "navigationBarTitleText": "作品详情" }, "pages/binding/binding": { "navigationBarTitleText": "绑定信息" }, "pages/mine/course_my/course_my": { "navigationBarTitleText": "我的课程" }, "pages/mine/works_my/works_my": { "navigationBarTitleText": "我的作品展" }, "pages/mine/profile_my/profile_my": { "navigationBarTitleText": "我的资料" } }, "globalStyle": { "navigationBarTextStyle": "white", "navigationBarBackgroundColor": "#7f8971", "backgroundColor": "#F8F8F8" } };exports.default = _default;
 
 /***/ }),
 
