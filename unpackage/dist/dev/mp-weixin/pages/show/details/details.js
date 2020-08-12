@@ -120,8 +120,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
-var _self;var _default =
+var _default =
 {
   data: function data() {
     return {
@@ -179,15 +178,15 @@ var _self;var _default =
     handleSetting: function handleSetting(e) {
       if (!e.detail.authSetting['scope.writePhotosAlbum']) {
         console.log(1);
-        _self.openSettingBtnHidden = false;
+        this.openSettingBtnHidden = false;
       } else {
         console.log(2);
-        _self.openSettingBtnHidden = true;
+        this.openSettingBtnHidden = true;
       }
 
     },
 
-    saveEwm: function saveEwm(e) {
+    saveEwm: function saveEwm(e) {var _this = this;
       //获取相册授权
       uni.getSetting({ //获取用户的当前设置。
         success: function success(res) {
@@ -201,30 +200,30 @@ var _self;var _default =
               scope: 'scope.writePhotosAlbum',
               success: function success() {
                 //这里是用户同意授权后的回调
-                _self.saveImgToLocal();
+                this.saveImgToLocal();
               },
               fail: function fail() {//这里是用户拒绝授权后的回调
                 console.log('2222');
-                _self.openSettingBtnHidden = false;
+                _this.openSettingBtnHidden = false;
               } });
 
           } else {//用户已经授权过了
             console.log('同意了');
-            _self.saveImgToLocal();
+            _this.saveImgToLocal();
           }
         } });
 
     },
 
-    getSetting: function getSetting() {
+    getSetting: function getSetting() {var _this2 = this;
       return new Promise(function (resolve, reject) {
         uni.getSetting({ //获取用户的当前设置。
           success: function success(res) {
             if (!res.authSetting['scope.writePhotosAlbum']) {
-              _self.openSettingBtnHidden = true;
+              _this2.openSettingBtnHidden = true;
               resolve();
             } else {//用户已经授权过了
-              _self.saveImgToLocal();
+              _this2.saveImgToLocal();
             }
           } });
 
@@ -238,9 +237,9 @@ var _self;var _default =
         content: '确定保存到相册吗',
         success: function success(res) {
           if (res.confirm) {
-            _self.downFile(_self.ewmImg);
-            for (var i = 0; i < _self.titbits.length; i++) {
-              _self.downFile(_self.titbits[i].ewmImg);
+            this.downFile(this.ewmImg);
+            for (var i = 0; i < this.titbits.length; i++) {
+              this.downFile(this.titbits[i].ewmImg);
             }
 
 

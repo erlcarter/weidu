@@ -8,7 +8,7 @@
 				<div class="co_li_img">
 					<img :src="value.src1" :mode="mode" class="li_img1" alt="">
 					<img :src="value.src2" :mode="mode" alt="">
-					<img :src="value.src3" :mode="mode" class="li_img3"  alt="">
+					<img :src="value.src3" :mode="mode" class="li_img3" alt="">
 				</div>
 				<div class="grade">
 					<p class="grade_title" v-text="value.grade_title">启蒙班</p>
@@ -26,10 +26,10 @@
 					</p>
 				</div>
 			</div>
-		</div> 
+		</div>
 		<!-- 技术支持 -->
 		<div>
-			<youxniao /> 
+			<youxniao />
 		</div>
 	</div>
 </template>
@@ -41,21 +41,21 @@
 			return {
 				mode: 'aspectFill',
 				course_list: [{
-					src1: "https://s1.ax1x.com/2020/08/06/acsE8S.th.jpg",
-					src2: "https://s1.ax1x.com/2020/08/06/acsr8O.jpg",
-					src3: "https://s1.ax1x.com/2020/08/06/acsDPK.jpg",
-					grade_title:"幼儿启蒙班",
-					grade_label:"7-12岁",
-					total_ntb:"自由的创作空间和综合媒材的运用,维护孩子独特的想法和创意."
-				},
-				{
-					src1: "https://s1.ax1x.com/2020/08/06/acsE8S.th.jpg",
-					src2: "https://s1.ax1x.com/2020/08/06/acsr8O.jpg",
-					src3: "https://s1.ax1x.com/2020/08/06/acsDPK.jpg",
-					grade_title:"幼儿启蒙班",
-					grade_label:"7-12岁",
-					total_ntb:"自由的创作空间和综合媒材的运用,维护孩子独特的想法和创意."
-				},
+						src1: "https://s1.ax1x.com/2020/08/06/acsE8S.th.jpg",
+						src2: "https://s1.ax1x.com/2020/08/06/acsr8O.jpg",
+						src3: "https://s1.ax1x.com/2020/08/06/acsDPK.jpg",
+						grade_title: "幼儿启蒙班",
+						grade_label: "7-12岁",
+						total_ntb: "自由的创作空间和综合媒材的运用,维护孩子独特的想法和创意."
+					},
+					{
+						src1: "https://s1.ax1x.com/2020/08/06/acsE8S.th.jpg",
+						src2: "https://s1.ax1x.com/2020/08/06/acsr8O.jpg",
+						src3: "https://s1.ax1x.com/2020/08/06/acsDPK.jpg",
+						grade_title: "幼儿启蒙班",
+						grade_label: "7-12岁",
+						total_ntb: "自由的创作空间和综合媒材的运用,维护孩子独特的想法和创意."
+					},
 				]
 			};
 		},
@@ -182,5 +182,4 @@
 			}
 		}
 	}
-</style>  
-   
+</style>
