@@ -25,8 +25,8 @@
 /* 透明度 */
 /* 文章场景相关 */
 .skill_company.data-v-5489d608 {
-  margin-top: 25%;
-  margin-bottom: 15%;
+  padding-top: 20%;
+  padding-bottom: 10%;
   text-align: center;
 }
 .skill_company ._img.data-v-5489d608 {

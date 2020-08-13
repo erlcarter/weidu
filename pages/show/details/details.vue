@@ -95,7 +95,6 @@
 </template>
 
 <script>
-	var _self;
 	export default {
 		data() {
 			return {
@@ -118,8 +117,7 @@
 
 			};
 		},
-		onLoad(opt) {
-			_self = this;
+		onLoad(opt) { 
 		},
 		components: {},
 		methods: {
@@ -154,17 +152,18 @@
 			handleSetting(e) {
 				if (!e.detail.authSetting['scope.writePhotosAlbum']) {
 					console.log(1);
-					_self.openSettingBtnHidden = false;
+					this.openSettingBtnHidden = false;
 				} else {
 					console.log(2);
-					_self.openSettingBtnHidden = true;
+					this.openSettingBtnHidden = true;
 				}
+				
 			},
 			
 			saveEwm: function(e) {
 				//获取相册授权
 				uni.getSetting({ //获取用户的当前设置。
-					success(res) {
+					success: (res)=> {
 						console.log(res)
 						if (!res.authSetting['scope.writePhotosAlbum']) {
 							
@@ -175,16 +174,16 @@
 								scope: 'scope.writePhotosAlbum',
 								success() {
 									//这里是用户同意授权后的回调
-									_self.saveImgToLocal();
+									this.saveImgToLocal();
 								},
-								fail() { //这里是用户拒绝授权后的回调
+								fail: ()=> { //这里是用户拒绝授权后的回调
 								console.log('2222')
-									_self.openSettingBtnHidden = false
+									this.openSettingBtnHidden = false
 								}
 							})
 						} else { //用户已经授权过了
 						console.log('同意了')
-							_self.saveImgToLocal();
+							this.saveImgToLocal();
 						}
 					}
 				})
@@ -193,12 +192,12 @@
 			getSetting(){
 				return new Promise((resolve,reject) => {
 					uni.getSetting({ //获取用户的当前设置。
-						success(res) {
+						success:(res)=> {
 							if (!res.authSetting['scope.writePhotosAlbum']) {
-								_self.openSettingBtnHidden = true;
+								this.openSettingBtnHidden = true;
 								resolve();
 							} else { //用户已经授权过了
-								_self.saveImgToLocal();
+								this.saveImgToLocal();
 							}
 						}
 					})
@@ -212,9 +211,9 @@
 					content: '确定保存到相册吗',
 					success: function(res) {
 						if (res.confirm) {
-							_self.downFile(_self.ewmImg)
-							for (let i = 0; i < _self.titbits.length; i++) {
-								_self.downFile(_self.titbits[i].ewmImg)
+							this.downFile(this.ewmImg)
+							for (let i = 0; i < this.titbits.length; i++) {
+								this.downFile(this.titbits[i].ewmImg)
 							}
 
 

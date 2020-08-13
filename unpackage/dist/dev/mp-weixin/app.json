@@ -10,7 +10,9 @@
     "pages/course_list/Details_course/Details_course",
     "pages/show/details/details",
     "pages/binding/binding",
-    "pages/mine/course_my/course_my"
+    "pages/mine/course_my/course_my",
+    "pages/mine/works_my/works_my",
+    "pages/mine/profile_my/profile_my"
   ],
   "subPackages": [],
   "window": {
@@ -51,5 +53,6 @@
       }
     ]
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap84.json"
 }
