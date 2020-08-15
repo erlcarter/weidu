@@ -24,15 +24,15 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.radian.data-v-66331b31 {
+.radian.data-v-18847812 {
   width: 100%;
   position: fixed;
   top: 0;
 }
-.content.data-v-66331b31 {
+.content.data-v-18847812 {
   margin: 7% 5% 0% 5%;
 }
-.content > ._p.data-v-66331b31:nth-child(1) {
+.content > ._p.data-v-18847812:nth-child(1) {
   width: 29.2vw;
   height: 7.2vw;
   font-size: 4.8vw;
@@ -42,7 +42,7 @@
   color: #7f8971;
   opacity: 1;
 }
-.content > ._p.data-v-66331b31:nth-child(2) {
+.content > ._p.data-v-18847812:nth-child(2) {
   width: 89.33vw;
   height: 19.47vw;
   font-size: 3.2vw;
@@ -54,7 +54,7 @@
   padding-bottom: 7%;
   padding-top: 3%;
 }
-.input_btn.data-v-66331b31 {
+.input_btn.data-v-18847812 {
   width: 89.33vw;
   height: 13.33vw;
   background: #e0e5df;
@@ -67,7 +67,7 @@
   display: -webkit-flex;
   display: flex;
 }
-.input_btn ._p.data-v-66331b31 {
+.input_btn ._p.data-v-18847812 {
   width: 25vw;
   font-size: 3.73vw;
   font-family: Noto Sans CJK SC;
@@ -76,7 +76,7 @@
   opacity: 1;
   text-align: right;
 }
-.input_btn input.data-v-66331b31 {
+.input_btn input.data-v-18847812 {
   font-size: 3.73vw;
   font-family: Noto Sans CJK SC;
   font-weight: bold;
@@ -85,15 +85,15 @@
   margin: 4%;
   margin-left: 56rpx;
 }
-._bind_but.data-v-66331b31 {
+._bind_but.data-v-18847812 {
   width: 90%;
   position: fixed;
   bottom: 0;
   text-align: center;
   background-color: #FFFFFF;
-  padding: 3% 0 5% 0;
+  padding: 3% 0 60rpx 0;
 }
-._bind_but button.data-v-66331b31 {
+._bind_but button.data-v-18847812 {
   text-align: center;
   background-color: #7f8971;
   border-radius: 20rpx;

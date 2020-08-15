@@ -24,63 +24,66 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.radian.data-v-275acdaa {
+.radian.data-v-b4a4f5e8 {
   position: fixed;
   top: 0;
   width: 100%;
 }
-.course_cont.data-v-275acdaa {
-  padding: 7% 6% 0 6%;
+.course_cont.data-v-b4a4f5e8 {
+  padding: 8.53% 5% 0 5%;
   background-color: #ffffff;
   width: 100%;
 }
-.course_cont .titile.data-v-275acdaa {
+.course_cont .titile.data-v-b4a4f5e8 {
+  width: 56.93vw;
+  height: 7.2vw;
+  font-size: 4.2vw;
+  font-family: Noto Sans CJK SC;
+  font-weight: bold;
+  line-height: 7.2vw;
+  opacity: 1;
   font-size: 32rpx;
   font-weight: 700;
   color: #7f8971;
 }
-.course_cont .course_list.data-v-275acdaa {
+.course_cont .course_list.data-v-b4a4f5e8 {
   background-color: #ffffff;
   border-radius: 20rpx;
-  -webkit-box-shadow: inset 0 3px 20px rgba(0, 0, 0, 0.1);
-          box-shadow: inset 0 3px 20px rgba(0, 0, 0, 0.1);
-  width: 88%;
+  box-shadow: 0vw 1vw 5vw rgba(0, 0, 0, 0.1);
+  width: 90%;
   height: 484rpx;
   margin: 5% 0%;
 }
-.course_cont .course_list .co_li_img.data-v-275acdaa {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-}
-.course_cont .course_list .co_li_img ._img.data-v-275acdaa {
-  border: 1px solid #e0e5df;
-  width: 111px;
-  height: 111px;
-}
-.course_cont .course_list .co_li_img .li_img1.data-v-275acdaa {
+.course_cont .course_list .co_li_img .li_img1.data-v-b4a4f5e8 {
+  width: 89.8vw;
+  height: 30vw;
+  object-fit: cover;
   border-top-left-radius: 20rpx;
-}
-.course_cont .course_list .co_li_img .li_img3.data-v-275acdaa {
   border-top-right-radius: 20rpx;
 }
-.course_cont .course_list .grade.data-v-275acdaa {
-  margin: 5% 5% 5% 5%;
+.course_cont .course_list .grade.data-v-b4a4f5e8 {
+  margin: 4.27% 5% 4.27% 5%;
 }
-.course_cont .course_list .grade .grade_title.data-v-275acdaa {
-  font-weight: 700;
+.course_cont .course_list .grade .grade_title.data-v-b4a4f5e8 {
+  width: 28.67vw;
+  height: 5.33vw;
+  font-size: 3.73vw;
+  font-family: Noto Sans CJK SC;
+  font-weight: bold;
+  line-height: 5.33vw;
   color: #7f8971;
-  width: 500rpx;
+  opacity: 1;
   overflow: hidden;
   white-space: nowrap;
+  letter-spacing: 0vw;
 }
-.course_cont .course_list .grade .label.data-v-275acdaa {
-  margin: 3% 0% 5% 0%;
+.course_cont .course_list .grade .label.data-v-b4a4f5e8 {
+  margin: 16rpx 0% 4.27% 0%;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
 }
-.course_cont .course_list .grade .label .grade_label.data-v-275acdaa {
+.course_cont .course_list .grade .label .grade_label.data-v-b4a4f5e8 {
   background-color: #a49888;
   border-radius: 6rpx;
   width: 94rpx;
@@ -91,34 +94,48 @@
   font-weight: 700;
   color: #ffffff;
   text-align: center;
+  font-weight: bold;
 }
-.course_cont .course_list .grade .label .read_more_btn.data-v-275acdaa {
+.course_cont .course_list .grade .label .read_more_btn.data-v-b4a4f5e8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
   margin: 0% 0% 0% 50%;
+  -webkit-transform: translate(26rpx, 0rpx);
+          transform: translate(26rpx, 0rpx);
 }
-.course_cont .course_list .grade .label .read_more_btn ._p.data-v-275acdaa {
+.course_cont .course_list .grade .label .read_more_btn ._p.data-v-b4a4f5e8 {
   white-space: nowrap;
-  font-size: 12px;
-  font-weight: 700;
+  height: 4.8vw;
+  font-size: 3.2vw;
+  font-family: Noto Sans CJK SC;
+  font-weight: bold;
+  line-height: 4.8vw;
   color: #a49888;
-  text-align: center;
+  opacity: 1;
+  -webkit-transform: translate(10rpx, 0rpx);
+          transform: translate(10rpx, 0rpx);
+  letter-spacing: 0vw;
 }
-.course_cont .course_list .grade .label .read_more_btn ._img.data-v-275acdaa {
+.course_cont .course_list .grade .label .read_more_btn ._img.data-v-b4a4f5e8 {
   width: 36rpx;
   height: 36rpx;
-  -webkit-transform: translateX(2rpx);
-          transform: translateX(2rpx);
+  -webkit-transform: translate(6rpx, 0rpx);
+          transform: translate(6rpx, 0rpx);
+  object-fit: cover;
 }
-.course_cont .course_list .grade .total_ntb.data-v-275acdaa {
+.course_cont .course_list .grade .total_ntb.data-v-b4a4f5e8 {
+  height: 10.13vw;
+  font-size: 3.2vw;
+  font-family: Noto Sans CJK SC;
+  font-weight: 300;
+  line-height: 4.8vw;
+  color: #7f8971;
+  opacity: 1;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
-  font-size: 12px;
-  font-weight: 300;
-  color: #7f8971;
 }
 

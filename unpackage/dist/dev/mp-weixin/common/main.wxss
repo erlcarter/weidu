@@ -24,23 +24,9 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-page {
-  font-weight: 900;
-  letter-spacing: 1px;
-}
 button::after {
   border: none;
   outline: 0;
-}
-/* 解决头条小程序组件内引入字体不生效的问题 */
-.body {
-  position: absolute;
-  width: 100vw;
-  padding: 0.1px 0;
-  background: #f4f4f4;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  overflow: auto;
 }
 ::-webkit-scrollbar {
   width: 0;

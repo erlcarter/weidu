@@ -5,26 +5,40 @@
 			<p class="titile">WEDOO特色课程一览</p>
 			<!-- 课程列表 -->
 			<div class="course_list" v-for="value in course_list" :key="value">
-				<div class="co_li_img">
+
+				<!-- 多图 -->
+				<!-- 	<div class="co_li_img">
 					<img :src="value.src1" :mode="mode" class="li_img1" alt="">
 					<img :src="value.src2" :mode="mode" alt="">
 					<img :src="value.src3" :mode="mode" class="li_img3" alt="">
-				</div>
-				<div class="grade">
-					<p class="grade_title" v-text="value.grade_title">启蒙班</p>
+				</div> -->
 
-					<div class="label">
-						<p class="grade_label" v-text="value.grade_label">7-13岁</p>
-						<a url="./Details_course/Details_course" class="read_more_btn">
-							<p>READ MORE</p>
-							<img :mode="mode" src="../../static/images/icon/click2.png" alt="">
-						</a>
+				<navigator url="./Details_course/Details_course" hover-class="none">
+					<!-- 单独 -->
+					<div class="co_li_img">
+						<img :src="value.src1" :mode="mode" class="li_img1" alt="">
 					</div>
 
-					<p class="total_ntb" v-text="value.total_ntb">
-						只能写两行
-					</p>
-				</div>
+
+					<div class="grade">
+						<p class="grade_title" v-text="value.grade_title">启蒙班</p>
+
+						<div class="label">
+							<p class="grade_label" v-text="value.grade_label">7-13岁</p>
+							<!-- <a url="./Details_course/Details_course" class="read_more_btn"> -->
+							<div class="read_more_btn">
+								<p>READ MORE</p>
+								<img src="../../static/images/icon/click2.png" alt="">
+							</div>
+						</div>
+
+						<p class="total_ntb" v-text="value.total_ntb">
+							只能写两行
+						</p>
+					</div>
+
+				</navigator>
+
 			</div>
 		</div>
 		<!-- 技术支持 -->
@@ -54,7 +68,8 @@
 						src3: "https://s1.ax1x.com/2020/08/06/acsDPK.jpg",
 						grade_title: "幼儿启蒙班",
 						grade_label: "7-12岁",
-						total_ntb: "自由的创作空间和综合媒材的运用,维护孩子独特的想法和创意."
+						total_ntb: `自由的创作空间和综合媒材的运用,维护孩子独特的想法和创意
+						自由的创作空间和综合媒材的运用,维护孩子独特的想法和创意`
 					},
 				]
 			};
@@ -75,61 +90,95 @@
 	}
 
 	.course_cont {
-		padding: 7% 6% 0 6%;
+		padding: 8.53% 5% 0 5%;
 		background-color: #ffffff;
 		width: 100%;
 
 		//课程列表--标题
 		.titile {
+			width: 56.93vw;
+			height: 7.2vw;
+			font-size: 4.2vw;
+			font-family: Noto Sans CJK SC;
+			font-weight: bold;
+			line-height: 7.2vw;
+			// color: rgba(127, 137, 113, 1);
+			opacity: 1;
+
 			font-size: 32rpx;
 			font-weight: 700;
 			color: #7f8971;
+
+
 		}
 
 		// 课程列表 -内容
 		.course_list {
 			background-color: #ffffff;
 			border-radius: 20rpx;
-			box-shadow: inset 0 3px 20px rgba(0, 0, 0, .1);
-			width: 88%;
+			box-shadow: 0vw 1vw 5vw rgba(0, 0, 0, 0.1);
+			width: 90%;
 			height: 484rpx;
 			// overflow: hidden;
 			margin: 5% 0%;
 
+
+			// 多图
+			// .co_li_img {
+			// 	display: flex;
+
+			// 	img {
+			// 		border: 1rpx solid #e0e5df;
+			// 		width: 222rpx;
+			// 		height: 222rpx;
+			// 	}
+
+			// 	.li_img1 {
+			// 		border-top-left-radius: 20rpx;
+			// 	}
+
+			// 	.li_img3 {
+			// 		border-top-right-radius: 20rpx;
+			// 	}
+
+			// }
+
+			//多图
 			.co_li_img {
-				display: flex;
-
-				img {
-					border: 1px solid #e0e5df;
-					width: 111px;
-					height: 111px;
-				}
-
 				.li_img1 {
+					width: 89.8vw;
+					height: 30vw;
+					object-fit: cover;
 					border-top-left-radius: 20rpx;
-				}
-
-				.li_img3 {
 					border-top-right-radius: 20rpx;
 				}
-
 			}
 
+
+
+
+
 			.grade {
-				margin: 5% 5% 5% 5%;
+				margin: 4.27% 5% 4.27% 5%;
 
 				.grade_title {
-					font-weight: 700;
-					color: #7f8971;
-
-					width: 500rpx;
+					width: 28.67vw;
+					height: 5.33vw;
+					font-size: 3.73vw;
+					font-family: Noto Sans CJK SC;
+					font-weight: bold;
+					line-height: 5.33vw;
+					color: rgba(127, 137, 113, 1);
+					opacity: 1;
 					overflow: hidden; //隐藏
 					// text-overflow: ellipsis; //最后以...结尾
 					white-space: nowrap; //不换行
+
+					letter-spacing: 0vw; //字体间距
 				}
 
 				.label {
-					margin: 3% 0% 5% 0%;
+					margin: 16rpx 0% 4.27% 0%;
 					display: flex;
 
 					.grade_label {
@@ -144,40 +193,56 @@
 						font-weight: 700;
 						color: #ffffff;
 						text-align: center;
+						font-weight: bold;
 					}
 
 					.read_more_btn {
 						display: flex;
 						margin: 0% 0% 0% 50%;
+						transform: translate(26rpx, 0rpx);
 
 						p {
 							white-space: nowrap; //不换行
-							font-size: 12px;
-							font-weight: 700;
-							color: #a49888;
-							text-align: center;
+							// text-align: center;
+
+							// width:20.67vw;
+							height: 4.8vw;
+							font-size: 3.2vw;
+							font-family: Noto Sans CJK SC;
+							font-weight: bold;
+							line-height: 4.8vw;
+							color: rgba(164, 152, 136, 1);
+							opacity: 1;
+							transform: translate(10rpx, 0rpx);
+							letter-spacing: 0vw; //字体间距
 						}
 
 						img {
 							// background-color: red;
 							width: 36rpx;
 							height: 36rpx;
-							transform: translateX(2rpx);
+							transform: translate(6rpx, 0rpx);
+							object-fit: cover;
+
 						}
 					}
 
 				}
 
 				.total_ntb {
+					// width: 76.8vw;
+					height: 10.13vw;
+					font-size: 3.2vw;
+					font-family: Noto Sans CJK SC;
+					font-weight: 300;
+					line-height: 4.8vw;
+					color: rgba(127, 137, 113, 1);
+					opacity: 1;
 					overflow: hidden;
 					text-overflow: ellipsis;
 					display: -webkit-box;
 					-webkit-box-orient: vertical;
 					-webkit-line-clamp: 2;
-
-					font-size: 12px;
-					font-weight: 300;
-					color: #7f8971;
 				}
 			}
 		}

@@ -6,10 +6,10 @@
 			<!-- 作品展示 -->
 			<div class="Portfolio_list">
 				<!-- 列表 渲染 -->
-				<div class="Por_lis_fall" v-for="value in Por_lis_fall" :key="value">
+				<div class="Por_lis_fall" v-for="(value,index) in Por_lis_fall" :key="value">
 					<div id="por_sty" class="por_sty">
-						<a url="./details/details">
-							<img mode="widthFix" :src="value.src" alt="">
+						<a url="./details/details" hover-class="none">
+							<img ref="img"  mode="widthFix" :src="value.src" alt="">
 						</a>
 						<div class="por_about">
 							<p class="por_name" v-text="value.por_name">逛超市简笔画.</p>
@@ -34,43 +34,54 @@
 				Por_lis_fall: [{
 						src: "https://s1.ax1x.com/2020/08/06/aR1Hi9.jpg",
 						por_name: "逛超市简笔画",
-						por_author:"张三"
+						por_author: "张三"
 					},
 					{
 						src: "https://s1.ax1x.com/2020/08/06/aR1oa4.jpg",
 						por_name: "逛超市简笔画",
-						por_author:"张三"
+						por_author: "张三"
 					},
 					{
 						src: "https://s1.ax1x.com/2020/08/06/aR1TIJ.jpg",
 						por_name: "逛超市简笔画",
-						por_author:"张三"
+						por_author: "张三"
 					},
 					{
 						src: "https://s1.ax1x.com/2020/08/06/aR1Hi9.jpg",
 						por_name: "逛超市简笔画",
-						por_author:"张三"
+						por_author: "张三"
 					},
 					{
 						src: "https://s1.ax1x.com/2020/08/06/aR1TIJ.jpg",
 						por_name: "逛超市简笔画",
-						por_author:"张三"
+						por_author: "张三"
 					},
 					{
 						src: "https://s1.ax1x.com/2020/08/06/aR1bGR.jpg",
 						por_name: "逛超市简笔画",
-						por_author:"张三"
+						por_author: "张三"
 					},
 					{
 						src: "https://s1.ax1x.com/2020/08/06/aR1Hi9.jpg",
 						por_name: "逛超市简笔画",
-						por_author:"张三"
+						por_author: "张三"
 					},
 					{
 						src: "https://s1.ax1x.com/2020/08/06/aR1TIJ.jpg",
 						por_name: "逛超市简笔画",
-						por_author:"张三"
+						por_author: "张三"
 					},
+
+				],
+				test_img: [
+					"/static/images/source.png",
+					"/static/images/source.png",
+					"/static/images/source.png",
+					"/static/images/source.png",
+					"/static/images/source.png",
+					"/static/images/source.png",
+					"/static/images/source.png",
+					"/static/images/source.png"
 				],
 			}
 		},
@@ -79,9 +90,24 @@
 			youxniao
 			// footer_btn
 		},
+		mounted: function() {
+			// var list=[];
+			//  this.Por_lis_fall.forEach(function(e){
+			//   list.push("/static/images/posi.png")
+			//  })
+			//  this.test_img=list;
+		},
+		methods: {
+			loadImg: function(img, index) {
+				console.log(this.test_img[index])
+				// this.test_img[index]=img;
+				this.$set(this.test_img, index, img);
+				// this.$refs.img.src = img;
+				// console.log(index)
+				// return 'this.οnlοad=null;this.src='+'"'+img+'";';
+			},
+		}
 	}
-	
-	
 </script>
 
 <style lang="scss" scoped>
@@ -98,14 +124,14 @@
 
 		//课程列表--标题
 		.titile {
-			padding: 7% 0% 2% 5%;
+			padding: 8.33% 0% 0% 5%;
 			font-size: 32rpx;
 			font-weight: 700;
 			color: #7f8971;
 		}
 
 		.Portfolio_list {
-			margin: 2% 5% 5% 5%;
+			margin: 5.5% 5% 5% 5%;
 			width: 90%;
 
 			//瀑布流
@@ -131,14 +157,18 @@
 				width: 100%;
 				height: auto;
 				border-radius: 20rpx;
-
+				min-height: 200rpx;
+				background: #F1F1F1;
+				// 外阴影
+				box-shadow: 0vw 1vw 5vw rgba(0, 0, 0, 0.2);
+				// box-shadow: 10px 10px 5px #888888;
 			}
 
 			.por_about {
 				padding-left: 7%;
 
 				.por_name {
-					padding-top: 2%;
+					padding-top: 4%;
 					font-weight: 700;
 					color: #7f8971;
 
@@ -153,7 +183,7 @@
 					font-size: 12px;
 					font-weight: 300;
 					color: #7f8971;
-					
+
 					width: 260rpx;
 					overflow: hidden; //隐藏
 					//text-overflow: ellipsis; //最后以...结尾

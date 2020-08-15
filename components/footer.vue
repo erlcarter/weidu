@@ -26,11 +26,16 @@
 </script>
 
 <style lang="scss" scoped>
+	
 	// 页脚
 	.foote {
+		border-width: 2rpx 0 0 0;
+		border-style: solid;
+		border-color: #F7F7F7;
+		
 		position: fixed;
 		bottom: 0;
-		padding: 4% 5% 5% 5%;
+		padding: 4% 5% 8% 5%;	
 		display: flex;
 		background-color: #ffffff;
 		width: 100%;
@@ -40,6 +45,8 @@
 		// position: fixed;
 
 		.foo_left {
+	
+			
 			margin-right: 4%;
 			border-radius: 9rpx;
 			border: 2rpx solid #7f8971;

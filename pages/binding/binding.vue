@@ -12,11 +12,15 @@
 				<p>学员名:</p>
 				<input type="text" placeholder="点击填写">
 			</div>
+			<div class="input_btn">
+				<p>手机号码</p>
+				<input type="number" placeholder="点击填写" maxlength=11>
+			</div>
 
 
 
 			<div class="_bind_but">
-				<button>绑定</button>
+				<button @click="onBind">绑定</button>
 			</div>
 		</div>
 
@@ -29,6 +33,22 @@
 			return {
 
 			};
+		},
+		methods: {
+			onBind() {
+				console.log(12112)
+				//uni.setStorageSync(key)设置本地数据缓存,
+				uni.setStorageSync('data', true);
+				// 弹窗
+				uni.switchTab({
+					url: '/pages/mine/mine',
+					complete: () => {
+						uni.showToast({
+							title: '绑定成功'
+						})
+					}
+				})
+			}
 		}
 	}
 </script>
@@ -40,34 +60,38 @@
 		top: 0;
 	}
 
+
+
 	.content {
 		margin: 7% 5% 0% 5%;
 	}
-	.content>p:nth-child(1){
-		width:29.2vw;
-		height:7.2vw;
-		font-size:4.8vw;
-		font-family:Noto Sans CJK SC;
-		font-weight:bold;
-		line-height:7.2vw;
-		color:rgba(127,137,113,1);
-		opacity:1;
+
+	.content>p:nth-child(1) {
+		width: 29.2vw;
+		height: 7.2vw;
+		font-size: 4.8vw;
+		font-family: Noto Sans CJK SC;
+		font-weight: bold;
+		line-height: 7.2vw;
+		color: rgba(127, 137, 113, 1);
+		opacity: 1;
 	}
-	.content>p:nth-child(2){
-		width:89.33vw;
-		height:19.47vw;
-		font-size:3.2vw;
-		font-family:Noto Sans CJK SC;
-		font-weight:300;
-		line-height:4.8vw;
-		color:rgba(127,137,113,1);
-		opacity:1;
-		
+
+	.content>p:nth-child(2) {
+		width: 89.33vw;
+		height: 19.47vw;
+		font-size: 3.2vw;
+		font-family: Noto Sans CJK SC;
+		font-weight: 300;
+		line-height: 4.8vw;
+		color: rgba(127, 137, 113, 1);
+		opacity: 1;
+
 		padding-bottom: 7%;
 		padding-top: 3%;
 	}
 
-	.input_btn{
+	.input_btn {
 		width: 89.33vw;
 		height: 13.33vw;
 		background: rgba(224, 229, 223, 1);
@@ -75,10 +99,11 @@
 		opacity: 1;
 		border-radius: 3vw;
 		margin-top: 5%;
-		
+
 		line-height: 13.33vw;
 		display: flex;
-		p{
+
+		p {
 			width: 25vw;
 			font-size: 3.73vw;
 			font-family: Noto Sans CJK SC;
@@ -88,7 +113,8 @@
 			// padding-left: 76rpx;
 			text-align: right;
 		}
-		input{
+
+		input {
 			font-size: 3.73vw;
 			font-family: Noto Sans CJK SC;
 			font-weight: bold;
@@ -97,16 +123,17 @@
 			margin: 4%;
 			margin-left: 56rpx;
 		}
-		
-		
+
+
 	}
+
 	._bind_but {
 		width: 90%;
 		position: fixed;
 		bottom: 0;
 		text-align: center;
 		background-color: #FFFFFF;
-		padding: 3% 0 5% 0;
+		padding: 3% 0 60rpx 0;
 
 		button {
 			text-align: center;

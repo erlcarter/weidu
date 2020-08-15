@@ -87,6 +87,7 @@
 </script>
 
 <style lang="scss" scoped>
+	
 	.radian {
 		width: 100%;
 		position: fixed;
@@ -94,7 +95,7 @@
 	}
 
 	.reservation_btn {
-		margin: 7% 5% 0% 5%;
+		margin: 8.33% 5% 0% 5%;
 
 
 		.content {

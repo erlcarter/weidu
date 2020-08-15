@@ -6,11 +6,12 @@
 			<!-- 作品展示 -->
 			<div class="Portfolio_list">
 				<!-- 列表 渲染 -->
-				<div class="Por_lis_fall" v-for="value in Por_lis_fall" :key="value">
+				<div class="Por_lis_fall" v-for="(value,index) in Por_lis_fall" :key="value">
 					<div id="por_sty" class="por_sty">
-						<a url="./details/details">
-							<img mode="widthFix"  class="por_img" :src="value.src" alt="">
-							<img  class="promo" src="../../../static/images/promo.png" alt="">
+						<a url="../../show/details/details" hover-class="none">
+							<!-- <img mode="widthFix" class="por_img" :src="value.src" alt=""> -->
+							<img ref="img" class="por_img"  mode="widthFix" :src="value.src" alt="">
+							<img class="promo" src="../../../static/images/promo.png" alt="">
 						</a>
 						<div class="por_about">
 							<p class="por_name" v-text="value.por_name">逛超市简笔画.</p>
@@ -21,12 +22,12 @@
 			</div>
 		</div>
 		<!-- 技术支持 -->
-		<div>
+		<!-- <div>
 			<youxniao />
-		</div>
+		</div> -->
 	</div>
 </template>
-  
+
 <script>
 	import youxniao from "@/components/youxniao"
 	export default {
@@ -72,14 +73,25 @@
 						por_name: "逛超市简笔画",
 						por_author:"张三"
 					},
+					
 				],
 			}
-		},
+		}, 
 		// 組件
 		components: {
 			youxniao
 			// footer_btn
 		},
+		mounted:function(){
+			 // var list=[];
+			 //  this.Por_lis_fall.forEach(function(e){
+				//   list.push("/static/images/posi.png")
+			 //  })
+			 //  this.test_img=list;
+		},
+		methods:{
+
+		}
 	}
 	
 	
@@ -99,7 +111,7 @@
 
 		//课程列表--标题
 		.titile {
-			padding: 7% 0% 2% 5%;
+			padding: 8.33% 0% 2% 5%;
 			font-size: 32rpx;
 			font-weight: 700;
 			color: #7f8971;
@@ -128,13 +140,16 @@
 				position: relative;
 			}
 
-			.por_img{
+			.por_img {
 				// padding: 5% 3% 5% 10%;
 				width: 100%;
 				height: auto;
+				min-height: 200rpx;
+				background: #F1F1F1;
 				border-radius: 20rpx;
 			}
-			.promo{
+
+			.promo {
 				background-color: #ffffff;
 				border-radius: 5rpx;
 				// border: 2rpx solid #ffb047;
@@ -144,16 +159,16 @@
 				margin: 4%;
 				top: 0;
 				left: 0;
-				position:absolute;
+				position: absolute;
 
 			}
-			
+
 
 			.por_about {
 				padding-left: 7%;
 
 				.por_name {
-					padding-top: 2%;
+					padding-top: 4%;
 					font-weight: 700;
 					color: #7f8971;
 
@@ -168,7 +183,7 @@
 					font-size: 12px;
 					font-weight: 300;
 					color: #7f8971;
-					
+
 					width: 260rpx;
 					overflow: hidden; //隐藏
 					//text-overflow: ellipsis; //最后以...结尾

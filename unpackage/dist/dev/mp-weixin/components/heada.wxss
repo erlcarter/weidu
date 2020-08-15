@@ -24,6 +24,11 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+.status_bar {
+  height: 25px;
+  width: 100%;
+  z-index: 99;
+}
 ._header {
   display: -webkit-box;
   display: -webkit-flex;
@@ -35,9 +40,9 @@
   -webkit-box-align: center;
   -webkit-align-items: center;
           align-items: center;
+  padding-top: 50rpx;
 }
 ._header .head_title {
-  padding-top: 58rpx;
   /*318*76*/
   width: calc(750rpx * 106 / 375);
   height: calc(750rpx * 26 / 375);

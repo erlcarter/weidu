@@ -24,15 +24,15 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.radian.data-v-cb4b9982 {
+.radian.data-v-53b51f20 {
   width: 100%;
   position: fixed;
   top: 0;
 }
-.reservation_btn.data-v-cb4b9982 {
-  margin: 7% 5% 0% 5%;
+.reservation_btn.data-v-53b51f20 {
+  margin: 8.53% 5% 0% 5%;
 }
-.reservation_btn .text1.data-v-cb4b9982 {
+.reservation_btn .text1.data-v-53b51f20 {
   font-size: 4.8vw;
   font-family: Noto Sans CJK SC;
   font-weight: bold;
@@ -40,7 +40,7 @@
   color: #7f8971;
   opacity: 1;
 }
-.reservation_btn .prompt.data-v-cb4b9982 {
+.reservation_btn .prompt.data-v-53b51f20 {
   width: 81.87vw;
   height: 4.8vw;
   font-size: 3.2vw;
@@ -50,15 +50,20 @@
   color: #7f8971;
   opacity: 1;
   margin-top: 2%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
-.reservation_btn .content.data-v-cb4b9982 {
-  margin: 15% 0% 10% 0%;
+.reservation_btn .content.data-v-53b51f20 {
+  margin: 8.53% 0% 10% 0%;
 }
-.reservation_btn .content .fill.data-v-cb4b9982 {
+.reservation_btn .content .fill.data-v-53b51f20 {
   width: 89.33vw;
   height: 13.33vw;
   background: #e0e5df;
-  border: 0px solid #b8c4b6;
+  border: 1px solid #b8c4b6;
   opacity: 1;
   border-radius: 3vw;
   margin-top: 5%;
@@ -67,7 +72,7 @@
   display: -webkit-flex;
   display: flex;
 }
-.reservation_btn .content .fill .item.data-v-cb4b9982 {
+.reservation_btn .content .fill .item.data-v-53b51f20 {
   width: 25vw;
   font-size: 3.73vw;
   font-family: Noto Sans CJK SC;
@@ -76,7 +81,7 @@
   opacity: 1;
   text-align: right;
 }
-.reservation_btn .content .fill .input_btn.data-v-cb4b9982 {
+.reservation_btn .content .fill .input_btn.data-v-53b51f20 {
   font-size: 3.73vw;
   font-family: Noto Sans CJK SC;
   font-weight: bold;
@@ -85,7 +90,7 @@
   margin: 4%;
   margin-left: 56rpx;
 }
-.reservation_btn .content .fill .select.data-v-cb4b9982 {
+.reservation_btn .content .fill .select.data-v-53b51f20 {
   font-size: 3.73vw;
   font-family: Noto Sans CJK SC;
   font-weight: bold;
@@ -93,13 +98,19 @@
   opacity: 1;
   margin-left: 56rpx;
 }
-.reservation_btn .submit.data-v-cb4b9982 {
-  margin: 0% 20%;
-}
-.reservation_btn .submit .submit_but.data-v-cb4b9982 {
-  margin-bottom: 5%;
+.reservation_btn .submit.data-v-53b51f20 {
+  width: 90%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
   position: fixed;
-  bottom: 0;
+  bottom: 6%;
+  background: Transparent;
+}
+.reservation_btn .submit .submit_but.data-v-53b51f20 {
   width: 53.33vw;
   height: 13.33vw;
   background: #7f8971;
@@ -107,7 +118,7 @@
   border-radius: 3vw;
   height: 13.33vw;
 }
-.reservation_btn .submit ._p.data-v-cb4b9982 {
+.reservation_btn .submit ._p.data-v-53b51f20 {
   margin: 8% 0;
   text-align: center;
   height: 5.33vw;
