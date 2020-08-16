@@ -1,9 +1,9 @@
 <template>
 	<div class="skill_company">
-		<a href="###">
+		<div>
 			<img  src="../static/images/icon/company.png" alt="">
 			<p>优息鸟科技提供技术支持</p>
-		</a>
+		</div>
 	</div>
 </template> 
 
@@ -18,6 +18,7 @@
 </script>
 
 <style lang="scss" scoped>
+	
 		//youxiniao技术支持
 		.skill_company {
 			

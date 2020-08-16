@@ -86,7 +86,7 @@
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarBackgroundColor": "#7f8971",
-		"backgroundColor": "#F8F8F8"
+		"backgroundColor": "#FFFFFF"
 	},
 	// 底部导航
 	"tabBar": {

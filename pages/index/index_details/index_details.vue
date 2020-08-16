@@ -7,7 +7,7 @@
 
 			<div class="content">
 				<img mode="widthFix" :src="value.src" alt="afe0QU.jpg" border="0" />
-				<p v-text="value.content">当妈妈是世界上最辛苦的工作</p>
+				<!-- <p v-text="value.content">当妈妈是世界上最辛苦的工作</p> -->
 			</div>
 
 		</div>
@@ -30,7 +30,7 @@
 						text1:"维度 - 维度艺术&招商银行，女神节黏土画动作回顾",
 						date:'2020-03-08',
 						src: 'https://s1.ax1x.com/2020/08/07/afttRe.md.jpg',
-						content:`当妈妈是世界上最辛苦的工作，也是世界上最幸福的工作。她们精心呵护、养育着自己的孩子，不断地付出，并陪伴成长。`
+						// content:`当妈妈是世界上最辛苦的工作，也是世界上最幸福的工作。她们精心呵护、养育着自己的孩子，不断地付出，并陪伴成长。`
 					}
 				]
 			}
@@ -45,6 +45,7 @@
 </script>
 
 <style lang="scss" scoped>
+	
 	.radian {
 		width: 100%;
 		position: fixed;
@@ -53,7 +54,7 @@
 
 	.details_btn {
 		padding-bottom: 160rpx;
-		margin: 7% 5% 0% 5%;
+		margin: 8.53% 5% 10% 5%;
 
 		// background-color: #4CD964;
 		.text1 {
@@ -63,7 +64,7 @@
 		}
 
 		.date {
-			margin: 2% 0% 5% 0%;
+			margin: 2% 0% 8.53% 0%;
 			font-size: 24rpx;
 			font-weight: 300;
 			color: #7f8971;

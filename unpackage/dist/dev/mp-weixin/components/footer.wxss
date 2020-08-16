@@ -24,10 +24,13 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.foote.data-v-97cb0896 {
+.foote.data-v-fad11dd4 {
+  border-width: 2rpx 0 0 0;
+  border-style: solid;
+  border-color: #F7F7F7;
   position: fixed;
   bottom: 0;
-  padding: 4% 5% 5% 5%;
+  padding: 4% 5% 8% 5%;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -37,7 +40,7 @@
   -webkit-flex: 1;
           flex: 1;
 }
-.foote .foo_left.data-v-97cb0896 {
+.foote .foo_left.data-v-fad11dd4 {
   margin-right: 4%;
   border-radius: 9rpx;
   border: 2rpx solid #7f8971;
@@ -45,7 +48,7 @@
   height: 78rpx;
   overflow: hidden;
 }
-.foote .foo_left ._p.data-v-97cb0896 {
+.foote .foo_left ._p.data-v-fad11dd4 {
   text-align: center;
   line-height: 78rpx;
   font-size: 28rpx;
@@ -53,14 +56,14 @@
   letter-spacing: 1.4rpx;
   color: #7f8971;
 }
-.foote .foo_right.data-v-97cb0896 {
+.foote .foo_right.data-v-fad11dd4 {
   background-color: #7f8971;
   border-radius: 10rpx;
   width: 320rpx;
   height: 80rpx;
   overflow: hidden;
 }
-.foote .foo_right ._p.data-v-97cb0896 {
+.foote .foo_right ._p.data-v-fad11dd4 {
   text-align: center;
   line-height: 80rpx;
   font-size: 28rpx;

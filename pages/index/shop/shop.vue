@@ -41,6 +41,7 @@
 </script>
 
 <style lang="scss" scoped>
+
 	.radian {
 		width: 100%;
 		position: fixed; 
@@ -48,7 +49,7 @@
 	}
 	.shop{
 		padding-bottom: 160rpx;
-		margin: 7% 5% 0% 5%;
+		margin: 8.53% 5% 10% 5%;
 		.text1 {
 			font-size: 32rpx;
 			font-weight: 700;

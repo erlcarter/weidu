@@ -1,11 +1,10 @@
 <template>
 	<view class="content_mine">
-		<!-- 未登录 -->
-		<view v-if="!userInfo">
+		<view>
 			<!--内容区域Bedin-->
 			<div class="content">
-				<!--获取个人信息 -->
-				<div class="whether_log">
+				<!--未登录 -->
+				<div class="whether_log" v-if="!userInfo">
 					<!-- 头像 -->
 					<img :mode="mode" src="../../static/images/head_img.png" alt="">
 					<!-- 用户名|会员 -->
@@ -18,19 +17,40 @@
 						<p>点击登录</p>
 					</button>
 				</div>
+
+				<!-- 已登录-->
+				<div class="whether_log" v-else>
+					<!-- 头像 -->
+					<open-data type='userAvatarUrl'></open-data>
+
+					<!-- 用户名|会员 -->
+					<div class="info_btn">
+						<p>
+							<open-data type="userNickName"></open-data>
+						</p>
+						<img :mode="mode" class="vip_btn" src="../../static/images/icon/VIP_icon.png" alt="">
+
+					</div>
+					<!-- 去往我的资料 -->
+					<button type="default" class="my_data"></button>
+					<a url="./profile_my/profile_my" class="go_profile" />
+				</div>
+
 				<!-- 我的课程|我的作品展 -->
 				<div class="menu_bnt">
 					<div class="left">
+						<button @getuserinfo='getUserInfo' data-type="0" open-type="getUserInfo" type="primary" class='login_btn'></button>
 						<div>
 							<p class="my_menu">我的课程</p>
 							<p class="my_number">共3个</p>
 						</div>
 						<div class="show_btn">
-							<img :mode="mode" src="../../static/images/show_le.png" alt="">
+							<img src="../../static/images/show_le.png" alt="">
 						</div>
 					</div>
 
 					<div class="right">
+						<button @getuserinfo='getUserInfo' data-type="1" open-type="getUserInfo" type="primary" class='login_btn'></button>
 						<div>
 							<p class="my_menu">我的作品展</p>
 							<p class="my_number">共3个</p>
@@ -58,79 +78,6 @@
 			<!-- 内容区域end-->
 		</view>
 		<!-- 已登录 -->
-		<view v-else>
-			<!--内容区域Bedin-->
-			<div class="content">
-				<!--获取个人信息 -->
-				<!-- 如果只是展示用户头像昵称，可以使用 <open-data /> 组件 -->
-				<div class="whether_log">
-					<!-- 头像 -->
-					<open-data type='userAvatarUrl'></open-data>
-
-					<!-- 用户名|会员 -->
-					<div class="info_btn">
-						<p>
-							<open-data type="userNickName"></open-data>
-						</p>
-						<img :mode="mode" class="vip_btn" src="../../static/images/icon/VIP_icon.png" alt="">
-
-					</div>
-
-					<!-- 去往我的资料 -->
-					<button type="default" class="my_data"></button>
-					<a url="./profile_my/profile_my" class="go_profile" />
-
-
-
-
-					<!-- 点击登录按钮 -->
-					<!-- <button @getuserinfo='getUserInfo' open-type="getUserInfo" type="primary" class='login'>
-						<p>点击登录</p>
-					</button> -->
-
-				</div>
-				<!-- 我的课程|我的作品展 -->
-				<div class="menu_bnt">
-					<div class="left">
-						<a url="./course_my/course_my">
-							<div>
-								<p class="my_menu">我的课程</p>
-								<p class="my_number">共3个</p>
-							</div>
-							<div class="show_btn">
-								<img src="../../static/images/show_le.png" alt="">
-							</div>
-						</a>
-
-					</div>
-
-					<div class="right">
-						<a url="./works_my/works_my">
-							<div>
-								<p class="my_menu">我的作品展</p>
-								<p class="my_number">共3个</p>
-							</div>
-							<div class="show_btn">
-								<img :mode="mode" src="../../static/images/show_ri.png" alt="">
-							</div>
-						</a>
-					</div>
-				</div>
-				<!--是否需要帮助-->
-				<div class="refer">
-					<div class="refer_text">
-						<p>你可能需要帮助？</p>
-						<span>有疑问请点击这里进行客服咨询</span>
-					</div>
-					<img :mode="mode" src="../../static/images/refer.png" alt="">
-				</div>
-				<!-- 提供技术支持 -->
-				<div>
-					<youxniao />
-				</div>
-			</div>
-			<!-- 内容区域end-->
-		</view>
 	</view>
 </template>
 
@@ -147,13 +94,36 @@
 		},
 		methods: {
 			//授权回调
-			getUserInfo(e) {
-				console.log(e)
-				// this.doLogin();
+			getUserInfo(e){ //e 为点击事件的所有参数
+				console.log(e) 
+				var type = e.currentTarget.dataset.type;
+				console.log(type) //type出来的是data-type为0还是1
+				
+				//当用户按了允许按钮
 				if (e.detail.userInfo) {
-					//用户按了允许授权按钮
-					// this.doLogin();
+					
+					// 当用户按了允许按钮 把信息传给全局this.$store.state.userInfo保存，即所有页面都可获取用户登录信息
 					this.$store.state.userInfo = e.detail.userInfo;
+					
+					// 分区<点击登录><我的课程><我的作品>三个按钮 跳转页面， 因为在3个按钮中 只要<我的课程><我的作品>绑定data-type
+					// 把e.currentTarget.dataset.type赋值给type 然后判断点击的是我的课程还是我的作品
+					if (type) {
+						//uni.getStorageSync(key)从本地缓存中同步获取指定 key 对应的内容。,结合bingding绑定页面 setStorageSync一起使用
+						let bind = uni.getStorageSync('data');
+						console.log(!bind)
+						if (!bind) {
+							uni.navigateTo({
+								url: '/pages/binding/binding'
+							})
+						} else {
+							var url = '';
+							if (type == 0) url = 'course_my/course_my';
+							else if (type == 1) url = 'works_my/works_my';
+							uni.navigateTo({
+								url: '/pages/mine/' + url
+							})
+						}
+					}
 				} else {
 					//用户按了拒绝按钮
 					wx.showModal({
@@ -201,8 +171,10 @@
 		.whether_log {
 			background-color: #ffffff;
 			border-radius: 20rpx;
-			//阴影
-			box-shadow: inset 0 3px 20px rgba(0, 0, 0, .1);
+			//内阴影
+			// box-shadow: inset 0 3px 20px rgba(0, 0, 0, .1);
+			// 外阴影
+			box-shadow: 0vw 0vw 5vw rgba(0, 0, 0, 0.1);
 			width: 670rpx;
 			height: 164rpx;
 			overflow: hidden;
@@ -274,7 +246,7 @@
 					width: 118rpx;
 					height: 42rpx;
 					overflow: hidden;
-					margin: 6% 8% 0 0;
+					margin: 8% 8% 0 0;
 					object-fit: cover;
 				}
 
@@ -287,6 +259,7 @@
 					height: 42rpx;
 					overflow: hidden;
 					object-fit: cover;
+					margin: 8% 8% 0 0;
 				}
 			}
 
@@ -339,11 +312,11 @@
 				background: url(../../static/images/icon/click2.png);
 				background-size: cover;
 			}
-			
-			.go_profile{
+
+			.go_profile {
 				width: 80rpx;
 				height: 160rpx;
-				position:absolute;
+				position: absolute;
 				right: 0;
 				background: transparent;
 			}
@@ -357,23 +330,57 @@
 			transform: translateY(-40rpx);
 
 			.left {
-				background-color: #ffffff;
-				border-radius: 20rpx;
-				box-shadow: inset 0 3px 20px rgba(0, 0, 0, .1);
-				width: 320rpx;
-				height: 400rpx;
-				overflow: hidden;
+				position: relative;
+				// background-color: #ffffff;
+				// border-radius: 20rpx;
+				// box-shadow: inset 0 3px 20px rgba(0, 0, 0, .1);
+				// width: 320rpx;
+				// height: 400rpx;
+				// overflow: hidden;
+				width: 42.66vw;
+				height: 53.33vw;
+				background: rgba(255, 255, 255, 1);
+				box-shadow: 0vw 0vw 5vw rgba(0, 0, 0, 0.1);
+				opacity: 1;
+				border-radius: 2vw;
+
+				.login_btn {
+					position: absolute;
+					left: 0;
+					height: 100%;
+					width: 100%;
+					background: transparent; //透明
+					z-index: 10;
+					// background: red;
+				}
 			}
 
 			.right {
-				background-color: #ffffff;
-				border-radius: 20rpx;
-				box-shadow: inset 0 3px 20px rgba(0, 0, 0, .1);
-				width: 320rpx;
-				height: 400rpx;
-				overflow: hidden;
+				position: relative;
+				// background-color: #ffffff;
+				// border-radius: 20rpx;
+				// box-shadow: inset 0 3px 20px rgba(0, 0, 0, .1);
+				// width: 320rpx;
+				// height: 400rpx;
+				// overflow: hidden;
+				width: 42.66vw;
+				height: 53.33vw;
+				background: rgba(255, 255, 255, 1);
+				box-shadow: 0vw 0vw 5vw rgba(0, 0, 0, 0.1);
+				opacity: 1;
+				border-radius: 2vw;
 				// 中间分隔
 				margin-left: 5%;
+
+				.login_btn {
+					position: absolute;
+					left: 0;
+					height: 100%;
+					width: 100%;
+					background: transparent; //透明
+					z-index: 10;
+					// background: green;
+				}
 			}
 
 			.my_menu {
@@ -399,9 +406,12 @@
 				border-bottom-right-radius: 20rpx;
 
 				img {
-					width: 355rpx;
-					height: 400rpx;
-					transform: translateY(-50%);
+					// width: 355rpx;
+					// height: 400rpx;
+					// transform: translateY(-50%);
+					width: 42.66vw;
+					height: 53.33vw;
+					transform: translate(-10rpx, -50%);
 					background-size: cover;
 					// margin-right: -5%;
 				}
@@ -414,7 +424,8 @@
 			position: relative;
 			background-image: linear-gradient(90deg, #ffffff 0%, #e0e5df 100%);
 			border-radius: 10px;
-			box-shadow: inset 0 3px 20px rgba(0, 0, 0, .1);
+			// box-shadow: inset 0 3px 20px rgba(0, 0, 0, .1);
+			box-shadow: 0vw 0vw 5vw rgba(0, 0, 0, 0.1);
 			width: 100%;
 			height: 200rpx;
 			display: flex;
@@ -426,7 +437,7 @@
 				width: 250rpx;
 				height: 230rpx;
 
-				transform: translate(420rpx, -30rpx);
+				transform: translate(396rpx, -30rpx);
 				z-index: 5;
 				position: absolute;
 				object-fit: cover;
@@ -458,7 +469,9 @@
 				left: 0;
 				height: 100%;
 				width: 100%;
-				background: transparent;
+				background: transparent; //透明
+				z-index: 10;
+				// background: red;
 			}
 		}
 

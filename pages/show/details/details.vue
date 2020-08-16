@@ -1,44 +1,18 @@
 <template>
 	<div class="details" style="overflow-x:hidden;">
 		<img class="radian" mode="widthFix" src="@/static/images/radian_1.png" alt="">
-		<!-- 作品详情（别人） -->
-		<div v-if="!mine">
+
+		
+		<div>
 			<div class="details_btn">
+				<!-- 公共的 -->
 				<div class="img_bnt">
 					<img class="ails" mode='widthFix' src="../../../static/images/string.png" alt="">
 					<div class="frame">
-						<img :src="ewmImg" />
-					</div>
-					<div class="publicity">
-						<!--左 -->
-						<div class-="Name_works">
-							<!-- 作品名称 -->
-							<p class="Name_works_bnt">逛超市简笔画</p>
-
-							<!-- 作者|作品息 -->
-							<div class="writer">
-								<p>—</p>
-								<p>作者：<span v-text="writer_name">陈浩</span></p>
-								<p>班级：<span v-text="grade_cla">三年三班</span></p>
-								<p>创作时间：<span v-text="date_wri">2020-7-11</span></p>
-								<p>围观人数：<span v-text="quan">345</span></p>
-							</div>
-						</div>
-						<!-- 右 -->
-						<img src="../../../static/images/recommend.png" alt="">
-					</div>
-				</div>
-
-			</div>
-		</div>
-
-		<!-- 作品详情（自己） -->
-		<div v-else>
-			<div class="details_btn">
-				<div class="img_bnt">
-					<img class="ails" mode='widthFix' src="../../../static/images/string.png" alt="">
-					<div class="frame">
-						<img :src="ewmImg" />
+						<img class="border_top" src="/static/images/frame2.png" alt="">
+						<img class="border" src="/static/images/border.png" alt="">
+						<img class="middle" mode="widthFix" :src="ewmImg" />
+						<img class="border_bottom" src="/static/images/frame1.png" alt="">
 					</div>
 					<div class="publicity">
 						<!--左 -->
@@ -61,34 +35,33 @@
 				</div>
 
 				<!--自己页面需新增-->
-				<div class="mine">
+				<div class="mine" v-if="mine">
 					<p class="mine_title">作品花絮</p>
 					<div v-for="value in titbits" :key="value">
 						<img :src="value.ewmImg" />
 					</div>
+					<!-- 保存按钮 -->
+					<div class="_phone">
+						<!-- #ifndef MP-WEIXIN -->
+						<!-- 	<button @click="saveImgToLocal">
+							保存至手机1
+						</button> -->
+						<!-- #endif -->
+
+						<!-- #ifdef MP-WEIXIN -->
+						<button @click="saveEwm" v-if="openSettingBtnHidden">
+							保存至手机
+						</button>
+
+						<!--open-type="openSetting打开授权页面"  -->
+						<button v-else hover-class="none" open-type="openSetting" @opensetting='handleSetting'>保存至手机</button>
+						<!-- #endif -->
+						<!-- <button>
+							保存至手机
+						</button> -->
+					</div>
 				</div>
 
-				<!-- 保存按钮 -->
-				<div class="_phone">
-					<!-- #ifndef MP-WEIXIN -->
-				<!-- 	<button @click="saveImgToLocal">
-						保存至手机1
-					</button> -->
-					<!-- #endif -->
-
-					<!-- #ifdef MP-WEIXIN -->
-					<button @click="saveEwm" v-if="openSettingBtnHidden">
-						保存至手机
-					</button>
-
-					<!--open-type="openSetting打开授权页面"  -->
-					<button v-else hover-class="none" open-type="openSetting"
-					 @opensetting='handleSetting'>保存至手机</button>
-					<!-- #endif -->
-					<!-- <button>
-						保存至手机
-					</button> -->
-				</div> 
 			</div>
 		</div>
 	</div>
@@ -104,8 +77,7 @@
 				grade_cla: "三年四班",
 				date_wri: "1999-7-9",
 				quan: 324,
-				titbits: [
-					{
+				titbits: [{
 						ewmImg: "https://s1.ax1x.com/2020/08/10/ab8skd.md.jpg" //这是要保存的图片
 					},
 					{
@@ -117,8 +89,7 @@
 
 			};
 		},
-		onLoad(opt) { 
-		},
+		onLoad(opt) {},
 		components: {},
 		methods: {
 			downFile(url) {
@@ -127,7 +98,7 @@
 					success: (res) => {
 						console.log(res)
 						if (res.statusCode === 200) {
-							uni.saveImageToPhotosAlbum({  //保存图片到系统相册。
+							uni.saveImageToPhotosAlbum({ //保存图片到系统相册。
 								filePath: res.tempFilePath,
 								success: function() {
 									uni.showToast({
@@ -157,42 +128,42 @@
 					console.log(2);
 					this.openSettingBtnHidden = true;
 				}
-				
+
 			},
-			
+
 			saveEwm: function(e) {
 				//获取相册授权
 				uni.getSetting({ //获取用户的当前设置。
-					success: (res)=> {
+					success: (res) => {
 						console.log(res)
 						if (!res.authSetting['scope.writePhotosAlbum']) {
-							
+
 							// {uni.authorize}提前向用户发起授权请求。调用后会立刻弹窗询问用户是否同意授权小程序使用某项功能或获取用户的某些数据，
 							// 但不会实际调用对应接口。如果用户之前已经同意授权，则不会出现弹窗，直接返回成功。如果用户之前拒绝了授权，
 							// 此接口会直接进入失败回调，一般搭配uni.getSetting和uni.openSetting使用。
-							uni.authorize({ 
+							uni.authorize({
 								scope: 'scope.writePhotosAlbum',
 								success() {
 									//这里是用户同意授权后的回调
 									this.saveImgToLocal();
 								},
-								fail: ()=> { //这里是用户拒绝授权后的回调
-								console.log('2222')
+								fail: () => { //这里是用户拒绝授权后的回调
+									console.log('2222')
 									this.openSettingBtnHidden = false
 								}
 							})
 						} else { //用户已经授权过了
-						console.log('同意了')
+							console.log('同意了')
 							this.saveImgToLocal();
 						}
 					}
 				})
 			},
-			
-			getSetting(){
-				return new Promise((resolve,reject) => {
+
+			getSetting() {
+				return new Promise((resolve, reject) => {
 					uni.getSetting({ //获取用户的当前设置。
-						success:(res)=> {
+						success: (res) => {
 							if (!res.authSetting['scope.writePhotosAlbum']) {
 								this.openSettingBtnHidden = true;
 								resolve();
@@ -203,13 +174,13 @@
 					})
 				})
 			},
-			
+
 			// 提示是否保存的模态框
 			saveImgToLocal: function(e) {
 				uni.showModal({ //显示消息提示框。
 					title: '提示',
 					content: '确定保存到相册吗',
-					success: function(res) {
+					success: res => {
 						if (res.confirm) {
 							this.downFile(this.ewmImg)
 							for (let i = 0; i < this.titbits.length; i++) {
@@ -252,19 +223,54 @@
 			}
 
 			.frame {
+				position: relative;
 				// width: 79.33vw;
-				height: 100vw;
-				border: 18rpx groove rgba(127, 137, 113, .6);
+				// height: 100vw;
+				// border: 18rpx groove rgba(127, 137, 113, .6);
 				transform: translateY(-12rpx);
 				box-sizing: border-box;
+				box-shadow: 0vw 1vw 5vw rgba(0, 0, 0, 0.3);
+				// box-shadow: 10px 10px 5px #888888;
 
-				img {
-					border: 1px solid #b8c4b6;
+				.border {
+					position: absolute;
+					left: 0;
+					top: 0;
+					height: 100%;
+					width: 100%;
+					z-index: 1;
+					object-fit: cover;
+				} 
+ 
+				.middle {
+					position: relative;
+					z-index: 2;
+					// border: 1px solid #b8c4b6;
 					background-color: #000000;
 					width: 528rpx;
-					height: 598rpx;
+					// height: 598rpx;
 					margin: 9% 8%;
-					object-fit: cover;
+					// object-fit: cover;
+				}
+
+				.border_top {
+					position: absolute;
+					left: 0;
+					top: 0;
+					width: 100%;
+					height: 10px;
+					// transform: rotateX(90deg);
+					z-index: 3;
+				}
+
+				.border_bottom {
+					position: absolute;
+					left: 0px;
+					bottom: 0px;
+					width: 100%;
+					height: 10px;
+					// transform: rotateX(90deg);
+					z-index: 3;
 				}
 			}
 
@@ -341,8 +347,9 @@
 			bottom: 0;
 			text-align: center;
 			background-color: #FFFFFF;
-			padding: 3% 0 5% 0;
+			padding: 3% 0 10% 0;
 
+			//background:Transparent ; //底部透明
 			button {
 				text-align: center;
 				background-color: #7f8971;

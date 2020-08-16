@@ -24,23 +24,23 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.radian.data-v-1c51bcf6 {
+.radian.data-v-2023fb26 {
   width: 100%;
   position: fixed;
   top: 0;
 }
-.Portfolio.data-v-1c51bcf6 {
+.Portfolio.data-v-2023fb26 {
   background-color: #ffffff;
   width: 100%;
 }
-.Portfolio .titile.data-v-1c51bcf6 {
-  padding: 7% 0% 2% 5%;
+.Portfolio .titile.data-v-2023fb26 {
+  padding: 8.33% 0% 0% 5%;
   font-size: 32rpx;
   font-weight: 700;
   color: #7f8971;
 }
-.Portfolio .Portfolio_list.data-v-1c51bcf6 {
-  margin: 2% 5% 5% 5%;
+.Portfolio .Portfolio_list.data-v-2023fb26 {
+  margin: 5.5% 5% 5% 5%;
   width: 90%;
   /* 规定的列数，设置5列 */
   -webkit-column-count: 2;
@@ -49,33 +49,36 @@
   -webkit-column-gap: 3%;
           column-gap: 3%;
 }
-.Portfolio .Por_lis_fall.data-v-1c51bcf6 {
+.Portfolio .Por_lis_fall.data-v-2023fb26 {
   -webkit-column-break-inside: avoid;
           break-inside: avoid;
   width: 100%;
 }
-.Portfolio .Por_lis_fall .por_sty.data-v-1c51bcf6 {
+.Portfolio .Por_lis_fall .por_sty.data-v-2023fb26 {
   padding-bottom: 8%;
   width: 100%;
   height: auto;
 }
-.Portfolio .Por_lis_fall .por_sty ._img.data-v-1c51bcf6 {
+.Portfolio .Por_lis_fall .por_sty ._img.data-v-2023fb26 {
   width: 100%;
   height: auto;
   border-radius: 20rpx;
+  min-height: 200rpx;
+  background: #F1F1F1;
+  box-shadow: 0vw 1vw 5vw rgba(0, 0, 0, 0.2);
 }
-.Portfolio .Por_lis_fall .por_about.data-v-1c51bcf6 {
+.Portfolio .Por_lis_fall .por_about.data-v-2023fb26 {
   padding-left: 7%;
 }
-.Portfolio .Por_lis_fall .por_about .por_name.data-v-1c51bcf6 {
-  padding-top: 2%;
+.Portfolio .Por_lis_fall .por_about .por_name.data-v-2023fb26 {
+  padding-top: 4%;
   font-weight: 700;
   color: #7f8971;
   width: 260rpx;
   overflow: hidden;
   white-space: nowrap;
 }
-.Portfolio .Por_lis_fall .por_about .por_author.data-v-1c51bcf6 {
+.Portfolio .Por_lis_fall .por_about .por_author.data-v-2023fb26 {
   padding-top: 2%;
   font-size: 12px;
   font-weight: 300;

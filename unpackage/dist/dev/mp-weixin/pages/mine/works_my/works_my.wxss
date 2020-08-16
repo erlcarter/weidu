@@ -24,22 +24,22 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.radian.data-v-06294266 {
+.radian.data-v-7682f2cc {
   width: 100%;
   position: fixed;
   top: 0;
 }
-.Portfolio.data-v-06294266 {
+.Portfolio.data-v-7682f2cc {
   background-color: #ffffff;
   width: 100%;
 }
-.Portfolio .titile.data-v-06294266 {
-  padding: 7% 0% 2% 5%;
+.Portfolio .titile.data-v-7682f2cc {
+  padding: 8.33% 0% 2% 5%;
   font-size: 32rpx;
   font-weight: 700;
   color: #7f8971;
 }
-.Portfolio .Portfolio_list.data-v-06294266 {
+.Portfolio .Portfolio_list.data-v-7682f2cc {
   margin: 2% 5% 5% 5%;
   width: 90%;
   /* 规定的列数，设置5列 */
@@ -49,23 +49,25 @@
   -webkit-column-gap: 3%;
           column-gap: 3%;
 }
-.Portfolio .Por_lis_fall.data-v-06294266 {
+.Portfolio .Por_lis_fall.data-v-7682f2cc {
   -webkit-column-break-inside: avoid;
           break-inside: avoid;
   width: 100%;
 }
-.Portfolio .Por_lis_fall .por_sty.data-v-06294266 {
+.Portfolio .Por_lis_fall .por_sty.data-v-7682f2cc {
   padding-bottom: 8%;
   width: 100%;
   height: auto;
   position: relative;
 }
-.Portfolio .Por_lis_fall .por_img.data-v-06294266 {
+.Portfolio .Por_lis_fall .por_img.data-v-7682f2cc {
   width: 100%;
   height: auto;
+  min-height: 200rpx;
+  background: #F1F1F1;
   border-radius: 20rpx;
 }
-.Portfolio .Por_lis_fall .promo.data-v-06294266 {
+.Portfolio .Por_lis_fall .promo.data-v-7682f2cc {
   background-color: #ffffff;
   border-radius: 5rpx;
   width: 158rpx;
@@ -76,18 +78,18 @@
   left: 0;
   position: absolute;
 }
-.Portfolio .Por_lis_fall .por_about.data-v-06294266 {
+.Portfolio .Por_lis_fall .por_about.data-v-7682f2cc {
   padding-left: 7%;
 }
-.Portfolio .Por_lis_fall .por_about .por_name.data-v-06294266 {
-  padding-top: 2%;
+.Portfolio .Por_lis_fall .por_about .por_name.data-v-7682f2cc {
+  padding-top: 4%;
   font-weight: 700;
   color: #7f8971;
   width: 260rpx;
   overflow: hidden;
   white-space: nowrap;
 }
-.Portfolio .Por_lis_fall .por_about .por_author.data-v-06294266 {
+.Portfolio .Por_lis_fall .por_about .por_author.data-v-7682f2cc {
   padding-top: 2%;
   font-size: 12px;
   font-weight: 300;

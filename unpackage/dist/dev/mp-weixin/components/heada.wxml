@@ -1,1 +1,1 @@
-<view class="_header"><image class="head_title _img" model="aspectFill" src="/static/images/head2.png" alt></image></view>
+<page-meta vue-id="cd4d2c20-1" bind:__l="__l" vue-slots="{{['default']}}"><navigation-bar vue-id="{{('cd4d2c20-2')+','+('cd4d2c20-1')}}" bind:__l="__l"></navigation-bar></page-meta><view><view class="status_bar"></view><view class="_header"><image class="head_title _img" model="aspectFill" src="/static/images/head2.png" alt></image></view></view>

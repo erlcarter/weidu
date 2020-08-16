@@ -41,6 +41,7 @@
 	}
 </script>
 <style lang="scss" scoped>
+	
 	.radian {
 		position: fixed;
 		top: 0;
@@ -48,7 +49,7 @@
 	}
 
 	.content {
-		margin: 7% 5% 20% 5%;
+		margin: 8.53% 5% 25% 5%;
 		// width: 100%;
 
 		.titile {
@@ -95,7 +96,7 @@
 			line-height: 4.8vw;
 			color: rgba(127, 137, 113, 1);
 			opacity: 1;
-			margin-bottom: 6%;
+			margin-bottom: 8.53%;
 		}
 	}
 </style>

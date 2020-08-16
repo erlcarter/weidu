@@ -24,18 +24,18 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.radian.data-v-364d1cad {
+.radian.data-v-31ec992c {
   width: 100%;
   position: fixed;
   top: 0;
 }
-.reservation_btn.data-v-364d1cad {
-  margin: 7% 5% 0% 5%;
+.reservation_btn.data-v-31ec992c {
+  margin: 8.33% 5% 0% 5%;
 }
-.reservation_btn .content.data-v-364d1cad {
+.reservation_btn .content.data-v-31ec992c {
   margin: 10% 0% 10% 0%;
 }
-.reservation_btn .content .fill.data-v-364d1cad {
+.reservation_btn .content .fill.data-v-31ec992c {
   width: 89.33vw;
   height: 13.33vw;
   background: #e0e5df;
@@ -48,7 +48,7 @@
   display: -webkit-flex;
   display: flex;
 }
-.reservation_btn .content .fill .item.data-v-364d1cad {
+.reservation_btn .content .fill .item.data-v-31ec992c {
   width: 25vw;
   font-size: 3.73vw;
   font-family: Noto Sans CJK SC;
@@ -57,7 +57,7 @@
   opacity: 1;
   text-align: right;
 }
-.reservation_btn .content .fill .input_btn.data-v-364d1cad {
+.reservation_btn .content .fill .input_btn.data-v-31ec992c {
   height: 5.33vw;
   font-size: 3.73vw;
   font-family: Noto Sans CJK SC;
@@ -68,7 +68,7 @@
   margin: 4%;
   margin-left: 56rpx;
 }
-.reservation_btn .content .fill .input_btn2.data-v-364d1cad {
+.reservation_btn .content .fill .input_btn2.data-v-31ec992c {
   font-size: 3.73vw;
   font-family: Noto Sans CJK SC;
   font-weight: bold;
@@ -77,16 +77,16 @@
   margin: 0%;
   margin-left: 56rpx;
 }
-.reservation_btn .content .hint.data-v-364d1cad {
+.reservation_btn .content .hint.data-v-31ec992c {
   margin-top: 7%;
   font-size: 24rpx;
   font-weight: 300;
   color: #7f8971;
 }
-.reservation_btn .submit.data-v-364d1cad {
+.reservation_btn .submit.data-v-31ec992c {
   margin: 0% 20%;
 }
-.reservation_btn .submit .submit_but.data-v-364d1cad {
+.reservation_btn .submit .submit_but.data-v-31ec992c {
   margin-bottom: 5%;
   position: fixed;
   bottom: 0;
@@ -97,7 +97,7 @@
   border-radius: 3vw;
   height: 13.33vw;
 }
-.reservation_btn .submit ._p.data-v-364d1cad {
+.reservation_btn .submit ._p.data-v-31ec992c {
   margin: 8% 0;
   text-align: center;
   height: 5.33vw;

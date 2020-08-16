@@ -18,7 +18,7 @@
   "window": {
     "navigationBarTextStyle": "white",
     "navigationBarBackgroundColor": "#7f8971",
-    "backgroundColor": "#F8F8F8"
+    "backgroundColor": "#FFFFFF"
   },
   "tabBar": {
     "color": "#b8c4b6",
@@ -54,5 +54,5 @@
     ]
   },
   "usingComponents": {},
-  "sitemapLocation": "sitemap84.json"
+  "sitemapLocation": "sitemap37.json"
 }

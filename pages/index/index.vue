@@ -14,26 +14,6 @@
 			</div>
 		</div>
 
-		<!-- 最新活动与首页案例 -->
-		<div class="activity_btn">
-			<p class="activity_tite">最新活动&商业合作案例</p>
-
-			<div class="activity_list" v-for="value in activity_list" :key="item.acti_title">
-				<!-- 左图 -->
-				<img :src="value.src" :mode="mode" class="acti_lis_left" alt="">
-				<!--右内容-->
-				<div class="acti_lis_right">
-					<p class="ac_lis_ri_tite" v-text="value.acti_title"></p>
-					<p class="ac_lis_ri_date" v-text="value.acti_date"></p>
-					<p class="ac_lis_ri_cont" v-text="value.acti_cont"></p>
-					<a url="./index_details/index_details" class="read_more_btn">
-						<p>READ MORE</p>
-						<img src="../../static/images/icon/click2.png" alt="">
-					</a>
-				</div>
-			</div>
-
-		</div>
 
 		<!--店面地址 -->
 		<div class="site_btn">
@@ -47,12 +27,12 @@
 						<p class="shop">黄沙店</p>
 						<p class="shop_site">通宝大厦</p>
 						<!-- 查看详细地址 -->
-						<p class="shop_go"> >>> </p>
+						<img src="../../static/images/icon/go_to.png" alt="" class="shop_go">
 					</div>
 					<!--店面地址Animation -->
 					<div class="show_btn">
 						<a url="./shop/shop">
-							<img :mode="mode" src="../../static/images/site_le.png" alt="">
+							<img src="../../static/images/site_le.png" alt="">
 						</a>
 					</div>
 
@@ -63,12 +43,13 @@
 					<div class="site_tite">
 						<p class="shop">白云店</p>
 						<p class="shop_site">江高爱国东路</p>
-						<p class="shop_go"> >>> </p>
+						<img src="../../static/images/icon/go_to.png" alt="" class="shop_go">
+
 					</div>
 					<!--店面地址Animation -->
 					<div class="show_btn">
 						<a url="./shop/shop">
-							<img :mode="mode" src="../../static/images/site_ri.png" alt="">
+							<img  src="../../static/images/site_ri.png" alt="">
 						</a>
 					</div>
 
@@ -77,8 +58,33 @@
 
 			</div>
 		</div>
+
+
+		<!-- 最新活动与首页案例 -->
+		<div class="activity_btn">
+			<p class="activity_tite">最新活动&商业合作案例</p>
+
+			<navigator url='./index_details/index_details' hover-class="none">
+				<div class="activity_list" v-for="value in activity_list" :key="item.acti_title">
+					<!-- 左图 -->
+					<img :src="value.src" :mode="mode" class="acti_lis_left" alt="">
+					<!--右内容-->
+					<div class="acti_lis_right">
+						<p class="ac_lis_ri_tite" v-text="value.acti_title"></p>
+						<p class="ac_lis_ri_date" v-text="value.acti_date"></p>
+						<p class="ac_lis_ri_cont" v-text="value.acti_cont"></p>
+						<div class="read_more_btn">
+							<p>READ MORE</p>
+							<img src="../../static/images/icon/click2.png" alt="">
+						</div>
+					</div>
+				</div>
+			</navigator>
+
+		</div>
+
+
 		<!-- 技术支持 -->
-		
 		<div>
 			<youxniao />
 		</div>
@@ -106,17 +112,16 @@
 					src: 'https://s1.ax1x.com/2020/08/05/asDM1s.md.jpg',
 					acti_title: 'WEDOO夏日创作营招募',
 					acti_date: '7.22-7.31',
-					acti_cont: ` 7 月已开启了愿上半年所有的遗憾，是下半年惊喜的铺垫，
+					acti_cont: ` 7 月已开启了，愿上半年所有的遗憾，是下半年惊喜的铺垫，
 					 维度和大家继续努力冲鸭~  `,
-				},{
+				}, {
 					src: 'https://s1.ax1x.com/2020/08/05/asDM1s.md.jpg',
 					acti_title: 'WEDOO夏日创作营招募',
 					acti_date: '7.22-7.31',
 					acti_cont: ` 7 月已开启了愿上半年所有的遗憾，是下半年惊喜的铺垫，
 					 维度和大家继续努力冲鸭~  `,
-				}
-				],
-				
+				}],
+
 			}
 		},
 		// 組件
@@ -133,7 +138,7 @@
 	.indexHead {
 		background-color: #7f8971;
 	}
-
+	
 	// 固定的内容区
 	.fixedly {
 		display: flex;
@@ -152,7 +157,7 @@
 
 		// 首页 介绍文字（固定的）
 		.banenr_text {
-			margin: 0 6%;
+			margin: 0 5%;
 
 			p {
 				/*font-size: 12px;*/
@@ -167,19 +172,20 @@
 	// 最新活动与首页案例
 	.activity_btn {
 		transform: translateY(-20rpx);
-		margin: 0 6%;
+		margin: 10% 6% 0% 6%;
 
 		.activity_tite {
 			font-size: 32rpx;
 			font-weight: 700;
 			color: #7f8971;
 			margin-bottom: 6%;
+			margin-left: 10rpx;
 		}
 
 		.activity_list {
 			background-color: #ffffff;
 			border-radius: 20rpx;
-			box-shadow: inset 0 6rpx 40rpx rgba(0, 0, 0, .1);
+			box-shadow: 0rem 1vw 5vw rgba(0, 0, 0, 0.1);
 			width: 100%;
 			height: 448rpx;
 			// overflow: hidden;
@@ -187,9 +193,9 @@
 			display: flex;
 
 			.acti_lis_left {
-				// border-top-left-radius: 20rpx;
-				// border-bottom-left-radius: 20rpx;
-				border-radius: 20rpx;
+				border-top-left-radius: 20rpx;
+				border-bottom-left-radius: 20rpx;
+				// border-radius: 20rpx;
 				border: 2px solid #e0e5df;
 				width: 375rpx;
 				height: 446rpx;
@@ -202,7 +208,7 @@
 				padding: 5% 5% 0% 5%;
 
 				.ac_lis_ri_tite {
-					font-size: 26rpx;
+					font-size: 28rpx;
 					font-weight: 700;
 					color: #7f8971;
 					// margin-right: 5%;
@@ -224,7 +230,8 @@
 					line-height: 32rpx;
 					text-align: center;
 					font-size: 18rpx;
-					font-weight: 600;
+					// font-weight: 700;
+					font-weight: bold;
 					color: #ffffff;
 
 					overflow: hidden;
@@ -241,7 +248,7 @@
 					margin-top: 14%;
 
 
-					overflow: hidden;
+					overflow: hidden; 
 					text-overflow: ellipsis;
 					display: -webkit-box;
 					-webkit-box-orient: vertical;
@@ -250,12 +257,13 @@
 
 				.read_more_btn {
 					display: flex;
-					margin: 20% 0% 5% 32%;
+					margin: 15% 0% 7% 38%;
 
 					p {
 						white-space: nowrap; //不换行
-						font-size: 12px;
-						font-weight: 700;
+						font-size: 22rpx;
+						font-weight: bold;
+						// font-weight: 800;
 						color: #a49888;
 						text-align: center;
 					}
@@ -278,25 +286,28 @@
 	//店铺地址
 	.site_btn {
 		margin: 7% 6%;
+		transform: translate(0rpx, -50rpx);
 
 		p {
 			font-size: 36rpx;
 			font-weight: 700;
 			color: #7f8971;
+			margin-left: 10rpx;
 		}
 
 		.site_collect {
 			display: flex;
 
 			.site_alone {
-				margin-top: 30rpx;
-				background-color: #ffffff;
-				border-radius: 10px;
-				box-shadow: inset 0 3px 20px rgba(0, 0, 0, .1);
-				width: 160px;
-				height: 100px;
+				width: 42.67vw;
+				height:24vw;
+				background: rgba(255, 255, 255, 1);
+				box-shadow: 0vw 1vw 5vw rgba(0, 0, 0, 0.1);
+				opacity: 1;
+				border-radius: 3vw;
+				margin-top: 60rpx;
 				overflow: hidden;
-				padding: 5% 0 0 5%;
+				padding: 5% 0 0 3%;
 				display: flex;
 
 				.site_tite {
@@ -318,7 +329,7 @@
 						z-index: 11;
 						position: absolute;
 
-						width: 100rpx;
+						width: 150rpx;
 						overflow: hidden; //隐藏
 						text-overflow: ellipsis; //最后以...结尾
 						white-space: wrap; //换行
@@ -326,21 +337,23 @@
 					}
 
 					.shop_go {
-						font-size: 24rpx;
+						width: 48rpx;
+						height: 24rpx;
+						// font-size: 24rpx;
 						color: #b8c4b6;
-						margin: 100% 0 1% 0;
+						margin: 80% 0 20% 10%;
 					}
 				}
 
 				// 图片
 				.show_btn {
 					img {
-						width: 334rpx;
-						height: 266rpx;
-						transform: translate(-154rpx, -70rpx);
+						width: 320rpx;
+						height: 236rpx;
+						transform: translate(-140rpx, -56rpx);
 						position: absolute;
 						z-index: 15;
-						// margin-right: -5%;
+						object-fit: cover;
 					}
 				}
 
