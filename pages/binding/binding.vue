@@ -10,11 +10,11 @@
 			</p>
 			<div class="input_btn">
 				<p>学员名:</p>
-				<input type="text" placeholder="点击填写">
+				<input type="text" v-model="addressData.name" placeholder="点击填写">
 			</div>
 			<div class="input_btn">
 				<p>手机号码</p>
-				<input type="number" placeholder="点击填写" maxlength=11>
+				<input type="number" v-model="addressData.mobile" placeholder="点击填写" maxlength=11>
 			</div>
 
 
@@ -31,14 +31,24 @@
 	export default {
 		data() {
 			return {
-
+				addressData: {
+					name: '',
+					mobile: '',
+				}
 			};
 		},
 		methods: {
 			onBind() {
-				console.log(12112)
-				//uni.setStorageSync(key)设置本地数据缓存,
-				uni.setStorageSync('data', true);
+				let data = this.addressData;
+				console.log(JSON.stringify(data))
+				if(!data.name || !data.mobile) {
+					uni.showToast({
+						title:'请输入信息'
+					})
+					return;
+				}
+				//uni.setStorageSync(key)设置本地数据缓存
+				uni.setStorageSync('bindding', true);
 				// 弹窗
 				uni.switchTab({
 					url: '/pages/mine/mine',

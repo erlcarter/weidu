@@ -240,6 +240,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
 var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var youxniao = function youxniao() {Promise.all(/*! require.ensure | components/youxniao */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/youxniao")]).then((function () {return resolve(__webpack_require__(/*! @/components/youxniao */ 141));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
@@ -253,6 +255,7 @@ var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerab
     //授权回调
     getUserInfo: function getUserInfo(e) {//e 为点击事件的所有参数
       console.log(e);
+      // 这里e.currentTarget.dataset.type;拿到data-type="0"还是1 赋值给type
       var type = e.currentTarget.dataset.type;
       console.log(type); //type出来的是data-type为0还是1
 
@@ -266,7 +269,7 @@ var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerab
         // 把e.currentTarget.dataset.type赋值给type 然后判断点击的是我的课程还是我的作品
         if (type) {
           //uni.getStorageSync(key)从本地缓存中同步获取指定 key 对应的内容。,结合bingding绑定页面 setStorageSync一起使用
-          var bind = uni.getStorageSync('data');
+          var bind = uni.getStorageSync('bindding');
           console.log(!bind);
           if (!bind) {
             uni.navigateTo({

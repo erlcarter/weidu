@@ -162,7 +162,7 @@
 				// 外阴影
 				box-shadow: 0vw 1vw 5vw rgba(0, 0, 0, 0.2);
 				// box-shadow: 10px 10px 5px #888888;
-			}
+			} 
 
 			.por_about {
 				padding-left: 7%;
