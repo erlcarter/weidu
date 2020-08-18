@@ -39,7 +39,8 @@
 				<!-- 我的课程|我的作品展 -->
 				<div class="menu_bnt">
 					<div class="left">
-						<button @getuserinfo='getUserInfo' data-type="0" open-type="getUserInfo" type="primary" class='login_btn'></button>
+						<!-- 请求获取登陆信息   data-type="0"或者="1" 判断点击的是课程还是作品展-->
+						<button @getuserinfo='getUserInfo'  open-type="getUserInfo" type="primary" data-type="0" class='login_btn'></button>
 						<div>
 							<p class="my_menu">我的课程</p>
 							<p class="my_number">共3个</p>
@@ -50,7 +51,7 @@
 					</div>
 
 					<div class="right">
-						<button @getuserinfo='getUserInfo' data-type="1" open-type="getUserInfo" type="primary" class='login_btn'></button>
+						<button @getuserinfo='getUserInfo'  open-type="getUserInfo" type="primary" data-type="1" class='login_btn'></button>
 						<div>
 							<p class="my_menu">我的作品展</p>
 							<p class="my_number">共3个</p>
@@ -60,6 +61,7 @@
 						</div>
 					</div>
 				</div>
+				
 				<!--是否需要帮助-->
 				<div class="refer">
 					<button class="service" open-type="contact" bindcontact="handleContact"></button>
@@ -96,6 +98,7 @@
 			//授权回调
 			getUserInfo(e){ //e 为点击事件的所有参数
 				console.log(e) 
+				// 这里e.currentTarget.dataset.type;拿到data-type="0"还是1 赋值给type
 				var type = e.currentTarget.dataset.type;
 				console.log(type) //type出来的是data-type为0还是1
 				
@@ -109,7 +112,7 @@
 					// 把e.currentTarget.dataset.type赋值给type 然后判断点击的是我的课程还是我的作品
 					if (type) {
 						//uni.getStorageSync(key)从本地缓存中同步获取指定 key 对应的内容。,结合bingding绑定页面 setStorageSync一起使用
-						let bind = uni.getStorageSync('data');
+						let bind = uni.getStorageSync('bindding');
 						console.log(!bind)
 						if (!bind) {
 							uni.navigateTo({

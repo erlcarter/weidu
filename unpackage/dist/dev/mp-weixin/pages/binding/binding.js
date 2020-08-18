@@ -172,15 +172,25 @@ __webpack_require__.r(__webpack_exports__);
 var _default =
 {
   data: function data() {
-    return {};
+    return {
+      addressData: {
+        name: '',
+        mobile: '' } };
 
 
   },
   methods: {
     onBind: function onBind() {
-      console.log(12112);
-      //uni.setStorageSync(key)设置本地数据缓存,
-      uni.setStorageSync('data', true);
+      var data = this.addressData;
+      console.log(JSON.stringify(data));
+      if (!data.name || !data.mobile) {
+        uni.showToast({
+          title: '请输入信息' });
+
+        return;
+      }
+      //uni.setStorageSync(key)设置本地数据缓存
+      uni.setStorageSync('bindding', true);
       // 弹窗
       uni.switchTab({
         url: '/pages/mine/mine',
