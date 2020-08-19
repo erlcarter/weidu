@@ -1,51 +1,95 @@
 <template>
 	<div class="details" style="overflow-x:hidden;">
 		<img class="radian" mode="widthFix" src="@/static/images/radian_1.png" alt="">
-		<div class="details_btn" v-for="value in details_list" :key="value">
-			<p class="text1"  v-text="value.text1">维度 - 维度艺术&招商银行</p>
-			<p class="date"  v-text="value.date">2017-03-08</p>
+		<div class="details_btn">
+			<p class="text1" v-text="data.name">维度 - 维度艺术&招商银行</p>
+			<p class="date" v-text="data.active_date">2017-03-08</p>
 
 			<div class="content">
-				<img mode="widthFix" :src="value.src" alt="afe0QU.jpg" border="0" />
-				<!-- <p v-text="value.content">当妈妈是世界上最辛苦的工作</p> -->
+				<img mode="widthFix" v-if="img" v-for="img in data.imgs" :src="img_http + img + img_end" 
+				alt="afe0QU.jpg" border="0" />
 			</div>
 
 		</div>
 		<!-- <footer />  -->
 		<Foote></Foote>
-		
-	</div>
-		
 
-	
+	</div>
+
+
+
 </template>
 
 <script>
 	import Foote from "@/components/footer"
+
+	import {
+		mapActions,
+		mapState
+	} from 'vuex'
 	export default {
 		data() {
 			return {
-				details_list:[
-					{
-						text1:"维度 - 维度艺术&招商银行，女神节黏土画动作回顾",
-						date:'2020-03-08',
-						src: 'https://s1.ax1x.com/2020/08/07/afttRe.md.jpg',
-						// content:`当妈妈是世界上最辛苦的工作，也是世界上最幸福的工作。她们精心呵护、养育着自己的孩子，不断地付出，并陪伴成长。`
-					}
-				]
+				id: null,
+				details_list: {
+					text1: "维度 - 维度艺术&招商银行，女神节黏土画动作回顾",
+					date: '2020-03-08',
+					imglist: [],
+				},
+				data: null
+
 			}
 		},
+		// 小程序生命周期
+		onLoad(e) {
+			console.log(e.id)
+			this.id = e.id;
+			
+			this.getData()
+		},
 		methods: {
+			...mapActions(['onRequest']), //请求模块
+
+			// 获取数据
+			getData() {
+				let url = this.$urls.index_get;
+				console.log(this.$urls.index_get);
+				this.onRequest({
+					url
+				}).then(res => {
+					console.log(res)
+					console.log(res.data.data.active)
+					//以下status都必须都等于 1才才算成功
+					if (res.data.status == 1) {
+						this.details_list = res.data.data.active;
+
+						//循环遍历details_list数组
+						for (var i = 0; i < this.details_list.length; i++) {
+							//切割第i项的imgs 
+							this.details_list[i].imgs = this.details_list[i].imgs.split(',')
+
+							if (this.details_list[i].id == this.id) {
+								this.data = this.details_list[i];
+							}
+						}
+
+					}
+				})
+			},
 
 		},
 		components: {
 			Foote
 		},
+		computed: {
+			...mapState(['img_http', 'img_end'])
+		}
+
+
 	}
 </script>
 
 <style lang="scss" scoped>
-	
 	.radian {
 		width: 100%;
 		position: fixed;
@@ -82,5 +126,4 @@
 			color: #606060;
 		}
 	}
-
 </style>

@@ -17,7 +17,8 @@
 		{
 			"path": "pages/show/show",
 			"style": {
-				"navigationBarTitleText": "优秀作品"
+				"navigationBarTitleText": "优秀作品",
+				"enablePullDownRefresh": true
 			}
 		},
 		{
@@ -55,6 +56,7 @@
             "path" : "pages/show/details/details",
             "style" : {
 				"navigationBarTitleText": "作品详情"
+			
 			}
         }
         ,{

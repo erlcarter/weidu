@@ -9,7 +9,7 @@
 				<div class="Por_lis_fall" v-for="(value,index) in Por_lis_fall" :key="value">
 					<div id="por_sty" class="por_sty">
 						<a url="./details/details" hover-class="none">
-							<img ref="img"  mode="widthFix" :src="value.src" alt="">
+							<img ref="img" mode="widthFix" :src="value.src" alt="">
 						</a>
 						<div class="por_about">
 							<p class="por_name" v-text="value.por_name">逛超市简笔画.</p>
@@ -73,39 +73,28 @@
 					},
 
 				],
-				test_img: [
-					"/static/images/source.png",
-					"/static/images/source.png",
-					"/static/images/source.png",
-					"/static/images/source.png",
-					"/static/images/source.png",
-					"/static/images/source.png",
-					"/static/images/source.png",
-					"/static/images/source.png"
-				],
+
 			}
+		},
+
+		methods: {
+
 		},
 		// 組件
 		components: {
 			youxniao
 			// footer_btn
 		},
-		mounted: function() {
-			// var list=[];
-			//  this.Por_lis_fall.forEach(function(e){
-			//   list.push("/static/images/posi.png")
-			//  })
-			//  this.test_img=list;
+		onReachBottom(){
+			uni.showToast({
+				title:'123123'
+			})
 		},
-		methods: {
-			loadImg: function(img, index) {
-				console.log(this.test_img[index])
-				// this.test_img[index]=img;
-				this.$set(this.test_img, index, img);
-				// this.$refs.img.src = img;
-				// console.log(index)
-				// return 'this.οnlοad=null;this.src='+'"'+img+'";';
-			},
+		onPullDownRefresh(){
+			console.log(2)
+			uni.showToast({
+				title:'233333333333333'
+			})
 		}
 	}
 </script>
@@ -162,7 +151,7 @@
 				// 外阴影
 				box-shadow: 0vw 1vw 5vw rgba(0, 0, 0, 0.2);
 				// box-shadow: 10px 10px 5px #888888;
-			} 
+			}
 
 			.por_about {
 				padding-left: 7%;

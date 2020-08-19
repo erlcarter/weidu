@@ -11,10 +11,10 @@
 				</div>
 
 				<!--mode为 selector 或 multiSelector 时，range 有效 ，默认 mode = selector , mode可以不写-->
-				<picker :range="addressData.courselist" @change="_select">
+				<picker :range="courselist" @change="_select">
 					<div class="fill">
 						<p class="item">选择课程</p>
-						<p class='select'>{{addressData.course}}</p>
+						<p class='select'>{{addressData.course?addressData.course :"点击选择"}}</p>
 					</div>
 				</picker>
 
@@ -23,10 +23,10 @@
 					<input class="input_btn" type="number" v-model="addressData.phone" placeholder="点击填写" maxlength=11>
 				</div>
 
-				<picker :range="addressData.shoplist" @change="shop_sele">
+				<picker :range="shoplist" @change="shop_sele">
 					<div class="fill">
 						<p class="item">选择店面</p>
-						<p class="select">{{addressData.shop}}
+						<p class="select">{{addressData.shop?addressData.shop:'点击选择'}}
 							<p />
 					</div>
 				</picker>
@@ -35,7 +35,7 @@
 			<!-- 预约提交按钮 -->
 			<div class="submit">
 				<button class="submit_but" @click="confirm">
-					<p>预约</p> 
+					<p>预约</p>
 				</button>
 			</div>
 
@@ -44,6 +44,10 @@
 </template>
 
 <script>
+	import {
+		mapActions,
+		mapState
+	} from 'vuex'
 	export default {
 		data() {
 			return {
@@ -51,29 +55,60 @@
 					name: '',
 					phone: '',
 
-					course: '点击选择',
-					courselist: ['素描', '油画', '插画'],
+					course: '',
 
-					shop: '点击选择',
-					shoplist: ['白云店', '黄沙店']
-				}
 
+					shop: '',
+
+				},
+				shoplist: [],
+				courselist: [],
 			};
 		},
-		onLoad(option) {},
+		// 小程序的生命周期  进来就执行
+		onLoad(option) { //获取路径参数信息
+
+			this.getData()
+
+		},
 		methods: {
+			...mapActions(['onRequest']), //请求模块
+
+			getData() {
+				let url = this.$urls.book_sift_info_get;
+				console.log("url:" + url)
+				this.onRequest({
+					url
+				}).then(res => {
+					console.log(res)
+					console.log(res.data.data)
+
+					//以下status都必须都等于 1才才算成功
+					if (res.data.status == 1) {
+						for (var i = 0; i < res.data.data.course.length; i++) {
+							
+							this.courselist.push(res.data.data.course[i].name)
+						}
+						for (var i = 0; i < res.data.data.shop.length; i++) {
+							this.shoplist.push(res.data.data.shop[i].name)
+						}
+					}
+				})
+			},
+
+
 			_select(e) {
 				console.log(e.detail.value);
 				let {
 					courselist
-				} = this.addressData;
+				} = this;
 				this.addressData.course = courselist[+e.detail.value]
 			},
 			shop_sele(e) {
 				console.log(e.detail.value);
 				let {
 					shoplist
-				} = this.addressData;
+				} = this;
 				console.log(shoplist[+e.detail.value])
 				// 如果改变的是数组要用$set（）
 				// this.$set(this.addressData,'shop',shoplist[+e.detail.value])
@@ -82,9 +117,44 @@
 
 			//提交
 			confirm() {
-				let {name,phone,course,shop} = this.addressData;
-				let data = { name,phone,course,shop }
-				console.log(JSON.stringify(data))
+				let {
+					name,
+					phone,
+					course,
+					shop
+				} = this.addressData;
+				let data = {
+					name,
+					phone,
+					course,
+					shop
+				}
+				console.log(data)
+				if (!data.name || !data.phone || !data.course || !data.shop) {
+					uni.showToast({
+						title: '请填写完整',
+						icon: 'none'
+					})
+					return;
+				}
+				let url = this.$urls.book_apply;
+				this.onRequest({
+					url,
+					data
+				}).then(res => {
+					console.log(res)
+					if (res.data.status == 1) {
+						uni.navigateBack({
+							complete: () => {
+								uni.showToast({
+									title: res.data.data
+								})
+							}
+						})
+
+					}
+				})
+
 			}
 		}
 	}

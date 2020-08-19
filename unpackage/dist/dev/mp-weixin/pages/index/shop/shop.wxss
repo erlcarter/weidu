@@ -55,5 +55,6 @@
 .shop .posi ._img.data-v-fd952dee {
   height: 90vw;
   width: 90vw;
+  object-fit: cover;
 }
 

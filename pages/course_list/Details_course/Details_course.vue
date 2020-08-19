@@ -1,15 +1,17 @@
 <template>
 	<div class="course" style="overflow-x:hidden;">
 		<img mode="widthFix" class="radian" src="../../../static/images/radian_1.png" alt="">
-		<div class="content" v-for="index in con_list" :key="index">
-			<p class="titile" v-text="titile">幼儿班</p>
+		<div class="content">
+			<p class="titile" v-text="data.name">幼儿班</p>
 			<div class="age">
-				<p>适合年龄: <span v-text="age">7-13</span>岁</p>
+				<p>适合年龄: <span v-text="data.year">7-13</span>岁</p>
 			</div>
-			<p class="text"v-text="text">
+			<p class="text" v-text="data.c_desc">
 				集合思维、想象、多感体验、情感表达为一体，
 			</p>
-			<img mode="widthFix" :src="index.src" alt="">
+			<div v-for='value in data.imgs' class="img_list">
+				<img mode="widthFix" :src="img_http + value+ img_end" alt=""/>
+			</div>
 		</div>
 
 		<!-- footer -->
@@ -19,29 +21,67 @@
 
 <script>
 	import Foote from "@/components/footer"
-
+	import {
+		mapActions,
+		mapState
+	} from 'vuex'
 	export default {
 		data() {
 			return {
-				titile:"幼儿启蒙班",
-				age:"7-12",
-				text:`集合思维、想象、多感体验、情感表达为一体，
-				借助故事、思维游戏、音乐等拓展情境，
-				在平面创意的基础上增加了立体创意，
-				使绘画更具趣味性和互动性，让孩子多元智能得到充分开发。`,
-				con_list:[{
-					src:"https://s1.ax1x.com/2020/08/10/aHVm9J.png"
-				}]
+				id: null,
+				data: null,
+				course_list: []
+			}
+		},
+		// 小程序生命周期
+		onLoad(e) {
+			//接收course.list传过来的id
+			console.log("course.list传过来的id为:" + e.id)
+			this.id = e.id;
+
+			this.getData()
+		},
+		methods: {
+			...mapActions(['onRequest']), //请求模块
+			//获取数据
+			getData() {
+				let url = this.$urls.course_list_get;
+				console.log("请求接口完整路径为：" + url)
+				this.onRequest({
+					url
+				}).then(res => {
+					console.log("返回成功的res所有数据:")
+					console.log(res)
+					console.log(res.data.data)
+					//以下status都必须都等于 1才才算成功
+					if (res.data.status == 1) {
+						this.course_list = res.data.data
+						// console.log(this.course_list)
+
+						// 循环遍历course_list这个数组
+						for (var i = 0; i < this.course_list.length; i++) {
+							//切割course_list中的每一项img
+							this.course_list[i].imgs = this.course_list[i].imgs.split(',')
+
+							if (this.course_list[i].id == this.id) {
+								this.data = this.course_list[i];
+							}
+						}
+
+
+					}
+				})
 			}
 		},
 		components: {
 			Foote
 		},
-
+		computed: {
+			...mapState(['img_http', 'img_end'])
+		}
 	}
 </script>
 <style lang="scss" scoped>
-	
 	.radian {
 		position: fixed;
 		top: 0;
@@ -53,7 +93,7 @@
 		// width: 100%;
 
 		.titile {
-			width: 30vw;
+			width: 50vw;
 			height: 7.2vw;
 			font-size: 4.8vw;
 			font-family: Noto Sans CJK SC;
@@ -97,6 +137,9 @@
 			color: rgba(127, 137, 113, 1);
 			opacity: 1;
 			margin-bottom: 8.53%;
+		}
+		.img_list img{
+			width: 89.55vw;
 		}
 	}
 </style>

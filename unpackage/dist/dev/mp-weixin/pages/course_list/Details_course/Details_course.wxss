@@ -33,7 +33,7 @@
   margin: 8.53% 5% 25% 5%;
 }
 .content .titile.data-v-1cbb92b9 {
-  width: 30vw;
+  width: 50vw;
   height: 7.2vw;
   font-size: 4.8vw;
   font-family: Noto Sans CJK SC;
@@ -73,5 +73,8 @@
   color: #7f8971;
   opacity: 1;
   margin-bottom: 8.53%;
+}
+.content .img_list ._img.data-v-1cbb92b9 {
+  width: 89.55vw;
 }
 

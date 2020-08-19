@@ -4,7 +4,7 @@
 		<div class="course_cont">
 			<p class="titile">WEDOO特色课程一览</p>
 			<!-- 课程列表 -->
-			<div class="course_list" v-for="value in course_list" :key="value">
+			<div class="course_list" v-for="value in course_list" :key="value.id">
 
 				<!-- 多图 -->
 				<!-- 	<div class="co_li_img">
@@ -13,18 +13,19 @@
 					<img :src="value.src3" :mode="mode" class="li_img3" alt="">
 				</div> -->
 
-				<navigator url="./Details_course/Details_course" hover-class="none">
+				<!-- <navigator url="./Details_course/Details_course" hover-class="none"> -->
+				<div @click='selectItem(value)'>
 					<!-- 单独 -->
 					<div class="co_li_img">
-						<img :src="value.src1" :mode="mode" class="li_img1" alt="">
+						<img :src="img_http + value.avatar + img_end" :mode="mode" class="li_img1" alt="">
 					</div>
 
 
 					<div class="grade">
-						<p class="grade_title" v-text="value.grade_title">启蒙班</p>
+						<p class="grade_title" v-text="value.name">启蒙班</p>
 
 						<div class="label">
-							<p class="grade_label" v-text="value.grade_label">7-13岁</p>
+							<p class="grade_label" v-text="value.year">7-13岁</p>
 							<!-- <a url="./Details_course/Details_course" class="read_more_btn"> -->
 							<div class="read_more_btn">
 								<p>READ MORE</p>
@@ -32,12 +33,12 @@
 							</div>
 						</div>
 
-						<p class="total_ntb" v-text="value.total_ntb">
+						<p class="total_ntb" v-text="value.c_desc">
 							只能写两行
 						</p>
 					</div>
-
-				</navigator>
+				</div>
+				<!-- </navigator> -->
 
 			</div>
 		</div>
@@ -50,35 +51,56 @@
 
 <script>
 	import youxniao from "@/components/youxniao"
+	import {
+		mapActions,
+		mapState
+	} from 'vuex'
 	export default {
 		data() {
 			return {
 				mode: 'aspectFill',
-				course_list: [{
-						src1: "https://s1.ax1x.com/2020/08/06/acsE8S.th.jpg",
-						src2: "https://s1.ax1x.com/2020/08/06/acsr8O.jpg",
-						src3: "https://s1.ax1x.com/2020/08/06/acsDPK.jpg",
-						grade_title: "幼儿启蒙班",
-						grade_label: "7-12岁",
-						total_ntb: "自由的创作空间和综合媒材的运用,维护孩子独特的想法和创意."
-					},
-					{
-						src1: "https://s1.ax1x.com/2020/08/06/acsE8S.th.jpg",
-						src2: "https://s1.ax1x.com/2020/08/06/acsr8O.jpg",
-						src3: "https://s1.ax1x.com/2020/08/06/acsDPK.jpg",
-						grade_title: "幼儿启蒙班",
-						grade_label: "7-12岁",
-						total_ntb: `自由的创作空间和综合媒材的运用,维护孩子独特的想法和创意
-						自由的创作空间和综合媒材的运用,维护孩子独特的想法和创意`
-					},
-				]
-			};
+				course_list: []
+			}
+		},
+		// 小程序的生命周期
+		onLoad() {
+			this.getData()
+		},
+		methods: {
+			...mapActions(['onRequest']), //请求模块
+
+			//获取数据
+			getData() {
+				let url = this.$urls.course_list_get;
+				console.log('url:' + url)
+				this.onRequest({
+					url
+				}).then(res => {
+					console.log(res)
+					console.log(res.data.data)
+					//以下status都必须都等于 1才才算成功
+					if (res.data.status == 1) {
+						this.course_list = res.data.data
+					}
+				})
+
+			},
+			//点击事件 根据id跳转到相应的课程详情页
+			selectItem(value) {
+				console.log('id',value.id);
+				 uni.navigateTo({
+					url:`/pages/course_list/Details_course/Details_course?id=${value.id}`
+				 })
+			},
 		},
 		//组件
 		components: {
 			youxniao
 			// footer_btn
 		},
+		computed: {
+			...mapState(['img_http', 'img_end'])
+		}
 	}
 </script>
 
@@ -143,7 +165,7 @@
 
 			// }
 
-			//多图
+			//一图
 			.co_li_img {
 				.li_img1 {
 					width: 89.8vw;

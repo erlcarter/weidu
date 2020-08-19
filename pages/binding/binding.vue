@@ -41,6 +41,7 @@
 			onBind() {
 				let data = this.addressData;
 				console.log(JSON.stringify(data))
+				//判断 用户输入 任何一栏为空 就不往下执行
 				if(!data.name || !data.mobile) {
 					uni.showToast({
 						title:'请输入信息'

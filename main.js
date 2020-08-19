@@ -2,6 +2,9 @@ import Vue from 'vue'
 import App from './App'
 import store from './store/store'
 Vue.prototype.$store = store
+//引入请求库
+import urls from './static/urls.js'
+Vue.prototype.$urls = urls
 
 
 Vue.config.productionTip = false
@@ -20,6 +23,7 @@ Vue.config.productionTip = false
 App.mpType = 'app'
 
 const app = new Vue({
+	store,
 	...App
 })
 app.$mount()

@@ -760,7 +760,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -1737,20 +1737,19 @@ function normalizeComponent (
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/regenerator */ 13));var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ 8));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
-// import urls from '../static/urls'
-// let { addWxuser,create_combo_order,pay_recharge } = urls
+var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ 8));
+var _urls = _interopRequireDefault(__webpack_require__(/*! ../static/urls */ 16));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var
+addWxuser = _urls.default.addWxuser;
 
 _vue.default.use(_vuex.default);var _default =
 
 new _vuex.default.Store({
   state: {
-    img_http: 'http://img.youxiniao.net/',
-    // img_http:'http://img.youxiniao.net/yxn_1586599337975.jpg',
+    img_http: 'http://weiduimg.youxiniao.net/',
     img_end: '?imageView2/0/w/450',
     open_id: null,
     userInfo: null, //微信个人信息
-    info: null,
+    info: uni.getStorageSync('userInfo'),
     body_style: '',
     body2_style: '',
     nav_top: '',
@@ -1805,6 +1804,8 @@ new _vuex.default.Store({
         url: url });
 
     } },
+
+
 
   //异步
   actions: {
@@ -1867,6 +1868,7 @@ new _vuex.default.Store({
                 res.data.data);case 10:case "end":return _context2.stop();}}}, _callee2);}))();
 
     },
+    // 请求模块
     onRequest: function onRequest(_ref4, obj) {var state = _ref4.state;var
       url = obj.url,data = obj.data,method = obj.method;
       return new Promise(function (resolve, reject) {
@@ -1874,35 +1876,37 @@ new _vuex.default.Store({
           url: url,
           data: data,
           method: method ? method : 'POST',
+          //请求头
           header: {
             'content-type': 'application/x-www-form-urlencoded' },
 
           success: function success(res) {
-            // console.log(res)
-            // if(res.data.status != 1){
-            // 	uni.showToast({title:'请检查网络是否正常',icon:'none'})
-            // }
             resolve(res);
           },
           fail: function fail(err) {
             console.log(err);
-            uni.showToast({ title: '请检查网络是否正常', icon: 'none' });
           } });
 
       });
     },
+
     //获取openid和微信个人信息后注册并获取保存到后台的个人信息
     onLogin: function onLogin(_ref5, _ref6) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3() {var state, dispatch, open_id, userInfo, nickname, avatar, sex, city, data, res;return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:state = _ref5.state, dispatch = _ref5.dispatch;open_id = _ref6.open_id, userInfo = _ref6.userInfo;
+                console.log(_urls.default);
+                console.log(addWxuser);
                 uni.showLoading({ title: '加载中' });
                 state.userInfo = userInfo;
                 nickname = userInfo.nickName, avatar = userInfo.avatarUrl, sex = userInfo.gender, city = userInfo.city;
-                data = { open_id: open_id, nickname: nickname, avatar: avatar, sex: sex, city: city };_context3.next = 8;return (
-                  dispatch('onRequest', { url: addWxuser, data: data }));case 8:res = _context3.sent;
-                if (res.data.status == 1) {
-                  console.log('注册后的个人信息:', res.data.data);
-                  state.info = res.data.data;
-                  uni.hideLoading();
-                }case 10:case "end":return _context3.stop();}}}, _callee3);}))();
+                data = { open_id: open_id, nickname: nickname, avatar: avatar, sex: sex, city: city };
+                console.log(data);_context3.next = 11;return (
+                  dispatch('onRequest', { url: addWxuser, data: data }));case 11:res = _context3.sent;
+                console.log(res);if (!(
+                res.data.status == 1)) {_context3.next = 18;break;}
+                state.info = res.data.data;
+                uni.hideLoading();
+                uni.setStorageSync('userInfo', res.data.data);return _context3.abrupt("return",
+                res.data.data);case 18:case "end":return _context3.stop();}}}, _callee3);}))();
+
     },
     getOpenId: function getOpenId(_ref7) {var state = _ref7.state;
       return new Promise(function (resolve) {
@@ -1921,6 +1925,7 @@ new _vuex.default.Store({
 
       });
     },
+
     getUserInfo: function getUserInfo(_ref8) {var state = _ref8.state;
       return new Promise(function (resolve) {
         uni.getUserInfo({
@@ -1936,7 +1941,7 @@ new _vuex.default.Store({
 
 /***/ }),
 
-/***/ 121:
+/***/ 122:
 /*!****************************************************************!*\
   !*** F:/Projects/vue-dome/维度小程序/weidu/static/images/promo.png ***!
   \****************************************************************/
@@ -2006,7 +2011,7 @@ if (hadRuntime) {
 
 /***/ }),
 
-/***/ 144:
+/***/ 145:
 /*!***********************************************************************!*\
   !*** F:/Projects/vue-dome/维度小程序/weidu/static/images/icon/company.png ***!
   \***********************************************************************/
@@ -2746,6 +2751,64 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAABjCAYAAAB5
   })() || Function("return this")()
 );
 
+
+/***/ }),
+
+/***/ 16:
+/*!*******************************************************!*\
+  !*** F:/Projects/vue-dome/维度小程序/weidu/static/urls.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _urls;function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var header = 'https://test.youxiniao.net:44336';
+function url(path) {
+  return header + path;
+}
+var urls = (_urls = {
+  addWxuser: url('/api_user/addWxuser'), //微信的open_id 和基本信息添加 用户,并返回该用户的基本信息
+  index_get: url('/api/index_get'), //获取首页的基本信息（活动列表+店铺列表）
+  course_list_get: url('/api/course_list_get'), //获取课程列表
+  book_apply: url('/api/book_apply'), //申请预约信息
+  book_sift_info_get: url('/api/book_sift_info_get'), //获取预约页面的筛选数据（店铺+加课程）
+  getCourse_list: url('/api/getCourse_list'),
+  getSchool_dorm: url('/api/getSchool_dorm'),
+  getschool_course_table: url('/api/getschool_course_table'),
+  getCompany_deposit: url('/api/getCompany_deposit'),
+  getStroy_list: url('/api/getStroy_list'),
+  getStroy_info: url('/api/getStroy_info'),
+  get_oder_agent: url('/order/get_oder_agent'),
+  get_oder_user: url('/order/get_oder_user'),
+  get_combio_order_info: url('/order/get_combio_order_info'),
+  create_combo_order: url('/order/create_combo_order'),
+  set_combo_order_offlinePay: url('/order/set_combo_order_offlinePay'),
+  getCompany_data: url('/api/getCompany_data') }, _defineProperty(_urls, "get_oder_agent",
+url('/order/get_oder_agent')), _defineProperty(_urls, "pay_recharge",
+url('/order/pay_recharge')), _urls);var _default =
+
+urls;
+
+// import $C from '@/static/config.js'
+// export default{
+// 	function urls(options = {} ){
+// 		options.url = $C.webUrl + options.url
+// 		options.method = options.method || this.common.method
+// 		options.header = options.header || this.common.header
+
+// 		 return uni.request(options);
+// 	}
+// 	function get(url,data = {},options = {}){
+// 		options.url =url
+// 		options.data =data
+// 		options.method = 'POST'
+// 		return this.urls(options)
+// 	}
+
+// }
+
+// onRequest({ url:'',data:{ index:'',count:'' }})
+exports.default = _default;
 
 /***/ }),
 
@@ -8273,7 +8336,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -8294,14 +8357,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -8386,7 +8449,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -8793,7 +8856,7 @@ internalMixin(Vue);
 
 /***/ }),
 
-/***/ 20:
+/***/ 21:
 /*!*********************************************************************!*\
   !*** F:/Projects/vue-dome/维度小程序/weidu/static/images/icon/go_to.png ***!
   \*********************************************************************/
@@ -8804,7 +8867,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAAAkCAYAAAAq
 
 /***/ }),
 
-/***/ 21:
+/***/ 22:
 /*!******************************************************************!*\
   !*** F:/Projects/vue-dome/维度小程序/weidu/static/images/site_le.png ***!
   \******************************************************************/
@@ -8815,7 +8878,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAeAAAAFcCAYAAAAQ
 
 /***/ }),
 
-/***/ 22:
+/***/ 23:
 /*!******************************************************************!*\
   !*** F:/Projects/vue-dome/维度小程序/weidu/static/images/site_ri.png ***!
   \******************************************************************/
@@ -8826,7 +8889,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAeAAAAFcCAYAAAAQ
 
 /***/ }),
 
-/***/ 23:
+/***/ 24:
 /*!**********************************************************************!*\
   !*** F:/Projects/vue-dome/维度小程序/weidu/static/images/icon/click2.png ***!
   \**********************************************************************/
@@ -8868,7 +8931,7 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 32:
+/***/ 33:
 /*!*******************************************************************!*\
   !*** F:/Projects/vue-dome/维度小程序/weidu/static/images/radian_1.png ***!
   \*******************************************************************/
@@ -8890,7 +8953,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABGUAAAA8CAYAAADP
 
 /***/ }),
 
-/***/ 49:
+/***/ 50:
 /*!*******************************************************************!*\
   !*** F:/Projects/vue-dome/维度小程序/weidu/static/images/head_img.png ***!
   \*******************************************************************/
@@ -8901,7 +8964,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJwAAACcCAYAAACK
 
 /***/ }),
 
-/***/ 50:
+/***/ 51:
 /*!*********************************************************************!*\
   !*** F:/Projects/vue-dome/维度小程序/weidu/static/images/icon/wedoo.png ***!
   \*********************************************************************/
@@ -8912,7 +8975,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAABCCAYAAAD+
 
 /***/ }),
 
-/***/ 51:
+/***/ 52:
 /*!************************************************************************!*\
   !*** F:/Projects/vue-dome/维度小程序/weidu/static/images/icon/VIP_icon.png ***!
   \************************************************************************/
@@ -8923,7 +8986,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASAAAABCCAYAAAD3
 
 /***/ }),
 
-/***/ 52:
+/***/ 53:
 /*!******************************************************************!*\
   !*** F:/Projects/vue-dome/维度小程序/weidu/static/images/show_le.png ***!
   \******************************************************************/
@@ -8934,7 +8997,7 @@ module.exports = "/static/images/show_le.png";
 
 /***/ }),
 
-/***/ 53:
+/***/ 54:
 /*!******************************************************************!*\
   !*** F:/Projects/vue-dome/维度小程序/weidu/static/images/show_ri.png ***!
   \******************************************************************/
@@ -8945,7 +9008,7 @@ module.exports = "/static/images/show_ri.png";
 
 /***/ }),
 
-/***/ 54:
+/***/ 55:
 /*!****************************************************************!*\
   !*** F:/Projects/vue-dome/维度小程序/weidu/static/images/refer.png ***!
   \****************************************************************/
@@ -9907,7 +9970,7 @@ var index_esm = {
 
 /***/ }),
 
-/***/ 95:
+/***/ 96:
 /*!*****************************************************************!*\
   !*** F:/Projects/vue-dome/维度小程序/weidu/static/images/string.png ***!
   \*****************************************************************/
@@ -9918,7 +9981,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZIAAABsCAYAAABA
 
 /***/ }),
 
-/***/ 96:
+/***/ 97:
 /*!********************************************************************!*\
   !*** F:/Projects/vue-dome/维度小程序/weidu/static/images/recommend.png ***!
   \********************************************************************/

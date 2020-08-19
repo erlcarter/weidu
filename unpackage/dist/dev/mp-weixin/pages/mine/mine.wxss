@@ -59,7 +59,7 @@
   object-fit: cover;
   margin: 5% 2% 5% 5%;
 }
-.content .whether_log open-data.data-v-dcbcfe34 {
+.content .whether_log ._img.data-v-dcbcfe34 {
   border-radius: 50%;
   border: 1rpx solid #ffffff;
   width: 104rpx;
@@ -80,7 +80,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.content .whether_log .info_btn .open-data.data-v-dcbcfe34 {
+.content .whether_log .info_btn ._span.data-v-dcbcfe34 {
   font-size: 28rpx;
   font-weight: 700;
   color: #7f8971;

@@ -4,7 +4,7 @@
 			<!--内容区域Bedin-->
 			<div class="content">
 				<!--未登录 -->
-				<div class="whether_log" v-if="!userInfo">
+				<div class="whether_log" v-if="!info">
 					<!-- 头像 -->
 					<img :mode="mode" src="../../static/images/head_img.png" alt="">
 					<!-- 用户名|会员 -->
@@ -21,12 +21,12 @@
 				<!-- 已登录-->
 				<div class="whether_log" v-else>
 					<!-- 头像 -->
-					<open-data type='userAvatarUrl'></open-data>
+					<img :src='info.avatar'></img>
 
 					<!-- 用户名|会员 -->
 					<div class="info_btn">
 						<p>
-							<open-data type="userNickName"></open-data>
+							<span v-text="info.username"></span>
 						</p>
 						<img :mode="mode" class="vip_btn" src="../../static/images/icon/VIP_icon.png" alt="">
 
@@ -40,7 +40,7 @@
 				<div class="menu_bnt">
 					<div class="left">
 						<!-- 请求获取登陆信息   data-type="0"或者="1" 判断点击的是课程还是作品展-->
-						<button @getuserinfo='getUserInfo'  open-type="getUserInfo" type="primary" data-type="0" class='login_btn'></button>
+						<button @getuserinfo='getUserInfo' open-type="getUserInfo" type="primary" data-type="0" class='login_btn'></button>
 						<div>
 							<p class="my_menu">我的课程</p>
 							<p class="my_number">共3个</p>
@@ -51,7 +51,7 @@
 					</div>
 
 					<div class="right">
-						<button @getuserinfo='getUserInfo'  open-type="getUserInfo" type="primary" data-type="1" class='login_btn'></button>
+						<button @getuserinfo='getUserInfo' open-type="getUserInfo" type="primary" data-type="1" class='login_btn'></button>
 						<div>
 							<p class="my_menu">我的作品展</p>
 							<p class="my_number">共3个</p>
@@ -61,7 +61,7 @@
 						</div>
 					</div>
 				</div>
-				
+
 				<!--是否需要帮助-->
 				<div class="refer">
 					<button class="service" open-type="contact" bindcontact="handleContact"></button>
@@ -85,29 +85,46 @@
 
 <script>
 	import youxniao from "@/components/youxniao"
+
 	import {
-		mapState
+		mapActions,
+		mapState 
 	} from 'vuex';
 	export default {
 		data() {
 			return {
 				mode: 'aspectFill',
 			};
+
+		},
+		onLoad(){
+			console.log(this.info)
 		},
 		methods: {
+			// getOpenId 获取用户唯一openid
+			//onLogin 用户个人信息
+			...mapActions(['onLogin','getOpenId']), 
+			
 			//授权回调
-			getUserInfo(e){ //e 为点击事件的所有参数
-				console.log(e) 
+			getUserInfo(e) { //e 为点击事件的所有参数  获取用户信息
+				console.log(e)
 				// 这里e.currentTarget.dataset.type;拿到data-type="0"还是1 赋值给type
 				var type = e.currentTarget.dataset.type;
 				console.log(type) //type出来的是data-type为0还是1
-				
+
 				//当用户按了允许按钮
 				if (e.detail.userInfo) {
 					
 					// 当用户按了允许按钮 把信息传给全局this.$store.state.userInfo保存，即所有页面都可获取用户登录信息
 					this.$store.state.userInfo = e.detail.userInfo;
-					
+					//获取openid用户 唯一id
+					this.getOpenId().then(open_id => {
+						
+						this.onLogin({ open_id,userInfo:e.detail.userInfo }).then( res => {
+							console.log('注册成功',res)
+						})
+					})
+
 					// 分区<点击登录><我的课程><我的作品>三个按钮 跳转页面， 因为在3个按钮中 只要<我的课程><我的作品>绑定data-type
 					// 把e.currentTarget.dataset.type赋值给type 然后判断点击的是我的课程还是我的作品
 					if (type) {
@@ -146,7 +163,9 @@
 			}
 		},
 		computed: {
-			...mapState(['userInfo'])
+			//userInfo当前微信获取到的用户信息 
+			//info 后台返回的用户信息
+			...mapState(['userInfo','info']) //微信个人信息
 		},
 		components: {
 			youxniao,
@@ -199,7 +218,7 @@
 			}
 
 			//open-data 已经登录显示的头像
-			open-data {
+			img {
 				// background-color: #a49888;
 				border-radius: 50%;
 				border: 1rpx solid #ffffff;
@@ -228,7 +247,7 @@
 				}
 
 				//已登录名称
-				.open-data {
+				span {
 					font-size: 28rpx;
 					font-weight: 700;
 					color: #7f8971;

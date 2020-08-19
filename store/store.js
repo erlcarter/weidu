@@ -1,18 +1,17 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-// import urls from '../static/urls'
-// let { addWxuser,create_combo_order,pay_recharge } = urls
+import urls from '../static/urls'
+let { addWxuser } = urls
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
 	state:{
-		img_http:'http://img.youxiniao.net/',
-		// img_http:'http://img.youxiniao.net/yxn_1586599337975.jpg',
+		img_http:'http://weiduimg.youxiniao.net/',
 		img_end:'?imageView2/0/w/450',
 		open_id:null,
 		userInfo:null,//微信个人信息
-		info:null,
+		info: uni.getStorageSync('userInfo'),
 		body_style:'',
 		body2_style:'',
 		nav_top:'',
@@ -66,7 +65,9 @@ export default new Vuex.Store({
 			uni.navigateTo({
 			   url,
 			})
-		}
+		},
+	
+	
 	},
 	//异步
 	actions:{
@@ -129,6 +130,7 @@ export default new Vuex.Store({
 				return res.data.data;
 			}
 		},
+		// 请求模块
 		onRequest({ state },obj){
 			let { url,data,method } = obj;
 			return new Promise((resolve,reject) => {
@@ -136,34 +138,36 @@ export default new Vuex.Store({
 					url,
 					data,
 					method:method?method:'POST',
+					//请求头
 					header: {
 					    'content-type': 'application/x-www-form-urlencoded'
 					},
 					success:(res) => {
-						// console.log(res)
-						// if(res.data.status != 1){
-						// 	uni.showToast({title:'请检查网络是否正常',icon:'none'})
-						// }
 						resolve(res)
 					},
 					fail:(err) => {
 						console.log(err)
-						uni.showToast({title:'请检查网络是否正常',icon:'none'})
 					}
 				})
 			})
 		},
+		
 		//获取openid和微信个人信息后注册并获取保存到后台的个人信息
 		async onLogin({ state,dispatch },{ open_id,userInfo }){
+			console.log(urls)
+			console.log(addWxuser)
 			uni.showLoading({ title:'加载中' });
 			state.userInfo = userInfo;
 			let { nickName:nickname,avatarUrl:avatar,gender:sex,city } = userInfo;
 			let data = { open_id,nickname,avatar,sex,city };
+			console.log(data)
 			let res = await dispatch('onRequest',{ url: addWxuser,data });
+			console.log(res)
 			if(res.data.status == 1){
-				console.log('注册后的个人信息:',res.data.data)
 				state.info = res.data.data;
 				uni.hideLoading();
+				uni.setStorageSync('userInfo',res.data.data);
+				return res.data.data;
 			}
 		},
 		getOpenId({ state }){
@@ -183,6 +187,7 @@ export default new Vuex.Store({
 				})
 			})
 		},
+		
 		getUserInfo({ state }){
 			return new Promise(resolve => {
 				uni.getUserInfo({
@@ -193,7 +198,7 @@ export default new Vuex.Store({
 				  }
 				})
 			})
-		}
+		},
 	}
 	
 })
