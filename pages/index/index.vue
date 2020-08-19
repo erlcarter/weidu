@@ -31,7 +31,7 @@
 					</div>
 					<!--店面地址Animation -->
 					<div class="show_btn">
-						<a url="./shop/shop">
+						<a @click="onShop(41)" hover-class="none">
 							<img src="../../static/images/site_le.png" alt="">
 						</a>
 					</div>
@@ -48,8 +48,8 @@
 					</div>
 					<!--店面地址Animation -->
 					<div class="show_btn">
-						<a url="./shop/shop">
-							<img  src="../../static/images/site_ri.png" alt="">
+						<a @click="onShop(40)" hover-class="none">
+							<img src="../../static/images/site_ri.png" alt="">
 						</a>
 					</div>
 
@@ -64,22 +64,22 @@
 		<div class="activity_btn">
 			<p class="activity_tite">最新活动&商业合作案例</p>
 
-			<navigator url='./index_details/index_details' hover-class="none">
-				<div class="activity_list" v-for="value in activity_list" :key="item.acti_title">
-					<!-- 左图 -->
-					<img :src="value.src" :mode="mode" class="acti_lis_left" alt="">
-					<!--右内容-->
-					<div class="acti_lis_right">
-						<p class="ac_lis_ri_tite" v-text="value.acti_title"></p>
-						<p class="ac_lis_ri_date" v-text="value.acti_date"></p>
-						<p class="ac_lis_ri_cont" v-text="value.acti_cont"></p>
-						<div class="read_more_btn">
-							<p>READ MORE</p>
-							<img src="../../static/images/icon/click2.png" alt="">
-						</div>
+			<!-- <navigator :href='`${goodsDetail}${goods.id}`'> -->
+			<div class="activity_list" v-for="value in activity_list" :key="value.id" @click="selectItem(value)">
+				<!-- 左图 -->
+				<img :src="img_http + value.avatar + img_end" :mode="mode" class="acti_lis_left" alt="">
+				<!--右内容-->
+				<div class="acti_lis_right">
+					<p class="ac_lis_ri_tite" v-text="value.name"></p>
+					<p class="ac_lis_ri_date" v-text="value.active_date"></p>
+					<p class="ac_lis_ri_cont" v-text="value.a_desc"></p>
+					<div class="read_more_btn">
+						<p>READ MORE</p>
+						<img src="../../static/images/icon/click2.png" alt="">
 					</div>
 				</div>
-			</navigator>
+			</div>
+			<!-- </navigator> -->
 
 		</div>
 
@@ -95,6 +95,11 @@
 <script>
 	import heada from "@/components/heada"
 	import youxniao from "@/components/youxniao"
+
+	import {
+		mapActions,
+		mapState
+	} from 'vuex'
 	// import footer_btn from "@/components/footer_btn"
 
 	export default {
@@ -108,21 +113,46 @@
 					'          培养孩子们发现美、表现美的能力，以及通过学习艺术养成良好的行为习惯，\n' +
 					'          提升思维能力、审美情趣等综合素质，培养健全人格和个人魅力。',
 
-				activity_list: [{
-					src: 'https://s1.ax1x.com/2020/08/05/asDM1s.md.jpg',
-					acti_title: 'WEDOO夏日创作营招募',
-					acti_date: '7.22-7.31',
-					acti_cont: ` 7 月已开启了，愿上半年所有的遗憾，是下半年惊喜的铺垫，
-					 维度和大家继续努力冲鸭~  `,
-				}, {
-					src: 'https://s1.ax1x.com/2020/08/05/asDM1s.md.jpg',
-					acti_title: 'WEDOO夏日创作营招募',
-					acti_date: '7.22-7.31',
-					acti_cont: ` 7 月已开启了愿上半年所有的遗憾，是下半年惊喜的铺垫，
-					 维度和大家继续努力冲鸭~  `,
-				}],
-
+				activity_list: [],
 			}
+		},
+		// 小程序生命周期
+		onLoad() {
+			this.getData()
+		},
+		methods: {
+			...mapActions(['onRequest']), //请求模块
+		
+			// 获取数据
+			getData() {
+				let url = this.$urls.index_get;
+				console.log(this.$urls.index_get);
+				this.onRequest({
+					url
+				}).then(res => {
+					console.log(res)
+					console.log(res.data.data)
+					//以下status都必须都等于 1才才算成功
+					if (res.data.status == 1) {
+						this.activity_list = res.data.data.active;
+					}
+				})
+
+			},
+			// 最新活动点击事件
+			selectItem(value) {
+				console.log('id',value.id);
+				 uni.navigateTo({
+					url:`/pages/index/index_details/index_details?id=${value.id}`
+				 })
+			},
+			// 店铺地址 固定两家
+			onShop(id) {
+				uni.navigateTo({
+					url: '/pages/index/shop/shop?id=' + id
+				})
+			},
+
 		},
 		// 組件
 		components: {
@@ -130,6 +160,9 @@
 			youxniao
 			// footer_btn
 		},
+		computed: {
+			...mapState(['img_http', 'img_end'])
+		}
 	}
 </script>
 
@@ -138,7 +171,7 @@
 	.indexHead {
 		background-color: #7f8971;
 	}
-	
+
 	// 固定的内容区
 	.fixedly {
 		display: flex;
@@ -248,7 +281,7 @@
 					margin-top: 14%;
 
 
-					overflow: hidden; 
+					overflow: hidden;
 					text-overflow: ellipsis;
 					display: -webkit-box;
 					-webkit-box-orient: vertical;
@@ -300,7 +333,7 @@
 
 			.site_alone {
 				width: 42.67vw;
-				height:24vw;
+				height: 24vw;
 				background: rgba(255, 255, 255, 1);
 				box-shadow: 0vw 1vw 5vw rgba(0, 0, 0, 0.1);
 				opacity: 1;
