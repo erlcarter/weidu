@@ -760,7 +760,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -1749,7 +1749,7 @@ new _vuex.default.Store({
     img_end: '?imageView2/0/w/450',
     open_id: null,
     userInfo: null, //微信个人信息
-    info: uni.getStorageSync('userInfo'),
+    info: uni.getStorageSync('userInfo'), //获取微信缓存个人信息
     body_style: '',
     body2_style: '',
     nav_top: '',
@@ -1884,7 +1884,7 @@ new _vuex.default.Store({
             resolve(res);
           },
           fail: function fail(err) {
-            console.log(err);
+            console.log("失败" + err);
           } });
 
       });
@@ -1908,6 +1908,7 @@ new _vuex.default.Store({
                 res.data.data);case 18:case "end":return _context3.stop();}}}, _callee3);}))();
 
     },
+    // getOpenId 获取用户唯一openid
     getOpenId: function getOpenId(_ref7) {var state = _ref7.state;
       return new Promise(function (resolve) {
         //云开发初始化
@@ -2772,12 +2773,12 @@ var urls = (_urls = {
   course_list_get: url('/api/course_list_get'), //获取课程列表
   book_apply: url('/api/book_apply'), //申请预约信息
   book_sift_info_get: url('/api/book_sift_info_get'), //获取预约页面的筛选数据（店铺+加课程）
-  getCourse_list: url('/api/getCourse_list'),
-  getSchool_dorm: url('/api/getSchool_dorm'),
-  getschool_course_table: url('/api/getschool_course_table'),
-  getCompany_deposit: url('/api/getCompany_deposit'),
-  getStroy_list: url('/api/getStroy_list'),
-  getStroy_info: url('/api/getStroy_info'),
+  good_article_get: url('/api/good_article_get'), //获取优秀作品
+  type_article_info_get: url('/api/type_article_info_get'), //获取对应的 作品 详细信息
+  addWxuser_bind: url('/api_user/addWxuser_bind'), //为已登录的微信用户进行绑定
+  addWxuser_bind_get: url('/api_user/addWxuser_bind_get'), //获取用户已绑定的 用户列表
+  find_user_article: url('/api_user/find_user_article'), //获取用户的作品
+  find_user_course: url('/api_user/find_user_course'), //获取已登录用户的课程列表 
   get_oder_agent: url('/order/get_oder_agent'),
   get_oder_user: url('/order/get_oder_user'),
   get_combio_order_info: url('/order/get_combio_order_info'),
@@ -8336,7 +8337,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -8357,14 +8358,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -8449,7 +8450,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));

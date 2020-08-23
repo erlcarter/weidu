@@ -140,7 +140,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var youxniao = function youxniao() {Promise.all(/*! require.ensure | components/youxniao */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/youxniao")]).then((function () {return resolve(__webpack_require__(/*! @/components/youxniao */ 142));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
 
 
@@ -167,59 +167,103 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+var _vuex = __webpack_require__(/*! vuex */ 8);function _toConsumableArray(arr) {return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();}function _nonIterableSpread() {throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(n);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _iterableToArray(iter) {if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);}function _arrayWithoutHoles(arr) {if (Array.isArray(arr)) return _arrayLikeToArray(arr);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var youxniao = function youxniao() {Promise.all(/*! require.ensure | components/youxniao */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/youxniao")]).then((function () {return resolve(__webpack_require__(/*! @/components/youxniao */ 142));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
 {
   data: function data() {
     return {
-      Por_lis_fall: [{
-        src: "https://s1.ax1x.com/2020/08/06/aR1Hi9.jpg",
-        por_name: "逛超市简笔画",
-        por_author: "张三" },
-
-      {
-        src: "https://s1.ax1x.com/2020/08/06/aR1oa4.jpg",
-        por_name: "逛超市简笔画",
-        por_author: "张三" },
-
-      {
-        src: "https://s1.ax1x.com/2020/08/06/aR1TIJ.jpg",
-        por_name: "逛超市简笔画",
-        por_author: "张三" },
-
-      {
-        src: "https://s1.ax1x.com/2020/08/06/aR1Hi9.jpg",
-        por_name: "逛超市简笔画",
-        por_author: "张三" },
-
-      {
-        src: "https://s1.ax1x.com/2020/08/06/aR1TIJ.jpg",
-        por_name: "逛超市简笔画",
-        por_author: "张三" },
-
-      {
-        src: "https://s1.ax1x.com/2020/08/06/aR1bGR.jpg",
-        por_name: "逛超市简笔画",
-        por_author: "张三" },
-
-      {
-        src: "https://s1.ax1x.com/2020/08/06/aR1Hi9.jpg",
-        por_name: "逛超市简笔画",
-        por_author: "张三" },
-
-      {
-        src: "https://s1.ax1x.com/2020/08/06/aR1TIJ.jpg",
-        por_name: "逛超市简笔画",
-        por_author: "张三" }] };
-
-
-
-
+      index: 0, //当时索引值
+      Por_lis_fall: [],
+      loading: false, //上拉加载
+      nothing: false //上拉没数据时
+    };
 
   },
+  onLoad: function onLoad() {//进来就加载
+    this.getData(this.index);
+  },
+  methods: _objectSpread({},
 
-  methods: {},
+  (0, _vuex.mapActions)(['onRequest']), {
+    //获取数据
+    getData: function getData(index) {var _this = this;
+      this.loading = true;
+      console.log(this.index + "当前的索引值");
+      var url = this.$urls.good_article_get;
+      console.log("完整的url地址" + url);
+      this.onRequest({
+        url: url,
+        data: {
+          index: index } }).
+
+
+      then(function (res) {
+        var data = res.data.data;
+        console.log(res);
+        console.log(res.data.data);
+        //以下status都必须都等于 1才才算成功
+        if (res.data.status == 1) {
+          // this.activity_list = res.data.data.active;
+          setTimeout(function () {
+            if (index == 0) {//一开始进来是  下拉刷新
+              _this.Por_lis_fall = data; //这里的 data = res.data.data;
+              _this.index = data.length; //  data.length赋值index
+              // 停止下拉刷新
+              uni.stopPullDownRefresh();
+            } else {var _this$Por_lis_fall; //上拉加载
+              (_this$Por_lis_fall = _this.Por_lis_fall).push.apply(_this$Por_lis_fall, _toConsumableArray(data)); // Por_lis_fall累积图片的个数
+              _this.index += data.length; // 累积图片的吃长度
+            }
+
+            _this.loading = false;
+            if (data.length < 10) _this.nothing = true;
+          }, 500);
+
+        }
+      });
+    },
+
+    // 下拉刷新
+    refresh: function refresh() {
+      this.getData(0); //index为0  获取最新的数据
+    },
+
+    //点击事件 根据id跳转到相应的课程详情页
+    selectItem: function selectItem(value) {
+      console.log('id', value.article_id);
+      uni.navigateTo({
+        url: "/pages/show/details/details?id=".concat(value.article_id) });
+
+    } }),
+
+
+
+
+  // --------------------------------------------------
+  // 监听下拉刷新
+  onPullDownRefresh: function onPullDownRefresh() {
+    this.refresh();
+
+  },
+  // 监听上拉加载更多
+  onReachBottom: function onReachBottom() {
+    if (!this.nothing) {
+      if (!this.loading) this.getData(this.index); //防止用户多次上拉请求数据
+    }
+  },
 
 
   // 組件
@@ -227,17 +271,9 @@ __webpack_require__.r(__webpack_exports__);
     youxniao: youxniao
     // footer_btn
   },
-  onReachBottom: function onReachBottom() {
-    uni.showToast({
-      title: '123123' });
-
-  },
-  onPullDownRefresh: function onPullDownRefresh() {
-    console.log(2);
-    uni.showToast({
-      title: '233333333333333' });
-
-  } };exports.default = _default;
+  //
+  computed: _objectSpread({},
+  (0, _vuex.mapState)(['img_http', 'img_end'])) };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

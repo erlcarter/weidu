@@ -38,7 +38,10 @@
 </script>
 
 <style lang="scss">
-
+	// 官方页面公共css
+	// @import  "./common/uni.css"; 
+	// 动画库
+	// @import  "./common/animate.min.css";
 	button::after {
 		border: none;
 		outline: 0;
@@ -49,4 +52,6 @@
 		height: 0;
 		color: transparent;
 	}
+	
+	
 </style>

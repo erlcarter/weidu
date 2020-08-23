@@ -11,34 +11,26 @@
 					<div class="fill">
 						<p class="item">微信名</p>
 						<!-- <open-data class="input_btn2" type="userNickName"></open-data> -->
-						<input class="input_btn" type="text" v-model="userInfo.nickName" placeholder="点击填写">
+						<input class="input_btn" type="userNickName" v-model="info.username" placeholder="点击填写">
 					</div>
 
-					<div class="fill">
-						<p class="item">学员姓名</p>
-						<input class="input_btn" type="text" v-model="addressData.name1" placeholder="点击填写">
-					</div>
+					<block v-for="item in data">
+						<div class="fill">
+							<p class="item">学员姓名</p>
+							<input class="input_btn" type="text" v-model="item.student_name" placeholder="点击填写">
+						</div>
 
-					<div class="fill">
-						<p class="item">学员姓名</p>
-						<input class="input_btn" type="text" v-model="addressData.name2" placeholder="点击填写">
-					</div>
+						<div class="fill">
+							<p class="item">手机号码</p>
+							<input class="input_btn" type="text" v-model="item.phone" placeholder="点击填写">
+						</div>
 
-					<div class="fill">
-						<p class="item">学员姓名</p>
-						<input class="input_btn" type="text" v-model="addressData.name3" placeholder="点击填写">
-					</div>
-					<div class="fill">
-						<p class="item">学员姓名</p>
-						<input class="input_btn" type="text" v-model="addressData.name4" placeholder="点击填写">
-					</div>
-					<div class="fill">
-						<p class="item">学员姓名</p>
-						<input class="input_btn" type="text" v-model="addressData.name5" placeholder="点击填写">
-					</div>
+					</block>
 				</from>
 				<p class="hint">
-					·更改学员姓名后,主页关联的课程和作品都会同步更新变化·最多绑定5个学员
+					·更改学员姓名后,主页关联的课程和作品都会同步更新变化
+					<br>
+					·最多绑定5个学员
 				</p>
 			</div>
 			<!-- 提交确定按钮 -->
@@ -54,40 +46,87 @@
 
 <script>
 	import {
+		mapActions,
 		mapState
 	} from 'vuex';
 	export default {
 		data() {
 			return {
-				addressData: {
-					name1: "",
-					name2: "",
-					name3: "",
-					name4: "",
-					name5: "",
-				}
+				data: []
 			};
 		},
 		methods: {
+			...mapActions(['onRequest']), //请求模块 
+
 			// 提交表单
 			confirm() {
-				let data = this.addressData;
+				console.log(this.data)
+
+				let data = this.data;
 				// data.nickName的nickName是自己取的 控制台可显示 因为他是那全局的（userInfo.nickName来默认显示）
-				data.nickName = this.userInfo.nickName;
+				data.username = this.info.username;
 				console.log(JSON.stringify(data))
+				//----------------------------------------
+				let url = this.$urls.addWxuser_bind; //获取完整url地址
+				console.log("完整url地址:" + url)
+				this.onRequest({
+					url,
+					data: {
+						uiid: this.info.uiid, //用户id
+						list: JSON.stringify(this.data)
+					},
+				}).then(res => {
+					console.log(res)
+					if (res.data.status == 1) {
+						uni.navigateBack()
+						// this.data = res.data.data;
+						uni.setStorageSync('userInfo',res.data.data)
+						this.$store.state.info = res.data.data;
+						console.log("获取数组列表数据")
+						console.log(data)
+						uni.showToast({
+							title:'修改成功'
+						})
+					
+					}else{
+						uni.showToast({
+							title:res.data.msg,
+							icon:"none"
+						})
+					}
+				})
+				
+
 			},
+			getData(){
+				let url = this.$urls.addWxuser_bind_get;
+				this.onRequest({
+					url,
+					data: {
+						uiid: this.info.uiid, //用户id
+					},
+				}).then(res => {
+					console.log(res)
+					if (res.data.status == 1) {
+						this.data = res.data.data;
+						console.log(this.data)
+					}
+				})
+			}
 		},
-		computed: {
-			...mapState(['userInfo']) 
-		},
+		//生命周期
 		mounted() {
-			console.log(this.userInfo)
-		}
-	}  
+			console.log(this.info)
+			this.getData();
+		},
+		//计算属性
+		computed: {
+			...mapState(['info'])
+		},
+	}
 </script>
 
 <style lang="scss" scoped>
-	
 	.radian {
 		width: 100%;
 		position: fixed;
@@ -95,7 +134,7 @@
 	}
 
 	.reservation_btn {
-		margin: 8.33% 5% 0% 5%;
+		margin: 8.33% 5% -20% 5%;
 
 
 		.content {
@@ -174,9 +213,10 @@
 
 		.submit {
 			margin: 0% 20%;
+			padding-top: 5%;
 
 			.submit_but {
-				margin-bottom: 5%;
+				margin-bottom: 8%;
 				position: fixed;
 				bottom: 0;
 				width: 53.33vw;

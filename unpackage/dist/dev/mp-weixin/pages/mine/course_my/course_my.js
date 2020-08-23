@@ -147,7 +147,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var cmdProgress = function cmdProgress() {__webpack_require__.e(/*! require.ensure | components/cmd-progress/cmd-progress */ "components/cmd-progress/cmd-progress").then((function () {return resolve(__webpack_require__(/*! @/components/cmd-progress/cmd-progress.vue */ 157));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
 
 
@@ -198,45 +198,68 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
+
+
+
+
+
+
+
+var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var cmdProgress = function cmdProgress() {__webpack_require__.e(/*! require.ensure | components/cmd-progress/cmd-progress */ "components/cmd-progress/cmd-progress").then((function () {return resolve(__webpack_require__(/*! @/components/cmd-progress/cmd-progress.vue */ 157));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
 {
   data: function data() {
     return {
-      single_list: [{
-        head_img: 'https://s1.ax1x.com/2020/08/11/aOMxmD.th.jpg',
-        grade: '幼儿启蒙班',
-        grade_label: "7-13",
-        leave_text: "2/3",
-        stu_name: "迪丽热巴",
-        pro_bar: "8/12",
-        off: 4, //已完成
-        task: 12, //总进度
-        leave_res: 1, //剩余次数
-        leave_sum: 3 //总请假次数
-      },
-      {
-        head_img: 'https://s1.ax1x.com/2020/08/11/aOMxmD.th.jpg',
-        grade: '创意绘画班',
-        grade_label: "7-13",
-        leave_text: "2/3",
-        stu_name: "迪丽巴巴",
-        pro_bar: "8/12",
-        off: 8, //已完成
-        task: 12, //总进度
-        leave_res: 3, //剩余次数
-        leave_sum: 3 //总请假次数
-      }] };
-
+      course_list: [] };
 
   },
-  methods: {},
+  //小程序生命周期
+  onLoad: function onLoad() {//进来就加载
+    this.getData();
+  },
+  //计算属性
+  computed: _objectSpread({},
+  (0, _vuex.mapState)(['info', 'img_http', 'img_end'])),
 
+  methods: _objectSpread({},
+
+  (0, _vuex.mapActions)(['onRequest']), {
+    //获取数据
+    getData: function getData(index) {var _this = this;
+      this.loading = true;
+      var url = this.$urls.find_user_course;
+      console.log("完整的url地址" + url);
+      this.onRequest({
+        url: url,
+        data: {
+          uiid: this.info.uiid //用户id
+        } }).
+
+      then(function (res) {
+        var data = res.data.data;
+        console.log(res);
+
+        console.log(res.data.data);
+        //以下status都必须都等于 1才才算成功
+        if (res.data.status == 1) {
+          _this.course_list = res.data.data;
+        }
+      });
+    },
+    //点击事件 根据id跳转到相应的课程详情页
+    selectItem: function selectItem(value) {
+      console.log('id', value.course_id);
+      uni.navigateTo({
+        url: "/pages/course_list/Details_course/Details_course?id=".concat(value.course_id) });
+
+    } }),
 
   // 组件
   components: {
     cmdProgress: cmdProgress } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

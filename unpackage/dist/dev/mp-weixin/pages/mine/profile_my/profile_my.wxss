@@ -30,7 +30,7 @@
   top: 0;
 }
 .reservation_btn.data-v-31ec992c {
-  margin: 8.33% 5% 0% 5%;
+  margin: 8.33% 5% -20% 5%;
 }
 .reservation_btn .content.data-v-31ec992c {
   margin: 10% 0% 10% 0%;
@@ -85,9 +85,10 @@
 }
 .reservation_btn .submit.data-v-31ec992c {
   margin: 0% 20%;
+  padding-top: 5%;
 }
 .reservation_btn .submit .submit_but.data-v-31ec992c {
-  margin-bottom: 5%;
+  margin-bottom: 8%;
   position: fixed;
   bottom: 0;
   width: 53.33vw;

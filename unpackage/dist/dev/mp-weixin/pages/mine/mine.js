@@ -248,20 +248,57 @@ var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerab
 {
   data: function data() {
     return {
-      mode: 'aspectFill' };
+      mode: 'aspectFill',
+      mine: {} };
 
 
   },
+  // 小程序的生命周期
   onLoad: function onLoad() {
-    console.log(this.info);
+    this.getData();
   },
+  //计算属性
+  computed: _objectSpread({},
+
+
+  (0, _vuex.mapState)(['userInfo', 'info'])),
+
   methods: _objectSpread({},
 
 
-  (0, _vuex.mapActions)(['onLogin', 'getOpenId']), {
+
+  (0, _vuex.mapActions)(['onLogin', 'getOpenId', 'onRequest']), {
+
+    //获取数据
+    getData: function getData() {var _this = this;
+      var url = this.$urls.addWxuser;
+      console.log("完整url地址:" + url);
+      console.log(this.info);
+      this.onRequest({
+        url: url,
+        data: {
+          open_id: this.info.open_id, //微信的获取open_id
+          avatar: this.info.avatar,
+          nickname: this.info.username,
+          sex: this.info.sex,
+          city: this.info.city } }).
+
+      then(function (res) {
+        console.log(res);
+        console.log('======');
+        console.log(res.data.data);
+        //以下status都必须都等于 1才才算成功
+        if (res.data.status == 1) {
+          _this.mine = res.data.data;
+        }
+      });
+
+    },
+
+
 
     //授权回调
-    getUserInfo: function getUserInfo(e) {var _this = this; //e 为点击事件的所有参数  获取用户信息
+    getUserInfo: function getUserInfo(e) {var _this2 = this; //e 为点击事件的所有参数  获取用户信息
       console.log(e);
       // 这里e.currentTarget.dataset.type;拿到data-type="0"还是1 赋值给type
       var type = e.currentTarget.dataset.type;
@@ -275,7 +312,7 @@ var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerab
         //获取openid用户 唯一id
         this.getOpenId().then(function (open_id) {
 
-          _this.onLogin({ open_id: open_id, userInfo: e.detail.userInfo }).then(function (res) {
+          _this2.onLogin({ open_id: open_id, userInfo: e.detail.userInfo }).then(function (res) {
             console.log('注册成功', res);
           });
         });
@@ -317,10 +354,6 @@ var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerab
       }
     } }),
 
-  computed: _objectSpread({},
-
-
-  (0, _vuex.mapState)(['userInfo', 'info'])),
 
   components: {
     youxniao: youxniao } };exports.default = _default;

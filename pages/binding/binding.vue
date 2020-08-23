@@ -28,6 +28,10 @@
 </template>
 
 <script>
+	import {
+		mapActions,
+		mapState
+	} from 'vuex'
 	export default {
 		data() {
 			return {
@@ -37,28 +41,61 @@
 				}
 			};
 		},
+		// 小程序的生命周期  进来就执行
+		onLoad(e) { 
+			
+		},
+		//计算属性
+		computed:{
+			...mapState(['info'])
+		},
 		methods: {
+			...mapActions(['onRequest']), //请求模块
+			
 			onBind() {
 				let data = this.addressData;
 				console.log(JSON.stringify(data))
 				//判断 用户输入 任何一栏为空 就不往下执行
-				if(!data.name || !data.mobile) {
+				if(data.name == '' || data.mobile == '') {
 					uni.showToast({
-						title:'请输入信息'
+						title:'请输入信息',
+						icon:'none'
 					})
 					return;
 				}
-				//uni.setStorageSync(key)设置本地数据缓存
-				uni.setStorageSync('bindding', true);
-				// 弹窗
-				uni.switchTab({
-					url: '/pages/mine/mine',
-					complete: () => {
+				//----------------------
+				let url = this.$urls.addWxuser_bind;  //获取完整url地址
+				console.log("完整url地址:" + url)
+				
+				this.onRequest({
+					url,
+					data: {
+						uiid:this.info.uiid,  //用户id
+						list:JSON.stringify([{student_name:data.name,phone:data.mobile}])
+					},
+				}).then(res => {
+					console.log(res)
+					if(res.data.status == 1){
+						// console.log(res.data.data)
+						//设置本地数据缓存
+						uni.setStorageSync('bindding', true);
+						// 弹窗
+						uni.switchTab({
+							url: '/pages/mine/mine',
+							complete: () => {
+								uni.showToast({
+									title: '绑定成功'
+								})
+							}
+						})
+					}else{
 						uni.showToast({
-							title: '绑定成功'
+							title: res.data.msg,
+							icon:'none'
 						})
 					}
 				})
+			
 			}
 		}
 	}
@@ -133,6 +170,7 @@
 			opacity: 1;
 			margin: 4%;
 			margin-left: 56rpx;
+			
 		}
 
 

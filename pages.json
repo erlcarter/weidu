@@ -74,7 +74,8 @@
         ,{
             "path" : "pages/mine/works_my/works_my",
             "style" : {
-				"navigationBarTitleText": "我的作品展"
+				"navigationBarTitleText": "我的作品展",
+				"enablePullDownRefresh": true
 			}
         }
         ,{

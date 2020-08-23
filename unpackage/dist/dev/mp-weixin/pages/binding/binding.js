@@ -140,36 +140,40 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
+
+
+
 {
   data: function data() {
     return {
@@ -179,29 +183,62 @@ var _default =
 
 
   },
-  methods: {
+  // 小程序的生命周期  进来就执行
+  onLoad: function onLoad(e) {
+
+  },
+  //计算属性
+  computed: _objectSpread({},
+  (0, _vuex.mapState)(['info'])),
+
+  methods: _objectSpread({},
+  (0, _vuex.mapActions)(['onRequest']), { //请求模块
+
     onBind: function onBind() {
       var data = this.addressData;
       console.log(JSON.stringify(data));
       //判断 用户输入 任何一栏为空 就不往下执行
-      if (!data.name || !data.mobile) {
+      if (data.name == '' || data.mobile == '') {
         uni.showToast({
-          title: '请输入信息' });
+          title: '请输入信息',
+          icon: 'none' });
 
         return;
       }
-      //uni.setStorageSync(key)设置本地数据缓存
-      uni.setStorageSync('bindding', true);
-      // 弹窗
-      uni.switchTab({
-        url: '/pages/mine/mine',
-        complete: function complete() {
+      //----------------------
+      var url = this.$urls.addWxuser_bind; //获取完整url地址
+      console.log("完整url地址:" + url);
+
+      this.onRequest({
+        url: url,
+        data: {
+          uiid: this.info.uiid, //用户id
+          list: JSON.stringify([{ student_name: data.name, phone: data.mobile }]) } }).
+
+      then(function (res) {
+        console.log(res);
+        if (res.data.status == 1) {
+          // console.log(res.data.data)
+          //设置本地数据缓存
+          uni.setStorageSync('bindding', true);
+          // 弹窗
+          uni.switchTab({
+            url: '/pages/mine/mine',
+            complete: function complete() {
+              uni.showToast({
+                title: '绑定成功' });
+
+            } });
+
+        } else {
           uni.showToast({
-            title: '绑定成功' });
+            title: res.data.msg,
+            icon: 'none' });
 
-        } });
+        }
+      });
 
-    } } };exports.default = _default;
+    } }) };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

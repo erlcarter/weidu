@@ -130,8 +130,9 @@ var render = function() {
 
   var m1 = __webpack_require__(/*! ../../../static/images/string.png */ 96)
 
-  var m2 = __webpack_require__(/*! ../../../static/images/recommend.png */ 97)
-
+  var m2 = _vm.Rende.is_hot
+    ? __webpack_require__(/*! ../../../static/images/recommend.png */ 97)
+    : null
   _vm.$mp.data = Object.assign(
     {},
     {
@@ -175,103 +176,145 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
+
+
+
 {
   data: function data() {
     return {
       mine: true,
-      ewmImg: "https://s1.ax1x.com/2020/08/10/aHobY4.md.jpg",
-      writer_name: "陈浩南",
-      grade_cla: "三年四班",
-      date_wri: "1999-7-9",
-      quan: 324,
-      titbits: [{
-        ewmImg: "https://s1.ax1x.com/2020/08/10/ab8skd.md.jpg" //这是要保存的图片
-      },
-      {
-        ewmImg: "https://s1.ax1x.com/2020/08/10/aHqPbt.md.jpg" //这是要保存的图片
-      }],
-
+      id: null,
+      Rende: [], //作品信息列表
 
       openSettingBtnHidden: true //是否授权
     };
 
+
   },
-  onLoad: function onLoad(opt) {},
-  components: {},
-  methods: {
+  // 小程序生命周期
+  onLoad: function onLoad(opt) {
+    console.log("show传过来的id为:" + opt.id);
+    this.id = opt.id;
+
+    this.getData();
+  },
+  computed: _objectSpread({},
+  (0, _vuex.mapState)(['info', 'img_http', 'img_end'])),
+
+  methods: _objectSpread({},
+  (0, _vuex.mapActions)(['onRequest']), { //请求模块
+    //获取数据
+    getData: function getData() {var _this = this;
+      console.log('缓存中的用户个人信息');
+      console.log(this.info);
+      var url = this.$urls.type_article_info_get;
+      console.log('完整的后端页面地址url:' + url);
+      this.onRequest({
+        url: url,
+        data: {
+          id: this.id, //获取作品id
+          uiid: this.info.uiid //获取登录用户uiid
+        } }).
+      then(function (res) {
+        // console.log(res)
+        var data = res.data.data;
+        console.log("作品信息"); //作品信息
+        console.log(data); //作品信息
+        //以下status都必须都等于 1才才算成功
+        if (res.data.status == 1) {
+          _this.Rende = data;
+
+          _this.Rende.imgs = _this.Rende.imgs.split(',');
+          console.log(_this.Rende);
+          // 循环遍历Rende这个数组
+          // for (var i = 0; i < this.Rende.length; i++) {
+          // 	//切割Rende中的每一项imgs
+          // 	this.Rende[i].imgs = this.Rende[i].imgs.split(',')
+
+          // 	if (this.Rende[i].id == this.id) {
+          // 		this.data = this.Rende[i];
+          // 	}
+
+          // }
+
+        }
+      });
+    },
+
     downFile: function downFile(url) {
       uni.downloadFile({ //下载文件资源到本地，客户端直接发起一个 HTTP GET 请求，返回文件的本地临时路径。
-        url: url, //图片地址
+        url: this.img_http + url, //图片地址
         success: function success(res) {
           console.log(res);
           if (res.statusCode === 200) {
@@ -308,7 +351,7 @@ var _default =
 
     },
 
-    saveEwm: function saveEwm(e) {var _this = this;
+    saveEwm: function saveEwm(e) {var _this2 = this;
       //获取相册授权
       uni.getSetting({ //获取用户的当前设置。
         success: function success(res) {
@@ -326,26 +369,26 @@ var _default =
               },
               fail: function fail() {//这里是用户拒绝授权后的回调
                 console.log('2222');
-                _this.openSettingBtnHidden = false;
+                _this2.openSettingBtnHidden = false;
               } });
 
           } else {//用户已经授权过了
             console.log('同意了');
-            _this.saveImgToLocal();
+            _this2.saveImgToLocal();
           }
         } });
 
     },
 
-    getSetting: function getSetting() {var _this2 = this;
+    getSetting: function getSetting() {var _this3 = this;
       return new Promise(function (resolve, reject) {
         uni.getSetting({ //获取用户的当前设置。
           success: function success(res) {
             if (!res.authSetting['scope.writePhotosAlbum']) {
-              _this2.openSettingBtnHidden = true;
+              _this3.openSettingBtnHidden = true;
               resolve();
             } else {//用户已经授权过了
-              _this2.saveImgToLocal();
+              _this3.saveImgToLocal();
             }
           } });
 
@@ -353,15 +396,15 @@ var _default =
     },
 
     // 提示是否保存的模态框
-    saveImgToLocal: function saveImgToLocal(e) {var _this3 = this;
+    saveImgToLocal: function saveImgToLocal(e) {var _this4 = this;
       uni.showModal({ //显示消息提示框。
         title: '提示',
         content: '确定保存到相册吗',
         success: function success(res) {
           if (res.confirm) {
-            _this3.downFile(_this3.ewmImg);
-            for (var i = 0; i < _this3.titbits.length; i++) {
-              _this3.downFile(_this3.titbits[i].ewmImg);
+            _this4.downFile(Rende.avatar);
+            for (var i = 0; i < _this4.Rende.imgs.length; i++) {
+              _this4.downFile(_this4.Rende.imgs[i]);
             }
 
 
@@ -371,7 +414,7 @@ var _default =
         } });
 
 
-    } } };exports.default = _default;
+    } }) };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ })

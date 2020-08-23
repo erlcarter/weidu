@@ -140,15 +140,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
-
-
-
-
-
-
-
-
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
 
 
@@ -198,33 +190,81 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
 
 
+
 {
   data: function data() {
     return {
-      addressData: {
-        name1: "",
-        name2: "",
-        name3: "",
-        name4: "",
-        name5: "" } };
-
+      data: [] };
 
   },
-  methods: {
+  methods: _objectSpread({},
+  (0, _vuex.mapActions)(['onRequest']), { //请求模块 
+
     // 提交表单
-    confirm: function confirm() {
-      var data = this.addressData;
+    confirm: function confirm() {var _this = this;
+      console.log(this.data);
+
+      var data = this.data;
       // data.nickName的nickName是自己取的 控制台可显示 因为他是那全局的（userInfo.nickName来默认显示）
-      data.nickName = this.userInfo.nickName;
+      data.username = this.info.username;
       console.log(JSON.stringify(data));
-    } },
+      //----------------------------------------
+      var url = this.$urls.addWxuser_bind; //获取完整url地址
+      console.log("完整url地址:" + url);
+      this.onRequest({
+        url: url,
+        data: {
+          uiid: this.info.uiid, //用户id
+          list: JSON.stringify(this.data) } }).
 
-  computed: _objectSpread({},
-  (0, _vuex.mapState)(['userInfo'])),
+      then(function (res) {
+        console.log(res);
+        if (res.data.status == 1) {
+          uni.navigateBack();
+          // this.data = res.data.data;
+          uni.setStorageSync('userInfo', res.data.data);
+          _this.$store.state.info = res.data.data;
+          console.log("获取数组列表数据");
+          console.log(data);
+          uni.showToast({
+            title: '修改成功' });
 
+
+        } else {
+          uni.showToast({
+            title: res.data.msg,
+            icon: "none" });
+
+        }
+      });
+
+
+    },
+    getData: function getData() {var _this2 = this;
+      var url = this.$urls.addWxuser_bind_get;
+      this.onRequest({
+        url: url,
+        data: {
+          uiid: this.info.uiid //用户id
+        } }).
+      then(function (res) {
+        console.log(res);
+        if (res.data.status == 1) {
+          _this2.data = res.data.data;
+          console.log(_this2.data);
+        }
+      });
+    } }),
+
+  //生命周期
   mounted: function mounted() {
-    console.log(this.userInfo);
-  } };exports.default = _default;
+    console.log(this.info);
+    this.getData();
+  },
+  //计算属性
+  computed: _objectSpread({},
+  (0, _vuex.mapState)(['info'])) };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

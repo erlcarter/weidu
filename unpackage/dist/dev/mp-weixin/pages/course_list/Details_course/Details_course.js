@@ -207,6 +207,7 @@ var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerab
 
             if (_this.course_list[i].id == _this.id) {
               _this.data = _this.course_list[i];
+              console.log(_this.data);
             }
           }
 

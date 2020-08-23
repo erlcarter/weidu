@@ -6,96 +6,134 @@
 			<!-- 作品展示 -->
 			<div class="Portfolio_list">
 				<!-- 列表 渲染 -->
-				<div class="Por_lis_fall" v-for="(value,index) in Por_lis_fall" :key="value">
+				<div class="Por_lis_fall" v-for="(value,index) in Por_lis_fall" :key="value.article_id">
 					<div id="por_sty" class="por_sty">
-						<a url="./details/details" hover-class="none">
-							<img ref="img" mode="widthFix" :src="value.src" alt="">
-						</a>
+						<!-- <a url="./details/details" hover-class="none"> -->
+						<div @click='selectItem(value)'>
+							<img ref="img" mode="widthFix" :src="img_http + value.avatar + img_end" alt="">
+						</div>
+						<!-- </a> -->
 						<div class="por_about">
-							<p class="por_name" v-text="value.por_name">逛超市简笔画.</p>
-							<p class="por_author">©<span v-text="value.por_author">用户名</span></p>
+							<p class="por_name" v-text="value.art_desc">逛超市简笔画.</p>
+							<p class="por_author">©<span v-text="value.student_name">用户名</span></p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<!-- 技术支持 -->
-		<div>
+		<!-- 上拉加载-->
+		<div v-if="loading" class="load_btn">
+			<p>加载中...</p>
+		</div>
+		<div v-if="nothing">
+			<!-- 技术支持 -->
 			<youxniao />
 		</div>
 	</div>
+
 </template>
 
 <script>
 	import youxniao from "@/components/youxniao"
+
+	import {
+		mapActions,
+		mapState
+	} from 'vuex'
 	export default {
 		data() {
 			return {
-				Por_lis_fall: [{
-						src: "https://s1.ax1x.com/2020/08/06/aR1Hi9.jpg",
-						por_name: "逛超市简笔画",
-						por_author: "张三"
-					},
-					{
-						src: "https://s1.ax1x.com/2020/08/06/aR1oa4.jpg",
-						por_name: "逛超市简笔画",
-						por_author: "张三"
-					},
-					{
-						src: "https://s1.ax1x.com/2020/08/06/aR1TIJ.jpg",
-						por_name: "逛超市简笔画",
-						por_author: "张三"
-					},
-					{
-						src: "https://s1.ax1x.com/2020/08/06/aR1Hi9.jpg",
-						por_name: "逛超市简笔画",
-						por_author: "张三"
-					},
-					{
-						src: "https://s1.ax1x.com/2020/08/06/aR1TIJ.jpg",
-						por_name: "逛超市简笔画",
-						por_author: "张三"
-					},
-					{
-						src: "https://s1.ax1x.com/2020/08/06/aR1bGR.jpg",
-						por_name: "逛超市简笔画",
-						por_author: "张三"
-					},
-					{
-						src: "https://s1.ax1x.com/2020/08/06/aR1Hi9.jpg",
-						por_name: "逛超市简笔画",
-						por_author: "张三"
-					},
-					{
-						src: "https://s1.ax1x.com/2020/08/06/aR1TIJ.jpg",
-						por_name: "逛超市简笔画",
-						por_author: "张三"
-					},
+				index: 0, //当时索引值
+				Por_lis_fall: [],
+				loading: false, //上拉加载
+				nothing: false //上拉没数据时
+			}
 
-				],
+		},
+		onLoad() { //进来就加载
+			this.getData(this.index)
+		},
+		methods: {
+			// 请求模块
+			...mapActions(['onRequest']),
+			//获取数据
+			getData(index) {
+				this.loading = true;
+				console.log(this.index + "当前的索引值")
+				let url = this.$urls.good_article_get;
+				console.log("完整的url地址" + url);
+				this.onRequest({
+					url,
+					data: {
+						index
+					}
 
+				}).then(res => {
+					let data = res.data.data;
+					console.log(res)
+					console.log(res.data.data)
+					//以下status都必须都等于 1才才算成功
+					if (res.data.status == 1) {
+						// this.activity_list = res.data.data.active;
+						setTimeout(() => {
+							if (index == 0) { //一开始进来是  下拉刷新
+								this.Por_lis_fall = data; //这里的 data = res.data.data;
+								this.index = data.length; //  data.length赋值index
+								// 停止下拉刷新
+								uni.stopPullDownRefresh()
+							} else { //上拉加载
+								this.Por_lis_fall.push(...data); // Por_lis_fall累积图片的个数
+								this.index += data.length; // 累积图片的吃长度
+							}
+
+							this.loading = false;
+							if (data.length < 10) this.nothing = true;
+						}, 500)
+
+					}
+				})
+			},
+
+			// 下拉刷新
+			refresh() {
+				this.getData(0); //index为0  获取最新的数据
+			},
+			
+			//点击事件 根据id跳转到相应的课程详情页
+			selectItem(value) {
+				console.log('id',value.article_id);
+				 uni.navigateTo({
+					url:`/pages/show/details/details?id=${value.article_id}`
+				 })
+			},
+			
+		},
+
+
+		// --------------------------------------------------
+		// 监听下拉刷新
+		onPullDownRefresh() {
+			this.refresh();
+
+		},
+		// 监听上拉加载更多
+		onReachBottom() {
+			if (!this.nothing) {
+				if (!this.loading) this.getData(this.index); //防止用户多次上拉请求数据
 			}
 		},
 
-		methods: {
-
-		},
+		
 		// 組件
 		components: {
 			youxniao
 			// footer_btn
 		},
-		onReachBottom(){
-			uni.showToast({
-				title:'123123'
-			})
-		},
-		onPullDownRefresh(){
-			console.log(2)
-			uni.showToast({
-				title:'233333333333333'
-			})
+		//
+		computed: {
+			...mapState(['img_http', 'img_end'])
 		}
+
 	}
 </script>
 
@@ -133,6 +171,7 @@
 
 		.Por_lis_fall {
 			break-inside: avoid;
+			// break-inside: auto;
 			width: 100%;
 
 			.por_sty {
@@ -182,6 +221,17 @@
 
 		}
 
+	}
 
+	.load_btn {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 30rpx 0rpx;
+
+		p {
+			font-size: 24rpx;
+			color: #AAAAAA;
+		}
 	}
 </style>

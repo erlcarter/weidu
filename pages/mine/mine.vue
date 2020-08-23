@@ -21,7 +21,7 @@
 				<!-- 已登录-->
 				<div class="whether_log" v-else>
 					<!-- 头像 -->
-					<img :src='info.avatar'></img>
+					<img :src='info.avatar'  ></img>
 
 					<!-- 用户名|会员 -->
 					<div class="info_btn">
@@ -43,7 +43,7 @@
 						<button @getuserinfo='getUserInfo' open-type="getUserInfo" type="primary" data-type="0" class='login_btn'></button>
 						<div>
 							<p class="my_menu">我的课程</p>
-							<p class="my_number">共3个</p>
+							<p class="my_number">共<span>{{mine.course_num}}</span>个</p>
 						</div>
 						<div class="show_btn">
 							<img src="../../static/images/show_le.png" alt="">
@@ -54,7 +54,7 @@
 						<button @getuserinfo='getUserInfo' open-type="getUserInfo" type="primary" data-type="1" class='login_btn'></button>
 						<div>
 							<p class="my_menu">我的作品展</p>
-							<p class="my_number">共3个</p>
+							<p class="my_number">共{{mine.article_num}}个</p>
 						</div>
 						<div class="show_btn">
 							<img :mode="mode" src="../../static/images/show_ri.png" alt="">
@@ -94,16 +94,53 @@
 		data() {
 			return {
 				mode: 'aspectFill',
+				mine:{},
 			};
 
 		},
+		// 小程序的生命周期
 		onLoad(){
-			console.log(this.info)
+			this.getData()
+		},
+		//计算属性
+		computed: {
+			//userInfo当前微信获取到的用户信息 
+			//info 后台返回的用户信息
+			...mapState(['userInfo','info']) //微信个人信息
 		},
 		methods: {
+			
 			// getOpenId 获取用户唯一openid
 			//onLogin 用户个人信息
-			...mapActions(['onLogin','getOpenId']), 
+			...mapActions(['onLogin','getOpenId','onRequest']), 
+			
+			//获取数据
+			getData() {
+				let url = this.$urls.addWxuser;
+				console.log("完整url地址:" + url)
+				console.log(this.info);
+				this.onRequest({
+					url,
+					data:{
+						open_id:this.info.open_id,//微信的获取open_id
+						avatar:this.info.avatar,
+						nickname:this.info.username,
+						sex:this.info.sex,
+						city:this.info.city
+					},
+				}).then(res => {
+					console.log(res)
+					console.log('======')
+					console.log(res.data.data)
+					//以下status都必须都等于 1才才算成功
+					if (res.data.status == 1) {
+						this.mine = res.data.data
+					}
+				})
+			
+			},
+			
+			
 			
 			//授权回调
 			getUserInfo(e) { //e 为点击事件的所有参数  获取用户信息
@@ -162,11 +199,7 @@
 				}
 			}
 		},
-		computed: {
-			//userInfo当前微信获取到的用户信息 
-			//info 后台返回的用户信息
-			...mapState(['userInfo','info']) //微信个人信息
-		},
+		
 		components: {
 			youxniao,
 		},

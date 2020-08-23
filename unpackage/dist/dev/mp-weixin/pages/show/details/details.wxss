@@ -83,7 +83,6 @@
 .details_btn .img_bnt .publicity.data-v-de701248 {
   margin-top: 5%;
   padding: 7% 5%;
-  height: 280rpx;
   background: #f8f8f8;
   opacity: 1;
   text-align: left;

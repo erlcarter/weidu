@@ -4,7 +4,7 @@
 		<div class="content">
 			<p class="titile" v-text="data.name">幼儿班</p>
 			<div class="age">
-				<p>适合年龄: <span v-text="data.year">7-13</span>岁</p>
+				<p>适合年龄: <span v-text="data.year">7-13</span></p>
 			</div>
 			<p class="text" v-text="data.c_desc">
 				集合思维、想象、多感体验、情感表达为一体，
@@ -65,6 +65,7 @@
 
 							if (this.course_list[i].id == this.id) {
 								this.data = this.course_list[i];
+								console.log(this.data)
 							}
 						}
 
