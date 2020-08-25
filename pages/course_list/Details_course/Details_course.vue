@@ -10,7 +10,7 @@
 				集合思维、想象、多感体验、情感表达为一体，
 			</p>
 			<div v-for='value in data.imgs' class="img_list">
-				<img mode="widthFix" :src="img_http + value+ img_end" alt=""/>
+				<img mode="widthFix" :src="img_http + value+ img_end" alt="" />
 			</div>
 		</div>
 
@@ -94,13 +94,10 @@
 		// width: 100%;
 
 		.titile {
-			width: 50vw;
-			height: 7.2vw;
-			font-size: 4.8vw;
-			font-family: Noto Sans CJK SC;
-			font-weight: bold;
-			line-height: 7.2vw;
-			color: rgba(127, 137, 113, 1);
+			font-size: 32rpx;
+			font-weight: 700;
+			color: #7f8971;
+
 			opacity: 1;
 			//限制文本在一行中只能输入多长的文字：超出省略
 			overflow: hidden; //隐藏
@@ -114,7 +111,8 @@
 			background: rgba(164, 152, 136, 1);
 			opacity: 1;
 			border-radius: 1vw;
-			margin: 3% 0% 5% 0%;
+			// margin: 3% 0% 5% 0%;
+			margin: 8rpx 0 32rpx 0;
 
 			p {
 				text-align: center;
@@ -125,7 +123,7 @@
 				line-height: 4.6vw;
 				color: rgba(255, 255, 255, 1);
 				opacity: 1;
-				 letter-spacing: 1rpx; 
+				letter-spacing: 1rpx;
 			}
 		}
 
@@ -140,7 +138,8 @@
 			opacity: 1;
 			margin-bottom: 64rpx;
 		}
-		.img_list img{
+
+		.img_list img {
 			display: block;
 			width: 89.55vw;
 		}

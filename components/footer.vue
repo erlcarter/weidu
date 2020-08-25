@@ -53,19 +53,25 @@
 			height: 96rpx;
 			 line-height: 96rpx;
 			overflow: hidden;
-			color: #7f8971;
+			color:#FFFFFF;
 			button{
 				width: 318rpx;
 				height: 96rpx;
 				text-align: center;
+				background-color:#FFFFFF;
+				
 				p {
 					text-align: center;
 					line-height: 96rpx;
 					font-size: 28rpx;
 					font-weight: 600;
 					letter-spacing: 1.4rpx;
+					background-color:#FFFFFF ;
+					color: #7f8971;
 					
-					
+					display: flex;
+					justify-content: center;
+					align-items: center;
 				}
 			}
 		
@@ -86,6 +92,10 @@
 				font-weight: 600;
 				letter-spacing: 1.4rpx;
 				color: #ffffff;
+				
+				display: flex;
+				justify-content: center;
+				align-items: center;
 
 			}
 		}

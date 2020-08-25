@@ -33,12 +33,8 @@
   margin: 8.53% 5% 25% 5%;
 }
 .content .titile.data-v-1cbb92b9 {
-  width: 50vw;
-  height: 7.2vw;
-  font-size: 4.8vw;
-  font-family: Noto Sans CJK SC;
-  font-weight: bold;
-  line-height: 7.2vw;
+  font-size: 32rpx;
+  font-weight: 700;
   color: #7f8971;
   opacity: 1;
   overflow: hidden;
@@ -49,7 +45,7 @@
   background: #a49888;
   opacity: 1;
   border-radius: 1vw;
-  margin: 3% 0% 5% 0%;
+  margin: 8rpx 0 32rpx 0;
 }
 .content .age ._p.data-v-1cbb92b9 {
   text-align: center;

@@ -2,7 +2,7 @@
 	<div class="course_index" style="overflow-x:hidden;">
 		<img mode="widthFix" class="radian" src="../../static/images/radian_1.png" alt="">
 		<div class="course_cont">
-			<p class="titile">WEDOO特色课程一览</p>
+			<p class="titile">特色课程一览</p>
 			<p class="titile_s">LIST OF FEATURED COURSES</p>
 			<!-- 课程列表 -->
 			<div class="course_list" v-for="value in course_list" :key="value.id">
@@ -124,7 +124,7 @@
 			color: #7f8971;
 		}
 		.titile_s {
-			padding: 8rpx 0 0 0;
+			padding: 8rpx 0 64rpx 0;
 			font-size: 12px;
 			font-weight: 300;
 			color: #7f8971;
@@ -138,7 +138,9 @@
 			width: 90%;
 			height: 484rpx;
 			// overflow: hidden;
-			margin: 5% 0%;
+			// margin: 5% 0%;
+			margin: 0 0 5% 0;
+
 
 
 			// 多图

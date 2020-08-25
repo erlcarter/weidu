@@ -56,5 +56,6 @@
   height: 90vw;
   width: 90vw;
   object-fit: cover;
+  border-radius: 20rpx;
 }
 

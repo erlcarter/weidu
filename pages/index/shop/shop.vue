@@ -10,8 +10,7 @@
 			</div>
 
 			<div class='posi'>
-				<img mode="widhFix"  :src="img_http + address.avatar + img_end" alt="">
-				<!-- <img mode="widhFix" :src="address.avatar?address.avatar:(id == 41?src1:src2)" alt=""> -->
+				<img mode="widhFix"  :src="show_img(address.avatar)" alt="">
 			</div>
 		</div>
 
@@ -33,23 +32,25 @@
 			return {
 				address: null,
 				id: null,
-				// shop: [],
-				// shopname: '维度艺术空间·黄沙店',
-				// time: "周一休息，周二至周日正常上课",
-				// phone: "12312312312",
-				// address: "荔湾区从桂林123号通宝大厦903（西城都荟对面，地铁黄沙站C出口",
-				
-				// src1: "/static/images/posi.png",
-				// src2: "/static/images/posi.png",
+		
 			}
 		},
 		onLoad(options) {
-			console.log(options)
+			console.log(options) 
 			this.id = options.id;
 			this.getData()
 		},
 		methods: {
 			...mapActions(['onRequest']), //请求模块
+			
+			show_img(avatar){
+				if(avatar == null || avatar == ""  ){
+					return  "/static/images/default_img.png"
+				}else{
+					return  this.img_http+avatar+this.img_end
+				}
+				
+			},
 
 
 			// 获取数据
@@ -121,6 +122,7 @@
 			height: 90vw;
 			width: 90vw;
 			object-fit: cover;
+			border-radius: 20rpx;
 		}
 	}
 </style>

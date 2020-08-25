@@ -171,7 +171,8 @@
 		margin: 8.53% 5% 0% 5%;
 
 		.text1 {
-			font-size: 4.8vw;
+			font-size: 32rpx;
+			// font-size: 32rpx;
 			font-family: Noto Sans CJK SC;
 			font-weight: bold;
 			line-height: 7.2vw;
@@ -198,7 +199,7 @@
 		}
 
 		.content {
-			margin: 8.53% 0% 10% 0%;
+			margin: 64rpx 0% 10% 0%;
 
 			.fill {
 				width: 89.33vw;
@@ -268,14 +269,16 @@
 				background: rgba(127, 137, 113, 1);
 				opacity: 1;
 				border-radius: 3vw;
-
-			}
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			} 
 
 			p {
 				margin: 8% 0;
 				text-align: center;
 				// width:20vw;
-				height: 5.33vw;
+				height:28rpx;
 				font-size: 3.73vw;
 				font-family: Noto Sans CJK SC;
 				font-weight: bold;
@@ -283,6 +286,11 @@
 				color: rgba(255, 255, 255, 1);
 				letter-spacing: 100rpxpx;
 				opacity: 1;
+				
+				
+				display: flex;
+				justify-content: center;
+				align-items: center;
 			}
 
 		}

@@ -34,13 +34,13 @@
   width: 100%;
 }
 .Portfolio .titile.data-v-2023fb26 {
-  padding: 8.33% 0% 0% 5%;
+  padding: 8.33% 0% 0% 6%;
   font-size: 32rpx;
   font-weight: 700;
   color: #7f8971;
 }
 .Portfolio .titile_s.data-v-2023fb26 {
-  padding: 8rpx 0 0 5%;
+  margin: 8rpx 0 32rpx 6%;
   font-size: 12px;
   font-weight: 300;
   color: #7f8971;

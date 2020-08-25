@@ -2,7 +2,7 @@
 	<div class="coures">
 		<img mode="widthFix" class="radian" src="../../../static/images/radian_1.png" alt="">
 		<div class="content">
-			<p>MY WEODOO课程</p>
+			<p>我的课程</p>
 
 			<div class="coures_list" v-for="(value,index) in course_list" :key="value.student_id">
 				<!-- <navigator url="../../course_list/Details_course/Details_course" hover-class="none"> -->
@@ -134,6 +134,7 @@
 		// width:29.2vw;
 		height: 7.2vw;
 		font-size: 4.8vw;
+		// font-size: 32rpx;
 		font-family: Noto Sans CJK SC;
 		font-weight: bold;
 		line-height: 7.2vw;

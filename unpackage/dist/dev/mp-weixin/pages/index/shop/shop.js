@@ -99,11 +99,13 @@ var render = function() {
   var _c = _vm._self._c || _h
   var m0 = __webpack_require__(/*! @/static/images/radian_1.png */ 33)
 
+  var m1 = _vm.show_img(_vm.address.avatar)
   _vm.$mp.data = Object.assign(
     {},
     {
       $root: {
-        m0: m0
+        m0: m0,
+        m1: m1
       }
     }
   )
@@ -164,7 +166,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
-
 var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var Foote = function Foote() {__webpack_require__.e(/*! require.ensure | components/footer */ "components/footer").then((function () {return resolve(__webpack_require__(/*! @/components/footer */ 150));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
@@ -174,16 +175,9 @@ var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerab
   data: function data() {
     return {
       address: null,
-      id: null
-      // shop: [],
-      // shopname: '维度艺术空间·黄沙店',
-      // time: "周一休息，周二至周日正常上课",
-      // phone: "12312312312",
-      // address: "荔湾区从桂林123号通宝大厦903（西城都荟对面，地铁黄沙站C出口",
+      id: null };
 
-      // src1: "/static/images/posi.png",
-      // src2: "/static/images/posi.png",
-    };
+
   },
   onLoad: function onLoad(options) {
     console.log(options);
@@ -192,6 +186,15 @@ var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerab
   },
   methods: _objectSpread({},
   (0, _vuex.mapActions)(['onRequest']), { //请求模块
+
+    show_img: function show_img(avatar) {
+      if (avatar == null || avatar == "") {
+        return "/static/images/default_img.png";
+      } else {
+        return this.img_http + avatar + this.img_end;
+      }
+
+    },
 
 
     // 获取数据

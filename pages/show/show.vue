@@ -2,7 +2,7 @@
 	<div class="show_index" style="overflow-x:hidden;">
 		<img mode="widthFix" class="radian" src="../../static/images/radian_1.png" alt="">
 		<scroll-view class="Portfolio">
-			<p class="titile">WEDOO星榜作品</p>
+			<p class="titile">星榜作品</p>
 			<p class="titile_s">STAR WORKS LIST</p>
 			<!-- 作品展示 -->
 
@@ -196,13 +196,13 @@
 
 		//课程列表--标题
 		.titile {
-			padding: 8.33% 0% 0% 5%;
+			padding: 8.33% 0% 0% 6%;
 			font-size: 32rpx;
 			font-weight: 700;
 			color: #7f8971;
 		} 
 		.titile_s {
-			padding: 8rpx 0 0 5%;
+			margin: 8rpx 0 32rpx 6%;
 			font-size: 12px;
 			font-weight: 300;
 			color: #7f8971;

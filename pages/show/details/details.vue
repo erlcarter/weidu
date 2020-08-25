@@ -288,10 +288,10 @@
 					position: relative;
 					z-index: 2;
 					// border: 1px solid #b8c4b6;
-					background-color: #000000;
+					background-color: #FFFFFF;
 					width: 528rpx;
 					// height: 598rpx;
-					margin: 9% 8%;
+					padding: 10% 8%;
 					// object-fit: cover;
 				}
 

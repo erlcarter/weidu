@@ -40,7 +40,7 @@
   color: #7f8971;
 }
 .course_cont .titile_s.data-v-b4a4f5e8 {
-  padding: 8rpx 0 0 0;
+  padding: 8rpx 0 64rpx 0;
   font-size: 12px;
   font-weight: 300;
   color: #7f8971;
@@ -51,7 +51,7 @@
   box-shadow: 0vw 1vw 5vw rgba(0, 0, 0, 0.1);
   width: 90%;
   height: 484rpx;
-  margin: 5% 0%;
+  margin: 0 0 5% 0;
 }
 .course_cont .course_list .co_li_img .li_img1.data-v-b4a4f5e8 {
   width: 89.8vw;

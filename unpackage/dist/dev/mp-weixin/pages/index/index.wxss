@@ -62,13 +62,12 @@
 .activity_btn.data-v-57280228 {
   -webkit-transform: translateY(-20rpx);
           transform: translateY(-20rpx);
-  margin: 10% 6% 0% 6%;
+  margin: 64rpx 6% 0% 6%;
 }
 .activity_btn .activity_tite.data-v-57280228 {
   font-size: 32rpx;
   font-weight: 700;
   color: #7f8971;
-  margin-left: 10rpx;
 }
 .activity_btn .activity_list.data-v-57280228 {
   background-color: #ffffff;
@@ -105,14 +104,14 @@
   -webkit-line-clamp: 2;
 }
 .activity_btn .activity_list .acti_lis_right .ac_lis_ri_date.data-v-57280228 {
-  margin: 8% 0;
+  margin: 8rpx 0rpx 8% 0rpx;
   background-color: #a49888;
   border-radius: 6rpx;
-  width: 124rpx;
+  width: 126rpx;
   height: 32rpx;
   line-height: 32rpx;
   text-align: center;
-  font-size: 18rpx;
+  font-size: 20rpx;
   font-weight: bold;
   color: #ffffff;
   overflow: hidden;
@@ -154,15 +153,14 @@
           transform: translateX(2rpx);
 }
 .site_btn.data-v-57280228 {
-  margin: 7% 6%;
+  margin: 64rpx 6% 0% 6%;
   -webkit-transform: translate(0rpx, -50rpx);
           transform: translate(0rpx, -50rpx);
 }
 .site_btn .titile.data-v-57280228 {
-  font-size: 36rpx;
+  font-size: 32rpx;
   font-weight: 700;
   color: #7f8971;
-  margin-left: 10rpx;
 }
 .site_btn .site_collect.data-v-57280228 {
   display: -webkit-box;
@@ -178,13 +176,13 @@
   border-radius: 3vw;
   margin-top: 60rpx;
   overflow: hidden;
-  padding: 5% 0 0 3%;
+  padding: 32rpx 0 0 32rpx;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
 }
 .site_btn .site_collect .site_alone .site_tite .shop.data-v-57280228 {
-  font-size: 26rpx;
+  font-size: 28rpx;
   font-weight: 700;
   color: #7f8971;
   width: 100rpx;
@@ -193,7 +191,6 @@
   white-space: wrap;
 }
 .site_btn .site_collect .site_alone .site_tite .shop_site.data-v-57280228 {
-  padding-top: 1%;
   font-size: 22rpx;
   color: #b8c4b6;
   font-weight: 300;
@@ -220,7 +217,7 @@
   object-fit: cover;
 }
 .titile_s.data-v-57280228 {
-  padding: 8rpx 0 0 10rpx;
+  padding: 8rpx 0 0 0rpx;
   font-size: 12px;
   font-weight: 300;
   color: #7f8971;

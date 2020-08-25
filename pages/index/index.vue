@@ -202,13 +202,13 @@
 	// 最新活动与首页案例
 	.activity_btn {
 		transform: translateY(-20rpx);
-		margin: 10% 6% 0% 6%;
+		margin: 64rpx 6% 0% 6%;
 
 		.activity_tite {
 			font-size: 32rpx;
 			font-weight: 700;
 			color: #7f8971;
-			margin-left: 10rpx;
+			// margin-left
 		}
 
 		.activity_list {
@@ -252,14 +252,15 @@
 				}
 
 				.ac_lis_ri_date {
-					margin: 8% 0;
+					// margin: 8% 0;
+					margin: 8rpx 0rpx 8% 0rpx;
 					background-color: #a49888;
 					border-radius: 6rpx;
-					width: 124rpx;
+					width: 126rpx;
 					height: 32rpx;
 					line-height: 32rpx;
 					text-align: center;
-					font-size: 18rpx;
+					font-size: 20rpx;
 					// font-weight: 700;
 					font-weight: bold;
 					color: #ffffff;
@@ -319,14 +320,14 @@
 	//店铺地址
 	
 	.site_btn {
-		margin: 7% 6%;
+		margin: 64rpx 6% 0% 6%;
 		transform: translate(0rpx, -50rpx);
 
 		.titile {
-			font-size: 36rpx;
+			font-size: 32rpx;
 			font-weight: 700;
 			color: #7f8971;
-			margin-left: 10rpx;
+			// margin-left: 10rpx;
 		}
 	
 
@@ -342,12 +343,12 @@
 				border-radius: 3vw;
 				margin-top: 60rpx;
 				overflow: hidden;
-				padding: 5% 0 0 3%;
+				padding: 32rpx 0 0 32rpx;
 				display: flex;
 
 				.site_tite {
 					.shop {
-						font-size: 26rpx;
+						font-size: 28rpx;
 						font-weight: 700;
 						color: #7f8971;
 						width: 100rpx;
@@ -357,7 +358,7 @@
 					}
 
 					.shop_site {
-						padding-top: 1%;
+						// padding-top: 1%;
 						font-size: 22rpx;
 						color: #b8c4b6;
 						font-weight: 300;
@@ -396,7 +397,7 @@
 		}
 	}
 	.titile_s{
-		padding: 8rpx 0 0 10rpx;
+		padding: 8rpx 0 0 0rpx;
 		font-size: 12px;
 		font-weight: 300;
 		color: #7f8971;

@@ -509,7 +509,7 @@
 
 				p {
 					margin-top: 10%;
-					font-size: 36rpx;
+					font-size: 32rpx;
 					font-weight: 700;
 					color: #7f8971;
 					z-index: 6;

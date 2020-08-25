@@ -33,7 +33,7 @@
   margin: 8.53% 5% 0% 5%;
 }
 .reservation_btn .text1.data-v-53b51f20 {
-  font-size: 4.8vw;
+  font-size: 32rpx;
   font-family: Noto Sans CJK SC;
   font-weight: bold;
   line-height: 7.2vw;
@@ -57,7 +57,7 @@
   -webkit-line-clamp: 2;
 }
 .reservation_btn .content.data-v-53b51f20 {
-  margin: 8.53% 0% 10% 0%;
+  margin: 64rpx 0% 10% 0%;
 }
 .reservation_btn .content .fill.data-v-53b51f20 {
   width: 89.33vw;
@@ -116,11 +116,20 @@
   background: #7f8971;
   opacity: 1;
   border-radius: 3vw;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
 }
 .reservation_btn .submit ._p.data-v-53b51f20 {
   margin: 8% 0;
   text-align: center;
-  height: 5.33vw;
+  height: 28rpx;
   font-size: 3.73vw;
   font-family: Noto Sans CJK SC;
   font-weight: bold;
@@ -128,5 +137,14 @@
   color: white;
   letter-spacing: 100rpxpx;
   opacity: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
 }
 

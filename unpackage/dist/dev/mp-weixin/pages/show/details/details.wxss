@@ -60,9 +60,9 @@
 .details_btn .img_bnt .frame .middle.data-v-de701248 {
   position: relative;
   z-index: 2;
-  background-color: #000000;
+  background-color: #FFFFFF;
   width: 528rpx;
-  margin: 9% 8%;
+  padding: 10% 8%;
 }
 .details_btn .img_bnt .frame .border_top.data-v-de701248 {
   position: absolute;
