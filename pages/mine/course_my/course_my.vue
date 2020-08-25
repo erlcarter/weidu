@@ -22,7 +22,7 @@
 							<p class="text">学生名：<span v-text="value.student_name">卢本伟</span></p>
 							<div>
 								<p class="text" style="padding-bottom: 0rpx;">课程进度：<span v-text="value.setion_current+'/'+value.setion_total">8/8</span></p>
-								<cmd-progress :percent="value.off/value.task*100" :show-info="false" stroke-color="#7f8971" :stroke-width="3"></cmd-progress>
+								<cmd-progress :percent="value.setion_current/value.setion_total*100" :show-info="false" stroke-color="#7f8971" :stroke-width="3"></cmd-progress>
 							</div>
 							<div>
 								<p class="text">剩余请假次数：<span v-text="value.setion_current +'/' +value.absent_total">1/3</span></p>

@@ -30,20 +30,19 @@
   width: 100%;
 }
 .course_cont.data-v-b4a4f5e8 {
-  padding: 8.53% 5% 0 5%;
+  margin: 8.53% 5% 0 5%;
   background-color: #ffffff;
   width: 100%;
 }
 .course_cont .titile.data-v-b4a4f5e8 {
-  width: 56.93vw;
-  height: 7.2vw;
-  font-size: 4.2vw;
-  font-family: Noto Sans CJK SC;
-  font-weight: bold;
-  line-height: 7.2vw;
-  opacity: 1;
   font-size: 32rpx;
   font-weight: 700;
+  color: #7f8971;
+}
+.course_cont .titile_s.data-v-b4a4f5e8 {
+  padding: 8rpx 0 0 0;
+  font-size: 12px;
+  font-weight: 300;
   color: #7f8971;
 }
 .course_cont .course_list.data-v-b4a4f5e8 {
@@ -86,7 +85,6 @@
 .course_cont .course_list .grade .label .grade_label.data-v-b4a4f5e8 {
   background-color: #a49888;
   border-radius: 6rpx;
-  width: 94rpx;
   height: 32rpx;
   line-height: 32rpx;
   overflow: hidden;
@@ -95,6 +93,7 @@
   color: #ffffff;
   text-align: center;
   font-weight: bold;
+  padding: 0 16rpx;
 }
 .course_cont .course_list .grade .label .read_more_btn.data-v-b4a4f5e8 {
   display: -webkit-box;

@@ -180,7 +180,7 @@
 		}
 
 		.prompt {
-			width: 81.87vw;
+			width: 83.87vw;
 			height: 4.8vw;
 			font-size: 3.2vw;
 			font-family: Noto Sans CJK SC;
@@ -188,7 +188,7 @@
 			line-height: 4.8vw;
 			color: rgba(127, 137, 113, 1);
 			opacity: 1;
-			margin-top: 2%;
+			margin-top: 8rpx;
 
 			overflow: hidden;
 			text-overflow: ellipsis;
@@ -256,21 +256,19 @@
 			display: flex;
 			// justify-content: center;
 			align-items: center;
-			// transform: translate(0rpx, -63rpx);
 			position: fixed;
-			bottom: 6%;
+			bottom: 60rpx;
 			background: Transparent;
 
 			.submit_but {
-				// margin-bottom: 60rpx;
-				// padding: 3% 20% 50rpx 20%;
+	
 
-				width: 53.33vw;
-				height: 13.33vw;
+				width: 400rpx;
+				height: 100rpx;
 				background: rgba(127, 137, 113, 1);
 				opacity: 1;
 				border-radius: 3vw;
-				height: 13.33vw;
+
 			}
 
 			p {

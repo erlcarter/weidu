@@ -78,7 +78,9 @@
 					if(res.data.status == 1){
 						// console.log(res.data.data)
 						//设置本地数据缓存
-						uni.setStorageSync('bindding', true);
+						uni.setStorageSync('userInfo',res.data.data)
+						this.$store.state.info = res.data.data;
+						
 						// 弹窗
 						uni.switchTab({
 							url: '/pages/mine/mine',

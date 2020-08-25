@@ -133,12 +133,12 @@
   background-color: #FFFFFF;
   width: 40rpx;
   height: 50rpx;
+  background-repeat: no-repeat;
   line-height: 40rpx;
-  margin-top: 7%;
-  margin-bottom: 7%;
-  margin-right: 4%;
+  margin-top: 9%;
+  margin-right: 1%;
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABHNCSVQICAgIfAhkiAAAAYtJREFUaEPtmLFOAzEMhu2Via69k3ruCBOvAwPwBMCblDcoC7wOEx0jJMRaJkaC7sRQweniO9sxJ6VLhybO//2/00RBmPkHZ64fCoB3giWBkoDQgdJCrYFhH47bb1rQh9DQ0dPFCYS3sEGEm3ZljLBZ1XQ3WoVgggggvIctRrg8XB8BtquKrgWaRk2dDNC2DX7Cvm+1nBAmAF07ZUpiMkC3eQ/63ysJEUAH0bMPcu4JMYA3hAqAJ4QagBeEKoAHhDpAbggTAA4EIDw2S7oYdez2DDYDYEEAvDQVnUogTAE4EDHCM9V0NhXCHIAD8XUUm/Vi/ToFogCkXEtdNf51CyXFA+yoopOUCUO/m7UQQ/wTVXQuEf9zbZeW+Ds/KR7hgZZ0pbGyegI5xasnkFu8KoCHeDUAL/EqAJ7ixQDe4kUAQ+9CbeGo+FdpcpANAeQSL0qgu2X2vAvlFC8G+A0RI9xTTbcaJyy3hspJPOvnda5TVuNUErASx6lbADguWY4pCVi6y6ldEuC4ZDnmG9D9zzE2yBlVAAAAAElFTkSuQmCC);
-  background-size: cover;
+  background-size: 46rpx;
   position: relative;
 }
 .content .whether_log .my_data.data-v-dcbcfe34:active {
@@ -153,11 +153,12 @@
   background-size: cover;
 }
 .content .whether_log .go_profile.data-v-dcbcfe34 {
-  width: 80rpx;
-  height: 160rpx;
   position: absolute;
-  right: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
   background: transparent;
+  z-index: 10;
 }
 .content .menu_bnt.data-v-dcbcfe34 {
   width: 670rpx;

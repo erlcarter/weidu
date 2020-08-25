@@ -11,7 +11,7 @@ export default new Vuex.Store({
 		img_end:'?imageView2/0/w/450',
 		open_id:null,
 		userInfo:null,//微信个人信息
-		info: uni.getStorageSync('userInfo'),  //获取微信缓存个人信息
+		info: uni.getStorageSync('userInfo'),  //后台返回的个人信息
 		body_style:'',
 		body2_style:'',
 		nav_top:'',

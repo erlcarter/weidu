@@ -108,9 +108,9 @@
 		}
 
 		.age {
-			width: 28vw;
-			height: 4.27vw;
-			line-height: 4.27vw;
+			width: 24vw;
+			// height: 4.27vw;
+			// line-height: 4.27vw;
 			background: rgba(164, 152, 136, 1);
 			opacity: 1;
 			border-radius: 1vw;
@@ -118,28 +118,30 @@
 
 			p {
 				text-align: center;
-				height: 4vw;
-				font-size: 2.6vw;
+				height: 4.6vw;
+				font-size: 2.8vw;
 				font-family: Noto Sans CJK SC;
 				font-weight: bold;
-				line-height: 4vw;
+				line-height: 4.6vw;
 				color: rgba(255, 255, 255, 1);
 				opacity: 1;
+				 letter-spacing: 1rpx; 
 			}
 		}
 
 		.text {
 			width: 89.33vw;
-			height: 19.47vw;
+			// height: 19.47vw;
 			font-size: 3.2vw;
 			font-family: Noto Sans CJK SC;
 			font-weight: 300;
 			line-height: 4.8vw;
 			color: rgba(127, 137, 113, 1);
 			opacity: 1;
-			margin-bottom: 8.53%;
+			margin-bottom: 64rpx;
 		}
 		.img_list img{
+			display: block;
 			width: 89.55vw;
 		}
 	}

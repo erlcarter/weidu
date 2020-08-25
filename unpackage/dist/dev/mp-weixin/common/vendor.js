@@ -760,7 +760,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -1171,11 +1171,11 @@ function handleEvent(event) {var _this = this;
           eventArray[1],
           eventArray[2],
           isCustom,
-          methodName) ||
-          [];
+          methodName);
+
           // 参数尾部增加原始事件对象用于复杂表达式内获取额外数据
           // eslint-disable-next-line no-sparse-arrays
-          ret.push(handler.apply(handlerCtx, params.concat([,,,,,,,,,, event])));
+          ret.push(handler.apply(handlerCtx, (Array.isArray(params) ? params : []).concat([,,,,,,,,,, event])));
         }
       });
     }
@@ -1729,9 +1729,9 @@ function normalizeComponent (
 /***/ }),
 
 /***/ 12:
-/*!*******************************************************!*\
-  !*** F:/Projects/vue-dome/维度小程序/weidu/store/store.js ***!
-  \*******************************************************/
+/*!***************************************************!*\
+  !*** F:/Projects/Work/维度小程序/weidu/store/store.js ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1749,7 +1749,7 @@ new _vuex.default.Store({
     img_end: '?imageView2/0/w/450',
     open_id: null,
     userInfo: null, //微信个人信息
-    info: uni.getStorageSync('userInfo'), //获取微信缓存个人信息
+    info: uni.getStorageSync('userInfo'), //后台返回的个人信息
     body_style: '',
     body2_style: '',
     nav_top: '',
@@ -1943,9 +1943,9 @@ new _vuex.default.Store({
 /***/ }),
 
 /***/ 122:
-/*!****************************************************************!*\
-  !*** F:/Projects/vue-dome/维度小程序/weidu/static/images/promo.png ***!
-  \****************************************************************/
+/*!************************************************************!*\
+  !*** F:/Projects/Work/维度小程序/weidu/static/images/promo.png ***!
+  \************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -2013,9 +2013,9 @@ if (hadRuntime) {
 /***/ }),
 
 /***/ 145:
-/*!***********************************************************************!*\
-  !*** F:/Projects/vue-dome/维度小程序/weidu/static/images/icon/company.png ***!
-  \***********************************************************************/
+/*!*******************************************************************!*\
+  !*** F:/Projects/Work/维度小程序/weidu/static/images/icon/company.png ***!
+  \*******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -2756,9 +2756,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAABjCAYAAAB5
 /***/ }),
 
 /***/ 16:
-/*!*******************************************************!*\
-  !*** F:/Projects/vue-dome/维度小程序/weidu/static/urls.js ***!
-  \*******************************************************/
+/*!***************************************************!*\
+  !*** F:/Projects/Work/维度小程序/weidu/static/urls.js ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8337,7 +8337,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -8358,14 +8358,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -8450,7 +8450,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -8858,9 +8858,9 @@ internalMixin(Vue);
 /***/ }),
 
 /***/ 21:
-/*!*********************************************************************!*\
-  !*** F:/Projects/vue-dome/维度小程序/weidu/static/images/icon/go_to.png ***!
-  \*********************************************************************/
+/*!*****************************************************************!*\
+  !*** F:/Projects/Work/维度小程序/weidu/static/images/icon/go_to.png ***!
+  \*****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -8869,9 +8869,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAAAkCAYAAAAq
 /***/ }),
 
 /***/ 22:
-/*!******************************************************************!*\
-  !*** F:/Projects/vue-dome/维度小程序/weidu/static/images/site_le.png ***!
-  \******************************************************************/
+/*!**************************************************************!*\
+  !*** F:/Projects/Work/维度小程序/weidu/static/images/site_le.png ***!
+  \**************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -8880,9 +8880,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAeAAAAFcCAYAAAAQ
 /***/ }),
 
 /***/ 23:
-/*!******************************************************************!*\
-  !*** F:/Projects/vue-dome/维度小程序/weidu/static/images/site_ri.png ***!
-  \******************************************************************/
+/*!**************************************************************!*\
+  !*** F:/Projects/Work/维度小程序/weidu/static/images/site_ri.png ***!
+  \**************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -8891,9 +8891,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAeAAAAFcCAYAAAAQ
 /***/ }),
 
 /***/ 24:
-/*!**********************************************************************!*\
-  !*** F:/Projects/vue-dome/维度小程序/weidu/static/images/icon/click2.png ***!
-  \**********************************************************************/
+/*!******************************************************************!*\
+  !*** F:/Projects/Work/维度小程序/weidu/static/images/icon/click2.png ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -8933,9 +8933,9 @@ module.exports = g;
 /***/ }),
 
 /***/ 33:
-/*!*******************************************************************!*\
-  !*** F:/Projects/vue-dome/维度小程序/weidu/static/images/radian_1.png ***!
-  \*******************************************************************/
+/*!***************************************************************!*\
+  !*** F:/Projects/Work/维度小程序/weidu/static/images/radian_1.png ***!
+  \***************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -8944,9 +8944,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABGUAAAA8CAYAAADP
 /***/ }),
 
 /***/ 4:
-/*!***************************************************!*\
-  !*** F:/Projects/vue-dome/维度小程序/weidu/pages.json ***!
-  \***************************************************/
+/*!***********************************************!*\
+  !*** F:/Projects/Work/维度小程序/weidu/pages.json ***!
+  \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -8955,9 +8955,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABGUAAAA8CAYAAADP
 /***/ }),
 
 /***/ 50:
-/*!*******************************************************************!*\
-  !*** F:/Projects/vue-dome/维度小程序/weidu/static/images/head_img.png ***!
-  \*******************************************************************/
+/*!***************************************************************!*\
+  !*** F:/Projects/Work/维度小程序/weidu/static/images/head_img.png ***!
+  \***************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -8966,9 +8966,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJwAAACcCAYAAACK
 /***/ }),
 
 /***/ 51:
-/*!*********************************************************************!*\
-  !*** F:/Projects/vue-dome/维度小程序/weidu/static/images/icon/wedoo.png ***!
-  \*********************************************************************/
+/*!*****************************************************************!*\
+  !*** F:/Projects/Work/维度小程序/weidu/static/images/icon/wedoo.png ***!
+  \*****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -8977,9 +8977,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAABCCAYAAAD+
 /***/ }),
 
 /***/ 52:
-/*!************************************************************************!*\
-  !*** F:/Projects/vue-dome/维度小程序/weidu/static/images/icon/VIP_icon.png ***!
-  \************************************************************************/
+/*!********************************************************************!*\
+  !*** F:/Projects/Work/维度小程序/weidu/static/images/icon/VIP_icon.png ***!
+  \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -8988,9 +8988,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASAAAABCCAYAAAD3
 /***/ }),
 
 /***/ 53:
-/*!******************************************************************!*\
-  !*** F:/Projects/vue-dome/维度小程序/weidu/static/images/show_le.png ***!
-  \******************************************************************/
+/*!**************************************************************!*\
+  !*** F:/Projects/Work/维度小程序/weidu/static/images/show_le.png ***!
+  \**************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -8999,9 +8999,9 @@ module.exports = "/static/images/show_le.png";
 /***/ }),
 
 /***/ 54:
-/*!******************************************************************!*\
-  !*** F:/Projects/vue-dome/维度小程序/weidu/static/images/show_ri.png ***!
-  \******************************************************************/
+/*!**************************************************************!*\
+  !*** F:/Projects/Work/维度小程序/weidu/static/images/show_ri.png ***!
+  \**************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -9010,9 +9010,9 @@ module.exports = "/static/images/show_ri.png";
 /***/ }),
 
 /***/ 55:
-/*!****************************************************************!*\
-  !*** F:/Projects/vue-dome/维度小程序/weidu/static/images/refer.png ***!
-  \****************************************************************/
+/*!************************************************************!*\
+  !*** F:/Projects/Work/维度小程序/weidu/static/images/refer.png ***!
+  \************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -9972,9 +9972,9 @@ var index_esm = {
 /***/ }),
 
 /***/ 96:
-/*!*****************************************************************!*\
-  !*** F:/Projects/vue-dome/维度小程序/weidu/static/images/string.png ***!
-  \*****************************************************************/
+/*!*************************************************************!*\
+  !*** F:/Projects/Work/维度小程序/weidu/static/images/string.png ***!
+  \*************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -9983,9 +9983,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZIAAABsCAYAAABA
 /***/ }),
 
 /***/ 97:
-/*!********************************************************************!*\
-  !*** F:/Projects/vue-dome/维度小程序/weidu/static/images/recommend.png ***!
-  \********************************************************************/
+/*!****************************************************************!*\
+  !*** F:/Projects/Work/维度小程序/weidu/static/images/recommend.png ***!
+  \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 

@@ -17,7 +17,8 @@
 
 		<!--店面地址 -->
 		<div class="site_btn">
-			<p>店面地址</p>
+			<p class="titile">店面地址</p>
+			<p class="titile_s">STORE ADDRESS</span></p>
 			<!-- 位置地址 -->
 			<div class="site_collect">
 				<!--个体-->
@@ -63,6 +64,7 @@
 		<!-- 最新活动与首页案例 -->
 		<div class="activity_btn">
 			<p class="activity_tite">最新活动&商业合作案例</p>
+			<p class="titile_s">LATEST ACTIVITIES & COMMERCIAL COOPERATION</span></p>
 
 			<!-- <navigator :href='`${goodsDetail}${goods.id}`'> -->
 			<div class="activity_list" v-for="value in activity_list" :key="value.id" @click="selectItem(value)">
@@ -106,12 +108,7 @@
 		data() {
 			return {
 				mode: 'aspectFill',
-				banenr_text: '系统维度艺术一直致力于幼儿、青少年艺术教育传播，\n' +
-					'          以及系统的美术课程研发和创新。开设课程分为少儿成长阶梯课程、\n' +
-					'          少儿专业特色课程、少儿艺术托管课程。将艺术审美、绘画兴趣、\n' +
-					'          内心感悟三者融入课堂教学，秉持“实现艺术美的生活化”为核心理念，\n' +
-					'          培养孩子们发现美、表现美的能力，以及通过学习艺术养成良好的行为习惯，\n' +
-					'          提升思维能力、审美情趣等综合素质，培养健全人格和个人魅力。',
+				banenr_text: `\xa0\xa0\xa0\xa0\xa0系统维度艺术一直致力于幼儿、青少年艺术教育传播和美术课程研发及创新。维度课程将艺术审美、绘画兴趣、内心感悟三者融入课堂教学，通过各种不同的绘画形式和方式，让孩子们在创作的过程中探索出属于自己的表达方式，真诚地表达自己。全程小班教学，注重孩子们观察能力的培养和创造力的开发，鼓励个性化的发展。`,
 
 				activity_list: [],
 			}
@@ -122,7 +119,7 @@
 		},
 		methods: {
 			...mapActions(['onRequest']), //请求模块
-		
+
 			// 获取数据
 			getData() {
 				let url = this.$urls.index_get;
@@ -141,10 +138,10 @@
 			},
 			// 最新活动点击事件
 			selectItem(value) {
-				console.log('id',value.id);
-				 uni.navigateTo({
-					url:`/pages/index/index_details/index_details?id=${value.id}`
-				 })
+				console.log('id', value.id);
+				uni.navigateTo({
+					url: `/pages/index/index_details/index_details?id=${value.id}`
+				})
 			},
 			// 店铺地址 固定两家
 			onShop(id) {
@@ -211,7 +208,6 @@
 			font-size: 32rpx;
 			font-weight: 700;
 			color: #7f8971;
-			margin-bottom: 6%;
 			margin-left: 10rpx;
 		}
 
@@ -222,14 +218,14 @@
 			width: 100%;
 			height: 448rpx;
 			// overflow: hidden;
-			margin-bottom: 5%;
+			margin-top: 6%;
 			display: flex;
 
 			.acti_lis_left {
 				border-top-left-radius: 20rpx;
 				border-bottom-left-radius: 20rpx;
 				// border-radius: 20rpx;
-				border: 2px solid #e0e5df;
+				// border: 2px solid #e0e5df;
 				width: 375rpx;
 				height: 446rpx;
 				// object-fit: cover;
@@ -239,6 +235,7 @@
 				width: 318rpx;
 				height: 446rpx;
 				padding: 5% 5% 0% 5%;
+				position: relative;
 
 				.ac_lis_ri_tite {
 					font-size: 28rpx;
@@ -290,7 +287,10 @@
 
 				.read_more_btn {
 					display: flex;
-					margin: 15% 0% 7% 38%;
+					// margin: 0 0 32rpx 38%;
+					position: absolute;
+					bottom: 64rpx; //16
+					left: 38%;
 
 					p {
 						white-space: nowrap; //不换行
@@ -317,16 +317,18 @@
 	}
 
 	//店铺地址
+	
 	.site_btn {
 		margin: 7% 6%;
 		transform: translate(0rpx, -50rpx);
 
-		p {
+		.titile {
 			font-size: 36rpx;
 			font-weight: 700;
 			color: #7f8971;
 			margin-left: 10rpx;
 		}
+	
 
 		.site_collect {
 			display: flex;
@@ -392,5 +394,11 @@
 
 			}
 		}
+	}
+	.titile_s{
+		padding: 8rpx 0 0 10rpx;
+		font-size: 12px;
+		font-weight: 300;
+		color: #7f8971;
 	}
 </style>

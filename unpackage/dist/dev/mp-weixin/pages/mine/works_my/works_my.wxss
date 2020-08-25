@@ -34,17 +34,18 @@
   width: 100%;
 }
 .Portfolio .titile.data-v-7682f2cc {
-  padding: 8.33% 0% 2% 5%;
+  margin: 8.33% 0% 0% 5%;
   font-size: 32rpx;
   font-weight: 700;
   color: #7f8971;
 }
 .Portfolio .Portfolio_list.data-v-7682f2cc {
-  margin: 2% 5% 5% 5%;
-  width: 90%;
+  display: inline-block;
+  vertical-align: top;
+  width: 43%;
   /* 规定的列数，设置5列 */
-  -webkit-column-count: 2;
-          column-count: 2;
+  -webkit-column-count: 1;
+          column-count: 1;
   /* 规定的间隔距离 */
   -webkit-column-gap: 3%;
           column-gap: 3%;
@@ -55,17 +56,17 @@
   width: 100%;
 }
 .Portfolio .Por_lis_fall .por_sty.data-v-7682f2cc {
-  padding-bottom: 8%;
   width: 100%;
   height: auto;
-  position: relative;
 }
 .Portfolio .Por_lis_fall .por_img.data-v-7682f2cc {
+  margin-top: 32rpx;
   width: 100%;
   height: auto;
+  border-radius: 20rpx;
   min-height: 200rpx;
   background: #F1F1F1;
-  border-radius: 20rpx;
+  box-shadow: 0vw 6rpx 40rpx rgba(0, 0, 0, 0.1);
 }
 .Portfolio .Por_lis_fall .promo.data-v-7682f2cc {
   background-color: #ffffff;
@@ -82,9 +83,10 @@
   padding-left: 7%;
 }
 .Portfolio .Por_lis_fall .por_about .por_name.data-v-7682f2cc {
-  padding-top: 4%;
+  padding-top: 16rpx;
   font-weight: 700;
   color: #7f8971;
+  font-size: 28rpx;
   width: 260rpx;
   overflow: hidden;
   white-space: nowrap;

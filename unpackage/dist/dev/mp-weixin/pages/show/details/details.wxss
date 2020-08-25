@@ -128,9 +128,9 @@
   margin: 10% 0% 6% 0%;
 }
 .details_btn .mine ._img.data-v-de701248 {
+  display: block;
   width: 89.33vw;
   height: 80.8vw;
-  padding-bottom: 3%;
   object-fit: cover;
 }
 .details_btn ._phone.data-v-de701248 {

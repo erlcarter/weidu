@@ -22,7 +22,7 @@
 
 						<div class="fill">
 							<p class="item">手机号码</p>
-							<input class="input_btn" type="text" v-model="item.phone" placeholder="点击填写">
+							<input class="input_btn" type="number"  v-model="item.phone" placeholder="点击填写">
 						</div>
 
 					</block>
@@ -30,7 +30,7 @@
 				<p class="hint">
 					·更改学员姓名后,主页关联的课程和作品都会同步更新变化
 					<br>
-					·最多绑定5个学员
+					·最多绑定3个学员
 				</p>
 			</div>
 			<!-- 提交确定按钮 -->
@@ -78,20 +78,21 @@
 				}).then(res => {
 					console.log(res)
 					if (res.data.status == 1) {
-						uni.navigateBack()
+						uni.navigateBack()//返回上一层
 						// this.data = res.data.data;
 						uni.setStorageSync('userInfo',res.data.data)
 						this.$store.state.info = res.data.data;
 						console.log("获取数组列表数据")
 						console.log(data)
 						uni.showToast({
-							title:'修改成功'
+							title:'修改成功',
+							icon:"none",
 						})
 					
 					}else{
 						uni.showToast({
 							title:res.data.msg,
-							icon:"none"
+							icon:"none",
 						})
 					}
 				})

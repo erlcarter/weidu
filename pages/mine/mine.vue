@@ -21,7 +21,7 @@
 				<!-- 已登录-->
 				<div class="whether_log" v-else>
 					<!-- 头像 -->
-					<img :src='info.avatar'  ></img>
+					<img :src='info.avatar'></img>
 
 					<!-- 用户名|会员 -->
 					<div class="info_btn">
@@ -43,7 +43,10 @@
 						<button @getuserinfo='getUserInfo' open-type="getUserInfo" type="primary" data-type="0" class='login_btn'></button>
 						<div>
 							<p class="my_menu">我的课程</p>
-							<p class="my_number">共<span>{{mine.course_num}}</span>个</p>
+							<p class="my_number">
+								<span  v-if="!info">请先登录</span>
+								<span v-else>共{{info.course_num}}个</span>
+							</p>
 						</div>
 						<div class="show_btn">
 							<img src="../../static/images/show_le.png" alt="">
@@ -54,13 +57,16 @@
 						<button @getuserinfo='getUserInfo' open-type="getUserInfo" type="primary" data-type="1" class='login_btn'></button>
 						<div>
 							<p class="my_menu">我的作品展</p>
-							<p class="my_number">共{{mine.article_num}}个</p>
+							<p class="my_number">
+								<span  v-if="!info">请先登录</span>
+								<span v-else>共{{info.article_num}}个</span>
+							</p>
 						</div>
 						<div class="show_btn">
 							<img :mode="mode" src="../../static/images/show_ri.png" alt="">
 						</div>
 					</div>
-				</div>
+				</div> 
 
 				<!--是否需要帮助-->
 				<div class="refer">
@@ -88,60 +94,63 @@
 
 	import {
 		mapActions,
-		mapState 
+		mapState
 	} from 'vuex';
 	export default {
 		data() {
 			return {
 				mode: 'aspectFill',
-				mine:{},
 			};
 
 		},
 		// 小程序的生命周期
-		onLoad(){
-			this.getData()
+		onLoad() {
+	
 		},
 		//计算属性
 		computed: {
 			//userInfo当前微信获取到的用户信息 
 			//info 后台返回的用户信息
-			...mapState(['userInfo','info']) //微信个人信息
+			...mapState(['userInfo', 'info']) //微信个人信息
 		},
 		methods: {
-			
+
 			// getOpenId 获取用户唯一openid
 			//onLogin 用户个人信息
-			...mapActions(['onLogin','getOpenId','onRequest']), 
+			...mapActions(['onLogin', 'getOpenId', 'onRequest']),
 			
-			//获取数据
-			getData() {
-				let url = this.$urls.addWxuser;
-				console.log("完整url地址:" + url)
-				console.log(this.info);
-				this.onRequest({
+			//我的课程和我的作品 ，判断是否有绑定用户，没有的话跳到绑定信息页面
+			async getBind(type){    //定义一个返回 AsyncFunction 对象的异步函数
+				let url = this.$urls.addWxuser_bind_get;
+				console.log(this.info.uiid)
+				let res = await this.onRequest({
 					url,
-					data:{
-						open_id:this.info.open_id,//微信的获取open_id
-						avatar:this.info.avatar,
-						nickname:this.info.username,
-						sex:this.info.sex,
-						city:this.info.city
+					data: {
+						uiid: this.info.uiid, //用户id
 					},
-				}).then(res => {
-					console.log(res)
-					console.log('======')
-					console.log(res.data.data)
-					//以下status都必须都等于 1才才算成功
-					if (res.data.status == 1) {
-						this.mine = res.data.data
+				});
+				if(res.data.status == 1){
+					let data = res.data.data;
+					for (var i = 0;i < data.length; i++){
+						if(data[i].student_name != ''){
+							var _url = '';
+							if (type == 0) _url = 'course_my/course_my';
+							else if (type == 1) _url = 'works_my/works_my';
+							uni.navigateTo({
+								url: '/pages/mine/' + _url
+							})
+							return;
+						}
 					}
-				})
-			
+					
+					
+					uni.navigateTo({
+						url: '/pages/binding/binding'
+					})
+				}
 			},
-			
-			
-			
+
+
 			//授权回调
 			getUserInfo(e) { //e 为点击事件的所有参数  获取用户信息
 				console.log(e)
@@ -151,55 +160,44 @@
 
 				//当用户按了允许按钮
 				if (e.detail.userInfo) {
-					
+
 					// 当用户按了允许按钮 把信息传给全局this.$store.state.userInfo保存，即所有页面都可获取用户登录信息
 					this.$store.state.userInfo = e.detail.userInfo;
-					//获取openid用户 唯一id
-					this.getOpenId().then(open_id => {
+					//没有用户，说明还没登录
+					if(!this.info){
+						//获取openid用户 唯一id
+						this.getOpenId().then(open_id => {
 						
-						this.onLogin({ open_id,userInfo:e.detail.userInfo }).then( res => {
-							console.log('注册成功',res)
+							this.onLogin({
+								open_id,
+								userInfo: e.detail.userInfo
+							}).then(res => {
+								console.log('注册成功', res)
+								//点击的是下面两个
+								if(type){
+									this.getBind(type);
+								}							
+							})
 						})
-					})
-
-					// 分区<点击登录><我的课程><我的作品>三个按钮 跳转页面， 因为在3个按钮中 只要<我的课程><我的作品>绑定data-type
-					// 把e.currentTarget.dataset.type赋值给type 然后判断点击的是我的课程还是我的作品
-					if (type) {
-						//uni.getStorageSync(key)从本地缓存中同步获取指定 key 对应的内容。,结合bingding绑定页面 setStorageSync一起使用
-						let bind = uni.getStorageSync('bindding');
-						console.log(!bind)
-						if (!bind) {
-							uni.navigateTo({
-								url: '/pages/binding/binding'
-							})
-						} else {
-							var url = '';
-							if (type == 0) url = 'course_my/course_my';
-							else if (type == 1) url = 'works_my/works_my';
-							uni.navigateTo({
-								url: '/pages/mine/' + url
-							})
-						}
+					}else{
+						this.getBind(type);
 					}
+				
+
+
 				} else {
 					//用户按了拒绝按钮
 					wx.showModal({
 						title: '登陆失败',
 						content: '为了更好的体验，请为小程序授权',
-						// success: function(res) {
-						// 	if (res.confirm) {
-						// 		console.log('用户点击确定')
-						// 	} else {
-						// 		console.log('用户点击取消')
-						// 	}
-						// }
+			
 					})
 
 					wx.hideLoading();
 				}
 			}
 		},
-		
+
 		components: {
 			youxniao,
 		},
@@ -346,12 +344,13 @@
 				background-color: #FFFFFF;
 				width: 40rpx;
 				height: 50rpx;
+				background-repeat:no-repeat;
 				line-height: 40rpx;
-				margin-top: 7%;
-				margin-bottom: 7%;
-				margin-right: 4%;
+				margin-top: 9%;
+				// margin-bottom: 7%;
+				margin-right: 1%;
 				background: url(../../static/images/icon/click1.png);
-				background-size: cover;
+				background-size: 46rpx;
 				position: relative;
 			}
 
@@ -369,11 +368,18 @@
 			}
 
 			.go_profile {
-				width: 80rpx;
-				height: 160rpx;
+				// width: 80rpx;
+				// height: 160rpx;
+				// position: absolute;
+				// right: 0;
+				// background: transparent;
+				
 				position: absolute;
-				right: 0;
-				background: transparent;
+				left: 0;
+				height: 100%;
+				width: 100%;
+				background: transparent; //透明
+				z-index: 10;
 			}
 
 		}

@@ -41,7 +41,7 @@
   opacity: 1;
 }
 .reservation_btn .prompt.data-v-53b51f20 {
-  width: 81.87vw;
+  width: 83.87vw;
   height: 4.8vw;
   font-size: 3.2vw;
   font-family: Noto Sans CJK SC;
@@ -49,7 +49,7 @@
   line-height: 4.8vw;
   color: #7f8971;
   opacity: 1;
-  margin-top: 2%;
+  margin-top: 8rpx;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -107,16 +107,15 @@
   -webkit-align-items: center;
           align-items: center;
   position: fixed;
-  bottom: 6%;
+  bottom: 60rpx;
   background: Transparent;
 }
 .reservation_btn .submit .submit_but.data-v-53b51f20 {
-  width: 53.33vw;
-  height: 13.33vw;
+  width: 400rpx;
+  height: 100rpx;
   background: #7f8971;
   opacity: 1;
   border-radius: 3vw;
-  height: 13.33vw;
 }
 .reservation_btn .submit ._p.data-v-53b51f20 {
   margin: 8% 0;

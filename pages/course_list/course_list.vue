@@ -3,6 +3,7 @@
 		<img mode="widthFix" class="radian" src="../../static/images/radian_1.png" alt="">
 		<div class="course_cont">
 			<p class="titile">WEDOO特色课程一览</p>
+			<p class="titile_s">LIST OF FEATURED COURSES</p>
 			<!-- 课程列表 -->
 			<div class="course_list" v-for="value in course_list" :key="value.id">
 
@@ -87,10 +88,10 @@
 			},
 			//点击事件 根据id跳转到相应的课程详情页
 			selectItem(value) {
-				console.log('id',value.id);
-				 uni.navigateTo({
-					url:`/pages/course_list/Details_course/Details_course?id=${value.id}`
-				 })
+				console.log('id', value.id);
+				uni.navigateTo({
+					url: `/pages/course_list/Details_course/Details_course?id=${value.id}`
+				})
 			},
 		},
 		//组件
@@ -112,26 +113,21 @@
 	}
 
 	.course_cont {
-		padding: 8.53% 5% 0 5%;
+		margin: 8.53% 5% 0 5%;
 		background-color: #ffffff;
 		width: 100%;
 
 		//课程列表--标题
 		.titile {
-			width: 56.93vw;
-			height: 7.2vw;
-			font-size: 4.2vw;
-			font-family: Noto Sans CJK SC;
-			font-weight: bold;
-			line-height: 7.2vw;
-			// color: rgba(127, 137, 113, 1);
-			opacity: 1;
-
 			font-size: 32rpx;
 			font-weight: 700;
 			color: #7f8971;
-
-
+		}
+		.titile_s {
+			padding: 8rpx 0 0 0;
+			font-size: 12px;
+			font-weight: 300;
+			color: #7f8971;
 		}
 
 		// 课程列表 -内容
@@ -206,7 +202,7 @@
 					.grade_label {
 						background-color: #a49888;
 						border-radius: 6rpx;
-						width: 94rpx;
+						// width: 94rpx;
 						height: 32rpx;
 						line-height: 32rpx;
 						overflow: hidden;
@@ -216,6 +212,7 @@
 						color: #ffffff;
 						text-align: center;
 						font-weight: bold;
+						padding: 0 16rpx;
 					}
 
 					.read_more_btn {

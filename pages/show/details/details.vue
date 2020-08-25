@@ -224,7 +224,7 @@
 					content: '确定保存到相册吗',
 					success: res => {
 						if (res.confirm) {
-							this.downFile(Rende.avatar)
+							this.downFile(this.Rende.avatar)
 							for (let i = 0; i < this.Rende.imgs.length; i++) {
 								this.downFile(this.Rende.imgs[i])
 							}
@@ -376,9 +376,10 @@
 			}
 
 			img {
+				display: block; //变块元素
 				width: 89.33vw;
 				height: 80.8vw;
-				padding-bottom: 3%;
+				// padding-bottom: 3%;
 				object-fit: cover;
 			}
 		}
