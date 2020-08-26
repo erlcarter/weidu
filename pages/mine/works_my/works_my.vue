@@ -2,7 +2,7 @@
 	<div class="show_index" style="overflow-x:hidden;">
 		<img mode="widthFix" class="radian" src="../../../static/images/radian_1.png" alt="">
 		<scroll-view class="Portfolio">
-			<p class="titile">我的作品</p>
+			
 			<!-- 作品展示 -->
 			<!-- left -->
 			<div class="Portfolio_list" style="margin: 0 1.5% 0 5.5%;">
@@ -177,16 +177,10 @@
 		// padding: 2% 6% 0 6%;
 		background-color: #ffffff;
 		width: 100%;
-
-		//课程列表--标题
-		.titile {
-			margin: 8.33% 0% 0% 5%;
-			font-size: 32rpx;
-			font-weight: 700;
-			color: #7f8971;
-		}
+		
 
 	.Portfolio_list {
+			padding-top: 34rpx; 
 			display: inline-block;
 			vertical-align: top;
 			// margin: 0% 5% 5% 5%;
@@ -241,7 +235,8 @@
 				padding-left: 7%;
 
 				.por_name {
-					padding-top: 16rpx;
+					padding-top: 8rpx;
+					// padding-top: 16rpx;
 					font-weight: 700;
 					color: #7f8971;
 					font-size: 28rpx;

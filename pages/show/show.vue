@@ -250,7 +250,8 @@
 				padding-left: 7%;
 
 				.por_name {
-					padding-top: 16rpx;
+					padding-top: 8rpx;
+					// padding-top: 16rpx;
 					font-weight: 700;
 					color: #7f8971;
 					font-size: 28rpx;

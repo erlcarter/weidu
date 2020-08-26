@@ -33,13 +33,8 @@
   background-color: #ffffff;
   width: 100%;
 }
-.Portfolio .titile.data-v-7682f2cc {
-  margin: 8.33% 0% 0% 5%;
-  font-size: 32rpx;
-  font-weight: 700;
-  color: #7f8971;
-}
 .Portfolio .Portfolio_list.data-v-7682f2cc {
+  padding-top: 34rpx;
   display: inline-block;
   vertical-align: top;
   width: 43%;
@@ -83,7 +78,7 @@
   padding-left: 7%;
 }
 .Portfolio .Por_lis_fall .por_about .por_name.data-v-7682f2cc {
-  padding-top: 16rpx;
+  padding-top: 8rpx;
   font-weight: 700;
   color: #7f8971;
   font-size: 28rpx;

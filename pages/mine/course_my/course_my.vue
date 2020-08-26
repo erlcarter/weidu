@@ -2,16 +2,14 @@
 	<div class="coures">
 		<img mode="widthFix" class="radian" src="../../../static/images/radian_1.png" alt="">
 		<div class="content">
-			<p>我的课程</p>
-
 			<div class="coures_list" v-for="(value,index) in course_list" :key="value.student_id">
 				<!-- <navigator url="../../course_list/Details_course/Details_course" hover-class="none"> -->
 				<div @click='selectItem(value)'>
-				
+
 					<div class="single">
 						<!-- 头像 -->
 						<div class="left">
-							<img :src="img_http + value.avatar+ img_end"/>
+							<img :src="img_http + value.avatar+ img_end" />
 						</div>
 						<!-- 信息 -->
 						<div class="right">
@@ -21,8 +19,12 @@
 							</div>
 							<p class="text">学生名：<span v-text="value.student_name">卢本伟</span></p>
 							<div>
-								<p class="text" style="padding-bottom: 0rpx;">课程进度：<span v-text="value.setion_current+'/'+value.setion_total">8/8</span></p>
-								<cmd-progress :percent="value.setion_current/value.setion_total*100" :show-info="false" stroke-color="#7f8971" :stroke-width="3"></cmd-progress>
+								<p class="text" style="padding-bottom: 0rpx;">课程进度：
+									<span v-text="value.setion_current+'/'+value.setion_total">8/8</span>
+								</p>
+								<cmd-progress :percent="value.setion_current/value.setion_total*100" :show-info="false" stroke-color="#7f8971"
+								 :stroke-width="3">
+								 </cmd-progress>
 							</div>
 							<div>
 								<p class="text">剩余请假次数：<span v-text="value.setion_current +'/' +value.absent_total">1/3</span></p>
@@ -72,7 +74,7 @@
 		},
 		//计算属性
 		computed: {
-			...mapState(['info','img_http', 'img_end'])
+			...mapState(['info', 'img_http', 'img_end'])
 		},
 		methods: {
 			// 请求模块
@@ -87,11 +89,11 @@
 					data: {
 						uiid: this.info.uiid, //用户id
 					},
-					
+
 				}).then(res => {
 					let data = res.data.data;
 					console.log(res)
-				
+
 					console.log(res.data.data)
 					//以下status都必须都等于 1才才算成功
 					if (res.data.status == 1) {
@@ -101,10 +103,10 @@
 			},
 			//点击事件 根据id跳转到相应的课程详情页
 			selectItem(value) {
-				console.log('id',value.course_id);
-				 uni.navigateTo({
-					url:`/pages/course_list/Details_course/Details_course?id=${value.course_id}`
-				 })
+				console.log('id', value.course_id);
+				uni.navigateTo({
+					url: `/pages/course_list/Details_course/Details_course?id=${value.course_id}`
+				})
 			},
 		},
 		// 组件
@@ -127,7 +129,7 @@
 	}
 
 	.content {
-		margin: 8.33% 5% 0% 5%;
+		margin: 64rpx 5% 0% 5%;
 	}
 
 	.content>p:nth-child(1) {
@@ -147,11 +149,12 @@
 			margin-top: 5%;
 			padding: 5% 5% 5% 5%;
 			// width:89.33vw;
-			height: 58.4vw;
+			// height: 58.4vw;
+			height: 51.4vw;
 			background: rgba(255, 255, 255, 1);
 			box-shadow: 0vw 0vw 5vw rgba(0, 0, 0, 0.1);
 			opacity: 1;
-			border-radius: 2vw;
+			border-radius: 20rpx;
 			display: flex;
 			position: relative; //相對postscript 的
 
@@ -170,7 +173,7 @@
 				margin-left: 5%;
 
 				.label {
-					margin: 6% 0% 8% 0%;
+					margin: 8rpx 0% 16rpx 0%;
 					background-color: #a49888;
 					border-radius: 6rpx;
 					width: 94rpx;
@@ -212,7 +215,7 @@
 					line-height: 4.8vw;
 					color: rgba(127, 137, 113, 1);
 					opacity: 1;
-					padding-bottom: 10rpx;
+					padding-top: 12rpx;
 				}
 
 				.leave {

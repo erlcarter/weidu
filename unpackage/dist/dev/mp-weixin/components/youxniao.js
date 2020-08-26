@@ -139,7 +139,20 @@ var _default =
     return {};
 
 
-  } };exports.default = _default;
+  },
+  methods: {
+    goTo: function goTo() {
+      wx.navigateToMiniProgram({
+        appId: 'wx6bab3d2f5d3a4393',
+        extraData: {
+          foo: 'bar' },
+
+        envVersion: 'release',
+        success: function success(res) {
+          // 打开成功
+        } });
+
+    } } };exports.default = _default;
 
 /***/ }),
 

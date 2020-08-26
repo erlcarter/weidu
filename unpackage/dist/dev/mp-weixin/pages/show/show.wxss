@@ -78,7 +78,7 @@
   padding-left: 7%;
 }
 .Portfolio .Por_lis_fall .por_about .por_name.data-v-2023fb26 {
-  padding-top: 16rpx;
+  padding-top: 8rpx;
   font-weight: 700;
   color: #7f8971;
   font-size: 28rpx;

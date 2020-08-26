@@ -44,7 +44,7 @@
 						<div>
 							<p class="my_menu">我的课程</p>
 							<p class="my_number">
-								<span  v-if="!info">请先登录</span>
+								<span v-if="!info">请先登录</span>
 								<span v-else>共{{info.course_num}}个</span>
 							</p>
 						</div>
@@ -58,7 +58,7 @@
 						<div>
 							<p class="my_menu">我的作品展</p>
 							<p class="my_number">
-								<span  v-if="!info">请先登录</span>
+								<span v-if="!info">请先登录</span>
 								<span v-else>共{{info.article_num}}个</span>
 							</p>
 						</div>
@@ -66,7 +66,7 @@
 							<img :mode="mode" src="../../static/images/show_ri.png" alt="">
 						</div>
 					</div>
-				</div> 
+				</div>
 
 				<!--是否需要帮助-->
 				<div class="refer">
@@ -78,15 +78,18 @@
 
 					<img src="../../static/images/refer.png" alt="">
 				</div>
-				<!-- 提供技术支持 -->
-				<div>
+				<!-- 技术支持 -->
+				<div class="yxniao">
 					<youxniao />
 				</div>
 			</div>
+
+
 			<!-- 内容区域end-->
 		</view>
-		<!-- 已登录 -->
+
 	</view>
+
 </template>
 
 <script>
@@ -105,7 +108,7 @@
 		},
 		// 小程序的生命周期
 		onLoad() {
-	
+
 		},
 		//计算属性
 		computed: {
@@ -118,9 +121,9 @@
 			// getOpenId 获取用户唯一openid
 			//onLogin 用户个人信息
 			...mapActions(['onLogin', 'getOpenId', 'onRequest']),
-			
+
 			//我的课程和我的作品 ，判断是否有绑定用户，没有的话跳到绑定信息页面
-			async getBind(type){    //定义一个返回 AsyncFunction 对象的异步函数
+			async getBind(type) { //定义一个返回 AsyncFunction 对象的异步函数
 				let url = this.$urls.addWxuser_bind_get;
 				console.log(this.info.uiid)
 				let res = await this.onRequest({
@@ -129,10 +132,10 @@
 						uiid: this.info.uiid, //用户id
 					},
 				});
-				if(res.data.status == 1){
+				if (res.data.status == 1) {
 					let data = res.data.data;
-					for (var i = 0;i < data.length; i++){
-						if(data[i].student_name != ''){
+					for (var i = 0; i < data.length; i++) {
+						if (data[i].student_name != '') {
 							var _url = '';
 							if (type == 0) _url = 'course_my/course_my';
 							else if (type == 1) _url = 'works_my/works_my';
@@ -142,8 +145,8 @@
 							return;
 						}
 					}
-					
-					
+
+
 					uni.navigateTo({
 						url: '/pages/binding/binding'
 					})
@@ -164,25 +167,25 @@
 					// 当用户按了允许按钮 把信息传给全局this.$store.state.userInfo保存，即所有页面都可获取用户登录信息
 					this.$store.state.userInfo = e.detail.userInfo;
 					//没有用户，说明还没登录
-					if(!this.info){
+					if (!this.info) {
 						//获取openid用户 唯一id
 						this.getOpenId().then(open_id => {
-						
+
 							this.onLogin({
 								open_id,
 								userInfo: e.detail.userInfo
 							}).then(res => {
 								console.log('注册成功', res)
 								//点击的是下面两个
-								if(type){
+								if (type) {
 									this.getBind(type);
-								}							
+								}
 							})
 						})
-					}else{
+					} else {
 						this.getBind(type);
 					}
-				
+
 
 
 				} else {
@@ -190,7 +193,7 @@
 					wx.showModal({
 						title: '登陆失败',
 						content: '为了更好的体验，请为小程序授权',
-			
+
 					})
 
 					wx.hideLoading();
@@ -205,13 +208,38 @@
 </script>
 
 <style lang="scss" scoped>
+	// .yxniao{
+	// 	margin-bottom: 7.6%;
+	// 	width: 90%;
+	// 	position:absolute;
+	// 	bottom: 0;
+	// 	display: flex;
+	// 	justify-content: center;
+	// 	align-items: center;
+
+
+
+	// }
+	.yxniao {
+		position: absolute;
+		bottom: 0;
+		width: 90%;
+	}
+
 	.content_mine {
+		min-height: 100vh;
 		background-color: #7f8971;
 		padding-top: 120rpx;
+		box-sizing: border-box;
+		
+		
 	}
 
 	// 请登录内容区域
 	.content {
+		position: relative;
+		min-height: calc(100vh - 120rpx);
+		// height: 100vh;
 		background-color: #ffffff;
 		border-top-left-radius: 50rpx;
 		border-top-right-radius: 50rpx;
@@ -219,6 +247,7 @@
 		// top: -80rpx;
 		z-index: 0;
 		padding: 0 5%;
+
 
 		//获取个人信息
 		.whether_log {
@@ -243,9 +272,14 @@
 				border: 1rpx solid #ffffff;
 				width: 104rpx;
 				height: 104rpx;
+				line-height: 104rpx;
 				overflow: hidden;
 				object-fit: cover;
-				margin: 5% 2% 5% 5%;
+				margin: 4.5% 2% 5% 5%;
+
+				display: flex;
+				justify-content: center;
+				align-items: center;
 			}
 
 			//open-data 已经登录显示的头像
@@ -255,9 +289,15 @@
 				border: 1rpx solid #ffffff;
 				width: 104rpx;
 				height: 104rpx;
+				line-height: 104rpx;
 				overflow: hidden;
 				object-fit: cover;
-				margin: 5% 2% 5% 5%;
+				margin: 4.5% 2% 5% 5%;
+
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
 			}
 
 			// 用户名
@@ -271,7 +311,7 @@
 					color: #7f8971;
 
 					// 超出width: 180rpx;省略号结尾
-					width: 200rpx;
+					width: 250rpx;
 					overflow: hidden; //隐藏
 					text-overflow: ellipsis; //最后以...结尾
 					white-space: nowrap; //不换行
@@ -284,7 +324,7 @@
 					color: #7f8971;
 
 					// 超出width: 180rpx;省略号结尾
-					width: 200rpx;
+					width: 250rpx;
 					overflow: hidden; //隐藏
 					text-overflow: ellipsis; //最后以...结尾
 					white-space: nowrap; //不换行
@@ -299,7 +339,7 @@
 					width: 118rpx;
 					height: 42rpx;
 					overflow: hidden;
-					margin: 8% 8% 0 0;
+					margin: 4% 8% 0 0;
 					object-fit: cover;
 				}
 
@@ -312,7 +352,7 @@
 					height: 42rpx;
 					overflow: hidden;
 					object-fit: cover;
-					margin: 8% 8% 0 0;
+					margin: 4% 8% 0 0;
 				}
 			}
 
@@ -322,10 +362,10 @@
 				border-radius: 10px;
 				width: 200rpx;
 				height: 100rpx;
-				line-height: 164rpx;
+				line-height: 100rpx;
 				overflow: hidden;
 				margin: 5% 5%;
-				transform: translateX(22%);
+				transform: translateX(1%);
 
 				p {
 					font-size: 28rpx;
@@ -340,32 +380,20 @@
 
 			// 去往的我资料按钮
 			.my_data {
-				// transform: translatey(18%);
 				background-color: #FFFFFF;
-				width: 40rpx;
-				height: 50rpx;
-				background-repeat:no-repeat;
-				line-height: 40rpx;
-				margin-top: 9%;
-				// margin-bottom: 7%;
+				margin-top: 9.5%;
 				margin-right: 1%;
 				background: url(../../static/images/icon/click1.png);
-				background-size: 46rpx;
+				background-repeat: no-repeat;
+				background-size: 40rpx; //28
 				position: relative;
+
+				display: flex;
+				justify-content: center;
+				align-items: center;
 			}
 
-			.my_data:active {
-				// transform: translatey(18%);
-				background-color: #FFFFFF;
-				width: 40rpx;
-				height: 50rpx;
-				line-height: 40rpx;
-				margin-top: 7%;
-				margin-bottom: 7%;
-				margin-right: 4%;
-				background: url(../../static/images/icon/click2.png);
-				background-size: cover;
-			}
+
 
 			.go_profile {
 				// width: 80rpx;
@@ -373,7 +401,7 @@
 				// position: absolute;
 				// right: 0;
 				// background: transparent;
-				
+
 				position: absolute;
 				left: 0;
 				height: 100%;
@@ -388,7 +416,7 @@
 		.menu_bnt {
 			width: 670rpx;
 			display: flex;
-			transform: translateY(-40rpx);
+			transform: translateY(-48rpx); //16
 
 			.left {
 				position: relative;
@@ -431,7 +459,7 @@
 				opacity: 1;
 				border-radius: 2vw;
 				// 中间分隔
-				margin-left: 5%;
+				margin-left: 32rpx;
 
 				.login_btn {
 					position: absolute;
@@ -490,7 +518,9 @@
 			width: 100%;
 			height: 200rpx;
 			display: flex;
-			margin-top: 8%;
+			margin-top: 32rpx;
+			transform: translateY(-20rpx);
+			margin-bottom: 60rpx;
 
 			// transform: translateY(-30rpx);
 			img {
