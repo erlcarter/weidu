@@ -8,7 +8,9 @@ Vue.use(Vuex)
 export default new Vuex.Store({
 	state:{
 		img_http:'http://weiduimg.youxiniao.net/',
+		img_http_xz:'https://weiduimg.youxiniao.net/',
 		img_end:'?imageView2/0/w/450',
+		img_end_2:'?imageView2/0/w/1000',
 		open_id:null,
 		userInfo:null,//微信个人信息
 		info: uni.getStorageSync('userInfo'),  //后台返回的个人信息

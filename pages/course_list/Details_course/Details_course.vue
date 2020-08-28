@@ -79,6 +79,20 @@
 		},
 		computed: {
 			...mapState(['img_http', 'img_end'])
+		},
+		// 分享
+		onShareAppMessage: function() {
+			return {
+				title: '课程详情',
+				// path: '/index/index?id=123'
+			}
+		},
+		//分享到朋友圈
+		onShareTimeline(){
+			return {
+				title: '课程详情',
+				// path: '/index/index?id=123'
+			}
 		}
 	}
 </script>

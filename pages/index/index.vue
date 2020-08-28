@@ -108,7 +108,7 @@
 		data() {
 			return {
 				mode: 'aspectFill',
-				banenr_text: `\xa0\xa0\xa0\xa0\xa0系统维度艺术一直致力于幼儿、青少年艺术教育传播和美术课程研发及创新。维度课程将艺术审美、绘画兴趣、内心感悟三者融入课堂教学，通过各种不同的绘画形式和方式，让孩子们在创作的过程中探索出属于自己的表达方式，真诚地表达自己。全程小班教学，注重孩子们观察能力的培养和创造力的开发，鼓励个性化的发展。`,
+				banenr_text: `\xa0\xa0\xa0\xa0\xa0维度艺术一直致力于幼儿、青少年艺术教育传播和美术课程研发及创新。维度课程将艺术审美、绘画兴趣、内心感悟三者融入课堂教学，通过各种不同的绘画形式和方式，让孩子们在创作的过程中探索出属于自己的表达方式，真诚地表达自己。全程小班教学，注重孩子们观察能力的培养和创造力的开发，鼓励个性化的发展。`,
 
 				activity_list: [],
 			}
@@ -150,6 +150,7 @@
 				})
 			},
 
+	
 		},
 		// 組件
 		components: {
@@ -159,6 +160,20 @@
 		},
 		computed: {
 			...mapState(['img_http', 'img_end'])
+		},
+		// 分享到朋友
+		onShareAppMessage: function() {
+			return {
+				title: '维度艺术',
+				// path: '/index/index?id=123'
+			}
+		},
+		//分享到朋友圈
+		onShareTimeline(){
+			return {
+				title: '维度艺术',
+				// path: '/index/index?id=123'
+			}
 		}
 	}
 </script>
@@ -318,7 +333,7 @@
 	}
 
 	//店铺地址
-	
+
 	.site_btn {
 		margin: 64rpx 6% 0% 6%;
 		transform: translate(0rpx, -50rpx);
@@ -329,7 +344,7 @@
 			color: #7f8971;
 			// margin-left: 10rpx;
 		}
-	
+
 
 		.site_collect {
 			display: flex;
@@ -396,7 +411,8 @@
 			}
 		}
 	}
-	.titile_s{
+
+	.titile_s {
 		padding: 8rpx 0 0 0rpx;
 		font-size: 12px;
 		font-weight: 300;

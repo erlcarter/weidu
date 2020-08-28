@@ -57,6 +57,13 @@
   z-index: 1;
   object-fit: cover;
 }
+.details_btn .img_bnt .frame .watermark.data-v-de701248 {
+  position: absolute;
+  right: 96rpx;
+  bottom: 96rpx;
+  width: 176rpx;
+  z-index: 99;
+}
 .details_btn .img_bnt .frame .middle.data-v-de701248 {
   position: relative;
   z-index: 2;
@@ -91,7 +98,6 @@
   display: flex;
 }
 .details_btn .img_bnt .publicity .Name_works.data-v-de701248 {
-  background-color: #4CD964;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;

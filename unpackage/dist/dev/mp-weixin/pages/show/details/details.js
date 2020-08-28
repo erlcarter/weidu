@@ -130,7 +130,9 @@ var render = function() {
 
   var m1 = __webpack_require__(/*! ../../../static/images/string.png */ 96)
 
-  var m2 = _vm.Rende.is_hot
+  var m2 = __webpack_require__(/*! ../../../static/images/head2.png */ 182)
+
+  var m3 = _vm.Rende.is_hot
     ? __webpack_require__(/*! ../../../static/images/recommend.png */ 97)
     : null
   _vm.$mp.data = Object.assign(
@@ -139,7 +141,8 @@ var render = function() {
       $root: {
         m0: m0,
         m1: m1,
-        m2: m2
+        m2: m2,
+        m3: m3
       }
     }
   )
@@ -240,12 +243,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
-
-
-
 var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
 
 
@@ -270,7 +267,7 @@ var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerab
     this.getData();
   },
   computed: _objectSpread({},
-  (0, _vuex.mapState)(['info', 'img_http', 'img_end'])),
+  (0, _vuex.mapState)(['info', 'img_http', 'img_end', 'img_http_xz', 'img_end_2'])),
 
   methods: _objectSpread({},
   (0, _vuex.mapActions)(['onRequest']), { //请求模块
@@ -297,16 +294,7 @@ var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerab
 
           _this.Rende.imgs = _this.Rende.imgs.split(',');
           console.log(_this.Rende);
-          // 循环遍历Rende这个数组
-          // for (var i = 0; i < this.Rende.length; i++) {
-          // 	//切割Rende中的每一项imgs
-          // 	this.Rende[i].imgs = this.Rende[i].imgs.split(',')
 
-          // 	if (this.Rende[i].id == this.id) {
-          // 		this.data = this.Rende[i];
-          // 	}
-
-          // }
 
         }
       });
@@ -314,7 +302,7 @@ var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerab
 
     downFile: function downFile(url) {
       uni.downloadFile({ //下载文件资源到本地，客户端直接发起一个 HTTP GET 请求，返回文件的本地临时路径。
-        url: this.img_http + url, //图片地址
+        url: this.img_http_xz + url, //图片地址
         success: function success(res) {
           console.log(res);
           if (res.statusCode === 200) {
@@ -365,7 +353,7 @@ var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerab
               scope: 'scope.writePhotosAlbum',
               success: function success() {
                 //这里是用户同意授权后的回调
-                this.saveImgToLocal();
+                _this2.saveImgToLocal();
               },
               fail: function fail() {//这里是用户拒绝授权后的回调
                 console.log('2222');
@@ -403,9 +391,9 @@ var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerab
         success: function success(res) {
           if (res.confirm) {
             _this4.downFile(_this4.Rende.avatar);
-            for (var i = 0; i < _this4.Rende.imgs.length; i++) {
-              _this4.downFile(_this4.Rende.imgs[i]);
-            }
+            // for (let i = 0; i < this.Rende.imgs.length; i++) {
+            // 	this.downFile(this.Rende.imgs[i])
+            // }
 
 
           } else if (res.cancel) {
@@ -414,7 +402,23 @@ var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerab
         } });
 
 
-    } }) };exports.default = _default;
+    } }),
+
+
+  // 分享
+  onShareAppMessage: function onShareAppMessage() {
+    return {
+      title: '作品详情'
+      // path: '/index/index?id=123'
+    };
+  },
+  //分享到朋友圈
+  onShareTimeline: function onShareTimeline() {
+    return {
+      title: '作品详情'
+      // path: '/index/index?id=123'
+    };
+  } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ })

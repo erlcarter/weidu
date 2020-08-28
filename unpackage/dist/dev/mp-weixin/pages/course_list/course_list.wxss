@@ -50,21 +50,21 @@
   border-radius: 20rpx;
   box-shadow: 0vw 1vw 5vw rgba(0, 0, 0, 0.1);
   width: 90%;
-  height: 484rpx;
+  height: 520rpx;
   margin: 0 0 5% 0;
 }
 .course_cont .course_list .co_li_img .li_img1.data-v-b4a4f5e8 {
   width: 89.8vw;
-  height: 30vw;
+  height: 288rpx;
   object-fit: cover;
   border-top-left-radius: 20rpx;
   border-top-right-radius: 20rpx;
 }
 .course_cont .course_list .grade.data-v-b4a4f5e8 {
-  margin: 4.27% 5% 4.27% 5%;
+  margin: 1.97% 5% 0% 5%;
 }
 .course_cont .course_list .grade .grade_title.data-v-b4a4f5e8 {
-  width: 28.67vw;
+  width: 48.67vw;
   height: 5.33vw;
   font-size: 3.73vw;
   font-family: Noto Sans CJK SC;
@@ -77,10 +77,13 @@
   letter-spacing: 0vw;
 }
 .course_cont .course_list .grade .label.data-v-b4a4f5e8 {
-  margin: 16rpx 0% 4.27% 0%;
+  margin: 8rpx 0% 2.95% 0%;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
 }
 .course_cont .course_list .grade .label .grade_label.data-v-b4a4f5e8 {
   background-color: #a49888;
@@ -99,7 +102,7 @@
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
-  margin: 0% 0% 0% 50%;
+  margin: 0% 4.5% 0% 0%;
   -webkit-transform: translate(26rpx, 0rpx);
           transform: translate(26rpx, 0rpx);
 }

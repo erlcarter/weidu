@@ -2,20 +2,20 @@
 	<div class="show_index" style="overflow-x:hidden;">
 		<img mode="widthFix" class="radian" src="../../../static/images/radian_1.png" alt="">
 		<scroll-view class="Portfolio">
-			
+
 			<!-- 作品展示 -->
 			<!-- left -->
 			<div class="Portfolio_list" style="margin: 0 1.5% 0 5.5%;">
 				<!-- 列表 渲染 -->
 				<div class="Por_lis_fall" v-for="(value,index) in left" :key="value">
 					<div id="por_sty" class="por_sty">
-						<div @click='selectItem(value)'>
+						<div @click='selectItem(value)'class="por_btn" >
 							<!-- <img mode="widthFix" class="por_img" :src="value.src" alt=""> -->
 							<img ref="img" class="por_img" mode="widthFix" :src="img_http + value.avatar + img_end" alt="">
 							<img v-if="value.is_hot" class="promo" src="../../../static/images/promo.png" alt="">
 						</div>
 						<div class="por_about">
-							<p class="por_name" v-text="value.art_desc">逛超市简笔画.</p>
+							<p class="por_name" v-text="value.art_desc">逛超市简笔画.</p> 
 							<p class="por_author">©<span v-text="value.student_name">用户名</span></p>
 						</div>
 					</div>
@@ -26,8 +26,8 @@
 				<!-- 列表 渲染 -->
 				<div class="Por_lis_fall" v-for="(value,index) in right" :key="value">
 					<div id="por_sty" class="por_sty">
-						<div @click='selectItem(value)'>
-							<!-- <img mode="widthFix" class="por_img" :src="value.src" alt=""> -->
+						<div @click='selectItem(value)' class="por_btn">
+							<!-- <img mode="widthFix" class="por_img" :src="value.src" alt="">  -->
 							<img ref="img" class="por_img" mode="widthFix" :src="img_http + value.avatar + img_end" alt="">
 							<img v-if="value.is_hot" class="promo" src="../../../static/images/promo.png" alt="">
 						</div>
@@ -177,10 +177,10 @@
 		// padding: 2% 6% 0 6%;
 		background-color: #ffffff;
 		width: 100%;
-		
 
-	.Portfolio_list {
-			padding-top: 34rpx; 
+
+		.Portfolio_list {
+			padding-top: 34rpx;
 			display: inline-block;
 			vertical-align: top;
 			// margin: 0% 5% 5% 5%;
@@ -204,6 +204,10 @@
 				// position: relative;
 			}
 
+			.por_btn {
+				position: relative;
+			}
+
 			.por_img {
 				margin-top: 32rpx;
 				width: 100%;
@@ -224,11 +228,12 @@
 				height: 42rpx;
 				overflow: hidden;
 				margin: 4%;
-				top: 0;
-				left: 0;
+				top: 34rpx;
+				left: 4rpx;
 				position: absolute;
 
 			}
+
 
 
 			.por_about {

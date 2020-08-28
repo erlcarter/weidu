@@ -224,7 +224,22 @@ var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerab
     Foote: Foote },
 
   computed: _objectSpread({},
-  (0, _vuex.mapState)(['img_http', 'img_end'])) };exports.default = _default;
+  (0, _vuex.mapState)(['img_http', 'img_end'])),
+
+  // 分享
+  onShareAppMessage: function onShareAppMessage() {
+    return {
+      title: '维度艺术空间'
+      // path: '/index/index?id=123'
+    };
+  },
+  //分享到朋友圈
+  onShareTimeline: function onShareTimeline() {
+    return {
+      title: '维度艺术空间'
+      // path: '/index/index?id=123'
+    };
+  } };exports.default = _default;
 
 /***/ }),
 

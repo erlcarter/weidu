@@ -1,4 +1,4 @@
-var header = 'https://test.youxiniao.net:44336';
+var header = 'https://weidu.youxiniao.net';
 function url(path){
 	return header + path;
 }

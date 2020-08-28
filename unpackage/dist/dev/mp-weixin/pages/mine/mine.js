@@ -325,6 +325,7 @@ var _vuex = __webpack_require__(/*! vuex */ 8);function _interopRequireDefault(o
         if (!this.info) {
           //获取openid用户 唯一id
           this.getOpenId().then(function (open_id) {
+            console.log(open_id);
 
             _this2.onLogin({
               open_id: open_id,
@@ -357,7 +358,22 @@ var _vuex = __webpack_require__(/*! vuex */ 8);function _interopRequireDefault(o
 
 
   components: {
-    youxniao: youxniao } };exports.default = _default;
+    youxniao: youxniao },
+
+  // 分享到朋友
+  onShareAppMessage: function onShareAppMessage() {
+    return {
+      title: '维度艺术',
+      path: '/pages/index/index' };
+
+  },
+  //分享到朋友圈
+  onShareTimeline: function onShareTimeline() {
+    return {
+      title: '维度艺术'
+      // path: '/index/index?id=123'
+    };
+  } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

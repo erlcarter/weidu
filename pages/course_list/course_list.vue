@@ -101,6 +101,20 @@
 		},
 		computed: {
 			...mapState(['img_http', 'img_end'])
+		},
+		// 分享
+		onShareAppMessage: function() {
+			return {
+				title: '课程列表',
+				// path: '/index/index?id=123'
+			}
+		},
+		//分享到朋友圈
+		onShareTimeline(){
+			return {
+				title: '课程列表',
+				// path: '/index/index?id=123'
+			}
 		}
 	}
 </script>
@@ -136,7 +150,7 @@
 			border-radius: 20rpx;
 			box-shadow: 0vw 1vw 5vw rgba(0, 0, 0, 0.1);
 			width: 90%;
-			height: 484rpx;
+			height: 520rpx;
 			// overflow: hidden;
 			// margin: 5% 0%;
 			margin: 0 0 5% 0;
@@ -167,7 +181,7 @@
 			.co_li_img {
 				.li_img1 {
 					width: 89.8vw;
-					height: 30vw;
+					height: 288rpx;
 					object-fit: cover;
 					border-top-left-radius: 20rpx;
 					border-top-right-radius: 20rpx;
@@ -179,10 +193,10 @@
 
 
 			.grade {
-				margin: 4.27% 5% 4.27% 5%;
+				margin: 1.97% 5% 0% 5%;
 
 				.grade_title {
-					width: 28.67vw;
+					width: 48.67vw;
 					height: 5.33vw;
 					font-size: 3.73vw;
 					font-family: Noto Sans CJK SC;
@@ -198,8 +212,9 @@
 				}
 
 				.label {
-					margin: 16rpx 0% 4.27% 0%;
+					margin: 8rpx 0% 2.95% 0%;
 					display: flex;
+					justify-content: space-between;
 
 					.grade_label {
 						background-color: #a49888;
@@ -208,7 +223,6 @@
 						height: 32rpx;
 						line-height: 32rpx;
 						overflow: hidden;
-
 						font-size: 20rpx;
 						font-weight: 700;
 						color: #ffffff;
@@ -219,7 +233,8 @@
 
 					.read_more_btn {
 						display: flex;
-						margin: 0% 0% 0% 50%;
+						// margin: 0% 0% 0% 50%;
+						margin: 0% 4.5% 0% 0%;
 						transform: translate(26rpx, 0rpx);
 
 						p {

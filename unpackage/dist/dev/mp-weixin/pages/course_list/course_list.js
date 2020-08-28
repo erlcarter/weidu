@@ -245,7 +245,22 @@ var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerab
     // footer_btn
   },
   computed: _objectSpread({},
-  (0, _vuex.mapState)(['img_http', 'img_end'])) };exports.default = _default;
+  (0, _vuex.mapState)(['img_http', 'img_end'])),
+
+  // 分享
+  onShareAppMessage: function onShareAppMessage() {
+    return {
+      title: '课程列表'
+      // path: '/index/index?id=123'
+    };
+  },
+  //分享到朋友圈
+  onShareTimeline: function onShareTimeline() {
+    return {
+      title: '课程列表'
+      // path: '/index/index?id=123'
+    };
+  } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

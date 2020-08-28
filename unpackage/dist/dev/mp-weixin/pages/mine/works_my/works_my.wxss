@@ -54,6 +54,9 @@
   width: 100%;
   height: auto;
 }
+.Portfolio .Por_lis_fall .por_btn.data-v-7682f2cc {
+  position: relative;
+}
 .Portfolio .Por_lis_fall .por_img.data-v-7682f2cc {
   margin-top: 32rpx;
   width: 100%;
@@ -70,8 +73,8 @@
   height: 42rpx;
   overflow: hidden;
   margin: 4%;
-  top: 0;
-  left: 0;
+  top: 34rpx;
+  left: 4rpx;
   position: absolute;
 }
 .Portfolio .Por_lis_fall .por_about.data-v-7682f2cc {

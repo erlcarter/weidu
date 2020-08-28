@@ -6,8 +6,7 @@
 			<p class="date" v-text="data.active_date">2017-03-08</p>
 
 			<div class="content">
-				<img mode="widthFix" v-if="img" v-for="img in data.imgs" :src="img_http + img + img_end" 
-				alt="afe0QU.jpg" border="0" />
+				<img mode="widthFix" v-if="img" v-for="img in data.imgs" :src="img_http + img + img_end" alt="afe0QU.jpg" border="0" />
 			</div>
 
 		</div>
@@ -44,7 +43,7 @@
 		onLoad(e) {
 			console.log(e.id)
 			this.id = e.id;
-			
+
 			this.getData()
 		},
 		methods: {
@@ -83,8 +82,21 @@
 		},
 		computed: {
 			...mapState(['img_http', 'img_end'])
+		},
+		// 分享
+		onShareAppMessage: function() {
+			return {
+				title: '最新活动',
+				// path: '/index/index?id=123'
+			}
+		},
+		//分享到朋友圈
+		onShareTimeline() {
+			return {
+				title: '最新活动',
+				// path: '/index/index?id=123'
+			}
 		}
-
 
 	}
 </script>

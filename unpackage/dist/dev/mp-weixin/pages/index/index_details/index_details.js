@@ -164,7 +164,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
-
 var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var Foote = function Foote() {__webpack_require__.e(/*! require.ensure | components/footer */ "components/footer").then((function () {return resolve(__webpack_require__(/*! @/components/footer */ 150));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
@@ -224,7 +223,22 @@ var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerab
     Foote: Foote },
 
   computed: _objectSpread({},
-  (0, _vuex.mapState)(['img_http', 'img_end'])) };exports.default = _default;
+  (0, _vuex.mapState)(['img_http', 'img_end'])),
+
+  // 分享
+  onShareAppMessage: function onShareAppMessage() {
+    return {
+      title: '最新活动'
+      // path: '/index/index?id=123'
+    };
+  },
+  //分享到朋友圈
+  onShareTimeline: function onShareTimeline() {
+    return {
+      title: '最新活动'
+      // path: '/index/index?id=123'
+    };
+  } };exports.default = _default;
 
 /***/ }),
 

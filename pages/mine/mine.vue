@@ -170,6 +170,7 @@
 					if (!this.info) {
 						//获取openid用户 唯一id
 						this.getOpenId().then(open_id => {
+							console.log(open_id)
 
 							this.onLogin({
 								open_id,
@@ -204,6 +205,21 @@
 		components: {
 			youxniao,
 		},
+		// 分享到朋友
+		onShareAppMessage: function() {
+			return {
+				title: '维度艺术',
+				path: '/pages/index/index'
+			}
+		},
+		//分享到朋友圈
+		onShareTimeline(){
+			return {
+				title: '维度艺术',
+				// path: '/index/index?id=123'
+			}
+		}
+	
 	}
 </script>
 
