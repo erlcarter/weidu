@@ -154,7 +154,6 @@
 		// 监听下拉刷新
 		onPullDownRefresh() {
 			this.refresh();
-
 		},
 		// 监听上拉加载更多
 		onReachBottom() {

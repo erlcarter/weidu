@@ -53,7 +53,7 @@
 		mapState
 	} from 'vuex'
 	export default {
-		data() {
+		data() { 
 			return {
 				index: 0, //当时索引值
 				Por_lis_fall: [],
