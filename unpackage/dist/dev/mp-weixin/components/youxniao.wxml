@@ -1,1 +1,0 @@
-<view class="skill_company _div data-v-0e5f93c6"><view class="_div data-v-0e5f93c6"><image src="{{$root.m0}}" alt data-event-opts="{{[['tap',[['goTo']]]]}}" bindtap="__e" class="_img data-v-0e5f93c6"></image><view class="_p data-v-0e5f93c6">优息鸟科技提供技术支持</view></view></view>

@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "优秀作品",
-  "enablePullDownRefresh": true,
-  "usingComponents": {
-    "youxniao": "/components/youxniao"
-  }
-}

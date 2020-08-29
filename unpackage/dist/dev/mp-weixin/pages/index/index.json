@@ -1,7 +1,0 @@
-{
-  "navigationStyle": "custom",
-  "usingComponents": {
-    "heada": "/components/heada",
-    "youxniao": "/components/youxniao"
-  }
-}
