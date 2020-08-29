@@ -1,0 +1,58 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/course_list/course_list",
+    "pages/show/show",
+    "pages/mine/mine",
+    "pages/index/index_details/index_details",
+    "pages/reservation/reservation",
+    "pages/index/shop/shop",
+    "pages/course_list/Details_course/Details_course",
+    "pages/show/details/details",
+    "pages/binding/binding",
+    "pages/mine/course_my/course_my",
+    "pages/mine/works_my/works_my",
+    "pages/mine/profile_my/profile_my"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor": "#7f8971",
+    "backgroundColor": "#FFFFFF"
+  },
+  "tabBar": {
+    "color": "#b8c4b6",
+    "selectedColor": "#7f8971",
+    "borderStyle": "black",
+    "backgroundColor": "#FFFFFF",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "维度艺术",
+        "iconPath": "static/images/icon/_index.png",
+        "selectedIconPath": "static/images/icon/index.png"
+      },
+      {
+        "pagePath": "pages/course_list/course_list",
+        "text": "课程列表",
+        "iconPath": "static/images/icon/_course.png",
+        "selectedIconPath": "static/images/icon/course.png"
+      },
+      {
+        "pagePath": "pages/show/show",
+        "text": "优秀作品",
+        "iconPath": "static/images/icon/_show.png",
+        "selectedIconPath": "static/images/icon/show.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的首页",
+        "iconPath": "static/images/icon/_mine.png",
+        "selectedIconPath": "static/images/icon/mine.png"
+      }
+    ]
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap2.json"
+}

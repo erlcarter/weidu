@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "店面介绍",
+  "usingComponents": {
+    "foote": "/components/footer"
+  }
+}

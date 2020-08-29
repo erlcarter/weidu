@@ -1,0 +1,129 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		
+		{
+			"path": "pages/index/index",
+			"style": {
+				// "navigationBarTitleText": "uni"
+				"navigationStyle": "custom"
+			}
+		}, 
+		{
+			"path": "pages/course_list/course_list",
+			"style": {
+				"navigationBarTitleText": "课程列表"
+			}
+		},
+		{
+			"path": "pages/show/show",
+			"style": {
+				"navigationBarTitleText": "优秀作品",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
+			"path": "pages/mine/mine",
+			"style": {
+				"navigationBarTitleText": "我的首页"
+			}
+		},
+		{
+		    "path" : "pages/index/index_details/index_details",
+		    "style" : {
+				"navigationBarTitleText": "文章详情"
+			}
+		}
+		
+        ,{
+            "path" : "pages/reservation/reservation",
+            "style" : {
+				"navigationBarTitleText": "预约报名"
+			}
+        }
+        ,{
+            "path" : "pages/index/shop/shop",
+            "style" : {
+				"navigationBarTitleText": "店面介绍"
+			}
+        }
+        ,{
+            "path" : "pages/course_list/Details_course/Details_course",
+            "style" : {
+				"navigationBarTitleText": "课程详情"
+			}
+        }
+        ,{
+            "path" : "pages/show/details/details",
+            "style" : {
+				"navigationBarTitleText": "作品详情"
+			
+			}
+        }
+        ,{
+            "path" : "pages/binding/binding",
+            "style" : {
+				"navigationBarTitleText": "绑定信息"
+			}
+        }
+        ,{
+            "path" : "pages/mine/course_my/course_my",
+            "style" : {
+				"navigationBarTitleText": "我的课程"
+			}
+        }
+        ,{
+            "path" : "pages/mine/works_my/works_my",
+            "style" : {
+				"navigationBarTitleText": "我的作品展",
+				"enablePullDownRefresh": true
+			}
+        }
+        ,{
+            "path" : "pages/mine/profile_my/profile_my",
+            "style" : {
+				"navigationBarTitleText": "我的资料"
+			}
+        }
+        
+    ],
+	// 全局配置
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarBackgroundColor": "#7f8971",
+		"backgroundColor": "#FFFFFF"
+	},
+	// 底部导航
+	"tabBar": {
+		"color": "#b8c4b6",
+		"selectedColor": "#7f8971",
+		"borderStyle": "black",
+		// "backgroundColor": "#f7f7fa",
+		"backgroundColor": "#FFFFFF",
+		"position": "bottom",
+		"list": [{
+				"pagePath": "pages/index/index",
+				"text": "维度艺术",
+				"iconPath": "static/images/icon/_index.png",
+				"selectedIconPath": "static/images/icon/index.png"
+			},
+			{
+				"pagePath": "pages/course_list/course_list",
+				"text": "课程列表",
+				"iconPath": "static/images/icon/_course.png",
+				"selectedIconPath": "static/images/icon/course.png"
+			},
+			{
+				"pagePath": "pages/show/show",
+				"text": "优秀作品",
+				"iconPath": "static/images/icon/_show.png",
+				"selectedIconPath": "static/images/icon/show.png"
+			},
+			{
+				"pagePath": "pages/mine/mine",
+				"text": "我的首页",
+				"iconPath": "static/images/icon/_mine.png",
+				"selectedIconPath": "static/images/icon/mine.png"
+			}
+		]
+	}
+}

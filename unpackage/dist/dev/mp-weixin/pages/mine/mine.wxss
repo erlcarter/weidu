@@ -1,0 +1,308 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.yxniao.data-v-dcbcfe34 {
+  position: absolute;
+  bottom: 0;
+  width: 90%;
+}
+.content_mine.data-v-dcbcfe34 {
+  min-height: 100vh;
+  background-color: #7f8971;
+  padding-top: 120rpx;
+  box-sizing: border-box;
+}
+.content.data-v-dcbcfe34 {
+  position: relative;
+  min-height: calc(100vh - 120rpx);
+  background-color: #ffffff;
+  border-top-left-radius: 50rpx;
+  border-top-right-radius: 50rpx;
+  z-index: 0;
+  padding: 0 5%;
+}
+.content .whether_log.data-v-dcbcfe34 {
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  box-shadow: 0vw 0vw 5vw rgba(0, 0, 0, 0.1);
+  width: 670rpx;
+  height: 164rpx;
+  overflow: hidden;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+.content .whether_log ._img.data-v-dcbcfe34 {
+  background-color: #a49888;
+  border-radius: 50%;
+  border: 1rpx solid #ffffff;
+  width: 104rpx;
+  height: 104rpx;
+  line-height: 104rpx;
+  overflow: hidden;
+  object-fit: cover;
+  margin: 4.5% 2% 5% 5%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.content .whether_log ._img.data-v-dcbcfe34 {
+  border-radius: 50%;
+  border: 1rpx solid #ffffff;
+  width: 104rpx;
+  height: 104rpx;
+  line-height: 104rpx;
+  overflow: hidden;
+  object-fit: cover;
+  margin: 4.5% 2% 5% 5%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.content .whether_log .info_btn.data-v-dcbcfe34 {
+  margin: 5% 0rpx;
+}
+.content .whether_log .info_btn ._p.data-v-dcbcfe34 {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #7f8971;
+  width: 250rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.content .whether_log .info_btn ._span.data-v-dcbcfe34 {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #7f8971;
+  width: 250rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.content .whether_log .info_btn .public.data-v-dcbcfe34 {
+  background-color: #ffffff;
+  border-radius: 0rpx;
+  border: 1rpx solid transparent;
+  width: 118rpx;
+  height: 42rpx;
+  overflow: hidden;
+  margin: 4% 8% 0 0;
+  object-fit: cover;
+}
+.content .whether_log .info_btn .vip_btn.data-v-dcbcfe34 {
+  background-color: #ffffff;
+  border-radius: 0rpx;
+  border: 1rpx solid transparent;
+  width: 185rpx;
+  height: 42rpx;
+  overflow: hidden;
+  object-fit: cover;
+  margin: 4% 8% 0 0;
+}
+.content .whether_log .login.data-v-dcbcfe34 {
+  background-color: #a49888;
+  border-radius: 10px;
+  width: 200rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  overflow: hidden;
+  margin: 5% 5%;
+  -webkit-transform: translateX(1%);
+          transform: translateX(1%);
+}
+.content .whether_log .login ._p.data-v-dcbcfe34 {
+  font-size: 28rpx;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  color: #ffffff;
+  display: block;
+  line-height: 100rpx;
+  text-align: center;
+}
+.content .whether_log .my_data.data-v-dcbcfe34 {
+  background-color: #FFFFFF;
+  margin-top: 9.5%;
+  margin-right: 1%;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABHNCSVQICAgIfAhkiAAAAYtJREFUaEPtmLFOAzEMhu2Via69k3ruCBOvAwPwBMCblDcoC7wOEx0jJMRaJkaC7sRQweniO9sxJ6VLhybO//2/00RBmPkHZ64fCoB3giWBkoDQgdJCrYFhH47bb1rQh9DQ0dPFCYS3sEGEm3ZljLBZ1XQ3WoVgggggvIctRrg8XB8BtquKrgWaRk2dDNC2DX7Cvm+1nBAmAF07ZUpiMkC3eQ/63ysJEUAH0bMPcu4JMYA3hAqAJ4QagBeEKoAHhDpAbggTAA4EIDw2S7oYdez2DDYDYEEAvDQVnUogTAE4EDHCM9V0NhXCHIAD8XUUm/Vi/ToFogCkXEtdNf51CyXFA+yoopOUCUO/m7UQQ/wTVXQuEf9zbZeW+Ds/KR7hgZZ0pbGyegI5xasnkFu8KoCHeDUAL/EqAJ7ixQDe4kUAQ+9CbeGo+FdpcpANAeQSL0qgu2X2vAvlFC8G+A0RI9xTTbcaJyy3hspJPOvnda5TVuNUErASx6lbADguWY4pCVi6y6ldEuC4ZDnmG9D9zzE2yBlVAAAAAElFTkSuQmCC);
+  background-repeat: no-repeat;
+  background-size: 40rpx;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.content .whether_log .go_profile.data-v-dcbcfe34 {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  z-index: 10;
+}
+.content .menu_bnt.data-v-dcbcfe34 {
+  width: 670rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-transform: translateY(-48rpx);
+          transform: translateY(-48rpx);
+}
+.content .menu_bnt .left.data-v-dcbcfe34 {
+  position: relative;
+  width: 42.66vw;
+  height: 53.33vw;
+  background: white;
+  box-shadow: 0vw 0vw 5vw rgba(0, 0, 0, 0.1);
+  opacity: 1;
+  border-radius: 2vw;
+}
+.content .menu_bnt .left .login_btn.data-v-dcbcfe34 {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  z-index: 10;
+}
+.content .menu_bnt .right.data-v-dcbcfe34 {
+  position: relative;
+  width: 42.66vw;
+  height: 53.33vw;
+  background: white;
+  box-shadow: 0vw 0vw 5vw rgba(0, 0, 0, 0.1);
+  opacity: 1;
+  border-radius: 2vw;
+  margin-left: 32rpx;
+}
+.content .menu_bnt .right .login_btn.data-v-dcbcfe34 {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  z-index: 10;
+}
+.content .menu_bnt .my_menu.data-v-dcbcfe34 {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #7f8971;
+  margin: 10% 0 0 10%;
+}
+.content .menu_bnt .my_number.data-v-dcbcfe34 {
+  font-size: 23rpx;
+  color: #b8c4b6;
+  margin: 3% 0 0 10%;
+}
+.content .menu_bnt .show_btn.data-v-dcbcfe34 {
+  background-image: -webkit-linear-gradient(left, #ffffff 0%, #e0e5df 100%);
+  background-image: linear-gradient(90deg, #ffffff 0%, #e0e5df 100%);
+  width: 320rpx;
+  height: 200rpx;
+  position: fixed;
+  bottom: 0px;
+  border-bottom-left-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+}
+.content .menu_bnt .show_btn ._img.data-v-dcbcfe34 {
+  width: 42.66vw;
+  height: 53.33vw;
+  -webkit-transform: translate(-10rpx, -50%);
+          transform: translate(-10rpx, -50%);
+  background-size: cover;
+}
+.content .refer.data-v-dcbcfe34 {
+  position: relative;
+  background-image: -webkit-linear-gradient(left, #ffffff 0%, #e0e5df 100%);
+  background-image: linear-gradient(90deg, #ffffff 0%, #e0e5df 100%);
+  border-radius: 10px;
+  box-shadow: 0vw 0vw 5vw rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 200rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  margin-top: 32rpx;
+  -webkit-transform: translateY(-20rpx);
+          transform: translateY(-20rpx);
+  margin-bottom: 60rpx;
+}
+.content .refer ._img.data-v-dcbcfe34 {
+  width: 250rpx;
+  height: 230rpx;
+  -webkit-transform: translate(396rpx, -30rpx);
+          transform: translate(396rpx, -30rpx);
+  z-index: 5;
+  position: absolute;
+  object-fit: cover;
+}
+.content .refer .refer_text.data-v-dcbcfe34 {
+  margin-left: 5%;
+}
+.content .refer .refer_text ._p.data-v-dcbcfe34 {
+  margin-top: 10%;
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #7f8971;
+  z-index: 6;
+}
+.content .refer .refer_text ._span.data-v-dcbcfe34 {
+  margin-top: 5%;
+  font-size: 24rpx;
+  font-weight: 300;
+  color: #7f8971;
+  z-index: 7;
+}
+.content .refer .service.data-v-dcbcfe34 {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  z-index: 10;
+}
+
