@@ -34,17 +34,24 @@
   width: 100%;
 }
 .Portfolio .titile.data-v-2023fb26 {
-  padding: 8.33% 0% 0% 5%;
+  padding: 8.33% 0% 0% 6%;
   font-size: 32rpx;
   font-weight: 700;
   color: #7f8971;
 }
+.Portfolio .titile_s.data-v-2023fb26 {
+  margin: 8rpx 0 32rpx 6%;
+  font-size: 12px;
+  font-weight: 300;
+  color: #7f8971;
+}
 .Portfolio .Portfolio_list.data-v-2023fb26 {
-  margin: 5.5% 5% 5% 5%;
-  width: 90%;
+  display: inline-block;
+  vertical-align: top;
+  width: 43%;
   /* 规定的列数，设置5列 */
-  -webkit-column-count: 2;
-          column-count: 2;
+  -webkit-column-count: 1;
+          column-count: 1;
   /* 规定的间隔距离 */
   -webkit-column-gap: 3%;
           column-gap: 3%;
@@ -55,25 +62,26 @@
   width: 100%;
 }
 .Portfolio .Por_lis_fall .por_sty.data-v-2023fb26 {
-  padding-bottom: 8%;
   width: 100%;
   height: auto;
 }
 .Portfolio .Por_lis_fall .por_sty ._img.data-v-2023fb26 {
+  margin-top: 32rpx;
   width: 100%;
   height: auto;
   border-radius: 20rpx;
   min-height: 200rpx;
   background: #F1F1F1;
-  box-shadow: 0vw 1vw 5vw rgba(0, 0, 0, 0.2);
+  box-shadow: 0vw 6rpx 40rpx rgba(0, 0, 0, 0.1);
 }
 .Portfolio .Por_lis_fall .por_about.data-v-2023fb26 {
   padding-left: 7%;
 }
 .Portfolio .Por_lis_fall .por_about .por_name.data-v-2023fb26 {
-  padding-top: 4%;
+  padding-top: 8rpx;
   font-weight: 700;
   color: #7f8971;
+  font-size: 28rpx;
   width: 260rpx;
   overflow: hidden;
   white-space: nowrap;
@@ -86,5 +94,21 @@
   width: 260rpx;
   overflow: hidden;
   white-space: nowrap;
+}
+.load_btn.data-v-2023fb26 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  padding: 30rpx 0rpx;
+}
+.load_btn ._p.data-v-2023fb26 {
+  font-size: 24rpx;
+  color: #AAAAAA;
 }
 

@@ -62,14 +62,12 @@
 .activity_btn.data-v-57280228 {
   -webkit-transform: translateY(-20rpx);
           transform: translateY(-20rpx);
-  margin: 10% 6% 0% 6%;
+  margin: 64rpx 6% 0% 6%;
 }
 .activity_btn .activity_tite.data-v-57280228 {
   font-size: 32rpx;
   font-weight: 700;
   color: #7f8971;
-  margin-bottom: 6%;
-  margin-left: 10rpx;
 }
 .activity_btn .activity_list.data-v-57280228 {
   background-color: #ffffff;
@@ -77,7 +75,7 @@
   box-shadow: 0rem 1vw 5vw rgba(0, 0, 0, 0.1);
   width: 100%;
   height: 448rpx;
-  margin-bottom: 5%;
+  margin-top: 6%;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -85,7 +83,6 @@
 .activity_btn .activity_list .acti_lis_left.data-v-57280228 {
   border-top-left-radius: 20rpx;
   border-bottom-left-radius: 20rpx;
-  border: 2px solid #e0e5df;
   width: 375rpx;
   height: 446rpx;
 }
@@ -93,6 +90,7 @@
   width: 318rpx;
   height: 446rpx;
   padding: 5% 5% 0% 5%;
+  position: relative;
 }
 .activity_btn .activity_list .acti_lis_right .ac_lis_ri_tite.data-v-57280228 {
   font-size: 28rpx;
@@ -106,14 +104,14 @@
   -webkit-line-clamp: 2;
 }
 .activity_btn .activity_list .acti_lis_right .ac_lis_ri_date.data-v-57280228 {
-  margin: 8% 0;
+  margin: 8rpx 0rpx 8% 0rpx;
   background-color: #a49888;
   border-radius: 6rpx;
-  width: 124rpx;
+  width: 126rpx;
   height: 32rpx;
   line-height: 32rpx;
   text-align: center;
-  font-size: 18rpx;
+  font-size: 20rpx;
   font-weight: bold;
   color: #ffffff;
   overflow: hidden;
@@ -137,7 +135,9 @@
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
-  margin: 15% 0% 7% 38%;
+  position: absolute;
+  bottom: 64rpx;
+  left: 38%;
 }
 .activity_btn .activity_list .acti_lis_right .read_more_btn ._p.data-v-57280228 {
   white-space: nowrap;
@@ -153,15 +153,14 @@
           transform: translateX(2rpx);
 }
 .site_btn.data-v-57280228 {
-  margin: 7% 6%;
+  margin: 64rpx 6% 0% 6%;
   -webkit-transform: translate(0rpx, -50rpx);
           transform: translate(0rpx, -50rpx);
 }
-.site_btn ._p.data-v-57280228 {
-  font-size: 36rpx;
+.site_btn .titile.data-v-57280228 {
+  font-size: 32rpx;
   font-weight: 700;
   color: #7f8971;
-  margin-left: 10rpx;
 }
 .site_btn .site_collect.data-v-57280228 {
   display: -webkit-box;
@@ -177,13 +176,13 @@
   border-radius: 3vw;
   margin-top: 60rpx;
   overflow: hidden;
-  padding: 5% 0 0 3%;
+  padding: 32rpx 0 0 32rpx;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
 }
 .site_btn .site_collect .site_alone .site_tite .shop.data-v-57280228 {
-  font-size: 26rpx;
+  font-size: 28rpx;
   font-weight: 700;
   color: #7f8971;
   width: 100rpx;
@@ -192,7 +191,6 @@
   white-space: wrap;
 }
 .site_btn .site_collect .site_alone .site_tite .shop_site.data-v-57280228 {
-  padding-top: 1%;
   font-size: 22rpx;
   color: #b8c4b6;
   font-weight: 300;
@@ -217,5 +215,11 @@
   position: absolute;
   z-index: 15;
   object-fit: cover;
+}
+.titile_s.data-v-57280228 {
+  padding: 8rpx 0 0 0rpx;
+  font-size: 12px;
+  font-weight: 300;
+  color: #7f8971;
 }
 

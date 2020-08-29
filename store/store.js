@@ -8,10 +8,12 @@ Vue.use(Vuex)
 export default new Vuex.Store({
 	state:{
 		img_http:'http://weiduimg.youxiniao.net/',
+		img_http_xz:'https://weiduimg.youxiniao.net/',
 		img_end:'?imageView2/0/w/450',
+		img_end_2:'?imageView2/0/w/1000',
 		open_id:null,
 		userInfo:null,//微信个人信息
-		info: uni.getStorageSync('userInfo'),
+		info: uni.getStorageSync('userInfo'),  //后台返回的个人信息
 		body_style:'',
 		body2_style:'',
 		nav_top:'',
@@ -146,7 +148,7 @@ export default new Vuex.Store({
 						resolve(res)
 					},
 					fail:(err) => {
-						console.log(err)
+						console.log("失败"+err)
 					}
 				})
 			})
@@ -170,6 +172,7 @@ export default new Vuex.Store({
 				return res.data.data;
 			}
 		},
+		// getOpenId 获取用户唯一openid
 		getOpenId({ state }){
 			return new Promise(resolve => {
 				//云开发初始化

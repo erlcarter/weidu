@@ -2,7 +2,7 @@
 	<div class="details" style="overflow-x:hidden;">
 		<img class="radian" mode="widthFix" src="@/static/images/radian_1.png" alt="">
 
-		
+
 		<div>
 			<div class="details_btn">
 				<!-- 公共的 -->
@@ -11,42 +11,43 @@
 					<div class="frame">
 						<img class="border_top" src="/static/images/frame2.png" alt="">
 						<img class="border" src="/static/images/border.png" alt="">
-						<img class="middle" mode="widthFix" :src="ewmImg" />
+						<!-- 压缩 -->
+						<img class="middle" mode="widthFix" v-if='Rende.avatar' :src="img_http + Rende.avatar + img_end_2" />
 						<img class="border_bottom" src="/static/images/frame1.png" alt="">
+						<!-- 水印 -->
+						<img class="watermark" mode='widthFix' src="../../../static/images/head2.png" alt="">
 					</div>
 					<div class="publicity">
 						<!--左 -->
 						<div class-="Name_works">
 							<!-- 作品名称 -->
-							<p class="Name_works_bnt">逛超市简笔画</p>
+							<p class="Name_works_bnt"><span v-text="Rende.art_desc">逛超市简笔画</span></p>
 
 							<!-- 作者|作品息 -->
 							<div class="writer">
 								<p>—</p>
-								<p>作者：<span v-text="writer_name">陈浩</span></p>
-								<p>班级：<span v-text="grade_cla">三年三班</span></p>
-								<p>创作时间：<span v-text="date_wri">2020-7-11</span></p>
-								<p>围观人数：<span v-text="quan">345</span></p>
+								<p>作者：<span v-text="Rende.student_name">陈浩</span></p>
+								<p>班级：<span v-text="Rende.course_name">三年三班</span></p>
+								<p>创作时间：<span v-text="Rende.time">2020-7-11</span></p>
+								<p>围观人数：<span v-text="Rende.look_num">345</span></p>
 							</div>
 						</div>
 						<!-- 右 -->
-						<img src="../../../static/images/recommend.png" alt="">
+						<img v-if="Rende.is_hot" src="../../../static/images/recommend.png" alt="">
 					</div>
 				</div>
 
 				<!--自己页面需新增-->
-				<div class="mine" v-if="mine">
-					<p class="mine_title">作品花絮</p>
-					<div v-for="value in titbits" :key="value">
-						<img :src="value.ewmImg" />
+				<div class="mine" v-if="Rende.mine">
+					<p class="mine_title"  v-if="Rende.imgs">作品花絮</p>
+					<div v-for="img in Rende.imgs" :key="value">
+						<!-- 压缩 -->
+						<!-- <img mode="widthFix" :src="img_http + img + img_end_2" v-if="img" /> -->
+						<!-- 原图 -->
+						<img mode="widthFix" :src="img_http + img" v-if="img" />
 					</div>
 					<!-- 保存按钮 -->
 					<div class="_phone">
-						<!-- #ifndef MP-WEIXIN -->
-						<!-- 	<button @click="saveImgToLocal">
-							保存至手机1
-						</button> -->
-						<!-- #endif -->
 
 						<!-- #ifdef MP-WEIXIN -->
 						<button @click="saveEwm" v-if="openSettingBtnHidden">
@@ -56,9 +57,6 @@
 						<!--open-type="openSetting打开授权页面"  -->
 						<button v-else hover-class="none" open-type="openSetting" @opensetting='handleSetting'>保存至手机</button>
 						<!-- #endif -->
-						<!-- <button>
-							保存至手机
-						</button> -->
 					</div>
 				</div>
 
@@ -68,33 +66,65 @@
 </template>
 
 <script>
+	import {
+		mapActions,
+		mapState
+	} from 'vuex'
 	export default {
 		data() {
 			return {
 				mine: true,
-				ewmImg: "https://s1.ax1x.com/2020/08/10/aHobY4.md.jpg",
-				writer_name: "陈浩南",
-				grade_cla: "三年四班",
-				date_wri: "1999-7-9",
-				quan: 324,
-				titbits: [{
-						ewmImg: "https://s1.ax1x.com/2020/08/10/ab8skd.md.jpg" //这是要保存的图片
-					},
-					{
-						ewmImg: "https://s1.ax1x.com/2020/08/10/aHqPbt.md.jpg" //这是要保存的图片
-					}
-				],
+				id: null,
+				Rende: [], //作品信息列表
 
 				openSettingBtnHidden: true, //是否授权
 
+
 			};
 		},
-		onLoad(opt) {},
-		components: {},
+		// 小程序生命周期
+		onLoad(opt) {
+			console.log("show传过来的id为:" + opt.id);
+			this.id = opt.id;
+
+			this.getData()
+		},
+		computed: {
+			...mapState(['info', 'img_http', 'img_end', 'img_http_xz', 'img_end_2']), //请求全局用户信息
+		},
 		methods: {
+			...mapActions(['onRequest']), //请求模块
+			//获取数据
+			getData() {
+				console.log('缓存中的用户个人信息');
+				console.log(this.info);
+				let url = this.$urls.type_article_info_get;
+				console.log('完整的后端页面地址url:' + url)
+				this.onRequest({
+					url,
+					data: {
+						id: this.id, //获取作品id
+						uiid: this.info.uiid //获取登录用户uiid
+					},
+				}).then(res => {
+					// console.log(res)
+					let data = res.data.data;
+					console.log("作品信息") //作品信息
+					console.log(data) //作品信息
+					//以下status都必须都等于 1才才算成功
+					if (res.data.status == 1) {
+						this.Rende = data
+
+						this.Rende.imgs = this.Rende.imgs.split(',')
+						console.log(this.Rende)
+
+					}
+				})
+			},
+
 			downFile(url) {
 				uni.downloadFile({ //下载文件资源到本地，客户端直接发起一个 HTTP GET 请求，返回文件的本地临时路径。
-					url, //图片地址
+					url: this.img_http_xz + url, //图片地址
 					success: (res) => {
 						console.log(res)
 						if (res.statusCode === 200) {
@@ -143,7 +173,7 @@
 							// 此接口会直接进入失败回调，一般搭配uni.getSetting和uni.openSetting使用。
 							uni.authorize({
 								scope: 'scope.writePhotosAlbum',
-								success() {
+								success: () => {
 									//这里是用户同意授权后的回调
 									this.saveImgToLocal();
 								},
@@ -182,10 +212,10 @@
 					content: '确定保存到相册吗',
 					success: res => {
 						if (res.confirm) {
-							this.downFile(this.ewmImg)
-							for (let i = 0; i < this.titbits.length; i++) {
-								this.downFile(this.titbits[i].ewmImg)
-							}
+							this.downFile(this.Rende.avatar)
+							// for (let i = 0; i < this.Rende.imgs.length; i++) {
+							// 	this.downFile(this.Rende.imgs[i])
+							// }
 
 
 						} else if (res.cancel) {
@@ -196,6 +226,21 @@
 
 			}
 		},
+
+		// 分享
+		onShareAppMessage: function() {
+			return {
+				title: '作品详情',
+				// path: '/index/index?id=123'
+			}
+		},
+		//分享到朋友圈
+		onShareTimeline() {
+			return {
+				title: '作品详情',
+				// path: '/index/index?id=123'
+			}
+		}
 
 
 	}
@@ -224,13 +269,9 @@
 
 			.frame {
 				position: relative;
-				// width: 79.33vw;
-				// height: 100vw;
-				// border: 18rpx groove rgba(127, 137, 113, .6);
 				transform: translateY(-12rpx);
 				box-sizing: border-box;
 				box-shadow: 0vw 1vw 5vw rgba(0, 0, 0, 0.3);
-				// box-shadow: 10px 10px 5px #888888;
 
 				.border {
 					position: absolute;
@@ -240,17 +281,25 @@
 					width: 100%;
 					z-index: 1;
 					object-fit: cover;
-				} 
- 
+				}
+
+
+				.watermark {
+					position: absolute;
+					right: 96rpx;
+					bottom: 96rpx;
+					width: 176rpx;
+					// width: calc(750rpx * 116 / 375);
+					// background-color: red;
+					z-index: 99;
+				}
+
 				.middle {
 					position: relative;
 					z-index: 2;
-					// border: 1px solid #b8c4b6;
-					background-color: #000000;
+					background-color: #FFFFFF;
 					width: 528rpx;
-					// height: 598rpx;
-					margin: 9% 8%;
-					// object-fit: cover;
+					padding: 10% 8%;
 				}
 
 				.border_top {
@@ -259,7 +308,6 @@
 					top: 0;
 					width: 100%;
 					height: 10px;
-					// transform: rotateX(90deg);
 					z-index: 3;
 				}
 
@@ -272,13 +320,15 @@
 					// transform: rotateX(90deg);
 					z-index: 3;
 				}
+
+
 			}
 
 			.publicity {
 				margin-top: 5%;
 				padding: 7% 5%;
 				// width: 77.33vw;
-				height: 280rpx;
+				// height: 267rpx;
 				background: rgba(248, 248, 248, 1);
 				opacity: 1;
 				text-align: left;
@@ -286,7 +336,6 @@
 
 				// 左
 				.Name_works {
-					background-color: #4CD964;
 					display: flex;
 					height: 200rpx;
 					width: 100%;
@@ -334,9 +383,10 @@
 			}
 
 			img {
+				display: block; //变块元素
 				width: 89.33vw;
 				height: 80.8vw;
-				padding-bottom: 3%;
+				// padding-bottom: 3%;
 				object-fit: cover;
 			}
 		}

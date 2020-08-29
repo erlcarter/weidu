@@ -2,7 +2,8 @@
 	<div class="course_index" style="overflow-x:hidden;">
 		<img mode="widthFix" class="radian" src="../../static/images/radian_1.png" alt="">
 		<div class="course_cont">
-			<p class="titile">WEDOO特色课程一览</p>
+			<p class="titile">特色课程一览</p>
+			<p class="titile_s">LIST OF FEATURED COURSES</p>
 			<!-- 课程列表 -->
 			<div class="course_list" v-for="value in course_list" :key="value.id">
 
@@ -87,10 +88,10 @@
 			},
 			//点击事件 根据id跳转到相应的课程详情页
 			selectItem(value) {
-				console.log('id',value.id);
-				 uni.navigateTo({
-					url:`/pages/course_list/Details_course/Details_course?id=${value.id}`
-				 })
+				console.log('id', value.id);
+				uni.navigateTo({
+					url: `/pages/course_list/Details_course/Details_course?id=${value.id}`
+				})
 			},
 		},
 		//组件
@@ -100,6 +101,20 @@
 		},
 		computed: {
 			...mapState(['img_http', 'img_end'])
+		},
+		// 分享
+		onShareAppMessage: function() {
+			return {
+				title: '课程列表',
+				// path: '/index/index?id=123'
+			}
+		},
+		//分享到朋友圈
+		onShareTimeline(){
+			return {
+				title: '课程列表',
+				// path: '/index/index?id=123'
+			}
 		}
 	}
 </script>
@@ -112,26 +127,21 @@
 	}
 
 	.course_cont {
-		padding: 8.53% 5% 0 5%;
+		margin: 8.53% 5% 0 5%;
 		background-color: #ffffff;
 		width: 100%;
 
 		//课程列表--标题
 		.titile {
-			width: 56.93vw;
-			height: 7.2vw;
-			font-size: 4.2vw;
-			font-family: Noto Sans CJK SC;
-			font-weight: bold;
-			line-height: 7.2vw;
-			// color: rgba(127, 137, 113, 1);
-			opacity: 1;
-
 			font-size: 32rpx;
 			font-weight: 700;
 			color: #7f8971;
-
-
+		}
+		.titile_s {
+			padding: 8rpx 0 64rpx 0;
+			font-size: 12px;
+			font-weight: 300;
+			color: #7f8971;
 		}
 
 		// 课程列表 -内容
@@ -140,9 +150,11 @@
 			border-radius: 20rpx;
 			box-shadow: 0vw 1vw 5vw rgba(0, 0, 0, 0.1);
 			width: 90%;
-			height: 484rpx;
+			height: 520rpx;
 			// overflow: hidden;
-			margin: 5% 0%;
+			// margin: 5% 0%;
+			margin: 0 0 5% 0;
+
 
 
 			// 多图
@@ -169,7 +181,7 @@
 			.co_li_img {
 				.li_img1 {
 					width: 89.8vw;
-					height: 30vw;
+					height: 288rpx;
 					object-fit: cover;
 					border-top-left-radius: 20rpx;
 					border-top-right-radius: 20rpx;
@@ -181,10 +193,10 @@
 
 
 			.grade {
-				margin: 4.27% 5% 4.27% 5%;
+				margin: 1.97% 5% 0% 5%;
 
 				.grade_title {
-					width: 28.67vw;
+					width: 48.67vw;
 					height: 5.33vw;
 					font-size: 3.73vw;
 					font-family: Noto Sans CJK SC;
@@ -200,27 +212,29 @@
 				}
 
 				.label {
-					margin: 16rpx 0% 4.27% 0%;
+					margin: 8rpx 0% 2.95% 0%;
 					display: flex;
+					justify-content: space-between;
 
 					.grade_label {
 						background-color: #a49888;
 						border-radius: 6rpx;
-						width: 94rpx;
+						// width: 94rpx;
 						height: 32rpx;
 						line-height: 32rpx;
 						overflow: hidden;
-
 						font-size: 20rpx;
 						font-weight: 700;
 						color: #ffffff;
 						text-align: center;
 						font-weight: bold;
+						padding: 0 16rpx;
 					}
 
 					.read_more_btn {
 						display: flex;
-						margin: 0% 0% 0% 50%;
+						// margin: 0% 0% 0% 50%;
+						margin: 0% 4.5% 0% 0%;
 						transform: translate(26rpx, 0rpx);
 
 						p {

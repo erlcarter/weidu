@@ -171,7 +171,8 @@
 		margin: 8.53% 5% 0% 5%;
 
 		.text1 {
-			font-size: 4.8vw;
+			font-size: 32rpx;
+			// font-size: 32rpx;
 			font-family: Noto Sans CJK SC;
 			font-weight: bold;
 			line-height: 7.2vw;
@@ -180,7 +181,7 @@
 		}
 
 		.prompt {
-			width: 81.87vw;
+			width: 83.87vw;
 			height: 4.8vw;
 			font-size: 3.2vw;
 			font-family: Noto Sans CJK SC;
@@ -188,7 +189,7 @@
 			line-height: 4.8vw;
 			color: rgba(127, 137, 113, 1);
 			opacity: 1;
-			margin-top: 2%;
+			margin-top: 8rpx;
 
 			overflow: hidden;
 			text-overflow: ellipsis;
@@ -198,7 +199,7 @@
 		}
 
 		.content {
-			margin: 8.53% 0% 10% 0%;
+			margin: 64rpx 0% 10% 0%;
 
 			.fill {
 				width: 89.33vw;
@@ -256,28 +257,28 @@
 			display: flex;
 			// justify-content: center;
 			align-items: center;
-			// transform: translate(0rpx, -63rpx);
 			position: fixed;
-			bottom: 6%;
+			bottom: 60rpx;
 			background: Transparent;
 
 			.submit_but {
-				// margin-bottom: 60rpx;
-				// padding: 3% 20% 50rpx 20%;
+	
 
-				width: 53.33vw;
-				height: 13.33vw;
+				width: 400rpx;
+				height: 100rpx;
 				background: rgba(127, 137, 113, 1);
 				opacity: 1;
 				border-radius: 3vw;
-				height: 13.33vw;
-			}
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			} 
 
 			p {
 				margin: 8% 0;
 				text-align: center;
 				// width:20vw;
-				height: 5.33vw;
+				height:28rpx;
 				font-size: 3.73vw;
 				font-family: Noto Sans CJK SC;
 				font-weight: bold;
@@ -285,6 +286,11 @@
 				color: rgba(255, 255, 255, 1);
 				letter-spacing: 100rpxpx;
 				opacity: 1;
+				
+				
+				display: flex;
+				justify-content: center;
+				align-items: center;
 			}
 
 		}

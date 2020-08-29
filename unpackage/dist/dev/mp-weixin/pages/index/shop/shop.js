@@ -1,9 +1,9 @@
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["pages/index/shop/shop"],{
 
 /***/ 76:
-/*!***************************************************************************************!*\
-  !*** F:/Projects/vue-dome/维度小程序/weidu/main.js?{"page":"pages%2Findex%2Fshop%2Fshop"} ***!
-  \***************************************************************************************/
+/*!***********************************************************************************!*\
+  !*** F:/Projects/Work/维度小程序/weidu/main.js?{"page":"pages%2Findex%2Fshop%2Fshop"} ***!
+  \***********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17,9 +17,9 @@ createPage(_shop.default);
 /***/ }),
 
 /***/ 77:
-/*!******************************************************************!*\
-  !*** F:/Projects/vue-dome/维度小程序/weidu/pages/index/shop/shop.vue ***!
-  \******************************************************************/
+/*!**************************************************************!*\
+  !*** F:/Projects/Work/维度小程序/weidu/pages/index/shop/shop.vue ***!
+  \**************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -58,9 +58,9 @@ component.options.__file = "pages/index/shop/shop.vue"
 /***/ }),
 
 /***/ 78:
-/*!*************************************************************************************************************!*\
-  !*** F:/Projects/vue-dome/维度小程序/weidu/pages/index/shop/shop.vue?vue&type=template&id=fd952dee&scoped=true& ***!
-  \*************************************************************************************************************/
+/*!*********************************************************************************************************!*\
+  !*** F:/Projects/Work/维度小程序/weidu/pages/index/shop/shop.vue?vue&type=template&id=fd952dee&scoped=true& ***!
+  \*********************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -80,9 +80,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 79:
-/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!F:/Projects/vue-dome/维度小程序/weidu/pages/index/shop/shop.vue?vue&type=template&id=fd952dee&scoped=true& ***!
-  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!F:/Projects/Work/维度小程序/weidu/pages/index/shop/shop.vue?vue&type=template&id=fd952dee&scoped=true& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -99,11 +99,13 @@ var render = function() {
   var _c = _vm._self._c || _h
   var m0 = __webpack_require__(/*! @/static/images/radian_1.png */ 33)
 
+  var m1 = _vm.address ? _vm.show_img(_vm.address.avatar) : null
   _vm.$mp.data = Object.assign(
     {},
     {
       $root: {
-        m0: m0
+        m0: m0,
+        m1: m1
       }
     }
   )
@@ -117,9 +119,9 @@ render._withStripped = true
 /***/ }),
 
 /***/ 80:
-/*!*******************************************************************************************!*\
-  !*** F:/Projects/vue-dome/维度小程序/weidu/pages/index/shop/shop.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************************************/
+/*!***************************************************************************************!*\
+  !*** F:/Projects/Work/维度小程序/weidu/pages/index/shop/shop.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -133,9 +135,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 81:
-/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!F:/Projects/vue-dome/维度小程序/weidu/pages/index/shop/shop.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!F:/Projects/Work/维度小程序/weidu/pages/index/shop/shop.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -164,8 +166,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
-
-var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var Foote = function Foote() {__webpack_require__.e(/*! require.ensure | components/footer */ "components/footer").then((function () {return resolve(__webpack_require__(/*! @/components/footer */ 150));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var Foote = function Foote() {__webpack_require__.e(/*! require.ensure | components/footer */ "components/footer").then((function () {return resolve(__webpack_require__(/*! @/components/footer */ 151));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -174,16 +175,9 @@ var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerab
   data: function data() {
     return {
       address: null,
-      id: null
-      // shop: [],
-      // shopname: '维度艺术空间·黄沙店',
-      // time: "周一休息，周二至周日正常上课",
-      // phone: "12312312312",
-      // address: "荔湾区从桂林123号通宝大厦903（西城都荟对面，地铁黄沙站C出口",
+      id: null };
 
-      // src1: "/static/images/posi.png",
-      // src2: "/static/images/posi.png",
-    };
+
   },
   onLoad: function onLoad(options) {
     console.log(options);
@@ -192,6 +186,19 @@ var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerab
   },
   methods: _objectSpread({},
   (0, _vuex.mapActions)(['onRequest']), { //请求模块
+
+    show_img: function show_img(avatar) {
+      console.log(avatar);
+      if (avatar == null || avatar == "") {
+        return "/static/images/default_img.png";
+      } else {
+        // 压缩
+        // return  this.img_http+avatar+this.img_end_2
+        // 去压缩
+        return this.img_http + avatar;
+      }
+
+    },
 
 
     // 获取数据
@@ -221,14 +228,29 @@ var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerab
     Foote: Foote },
 
   computed: _objectSpread({},
-  (0, _vuex.mapState)(['img_http', 'img_end'])) };exports.default = _default;
+  (0, _vuex.mapState)(['img_http', 'img_end', 'img_end_2'])),
+
+  // 分享
+  onShareAppMessage: function onShareAppMessage() {
+    return {
+      title: '维度艺术空间'
+      // path: '/index/index?id=123'
+    };
+  },
+  //分享到朋友圈
+  onShareTimeline: function onShareTimeline() {
+    return {
+      title: '维度艺术空间'
+      // path: '/index/index?id=123'
+    };
+  } };exports.default = _default;
 
 /***/ }),
 
 /***/ 82:
-/*!****************************************************************************************************************************!*\
-  !*** F:/Projects/vue-dome/维度小程序/weidu/pages/index/shop/shop.vue?vue&type=style&index=0&id=fd952dee&lang=scss&scoped=true& ***!
-  \****************************************************************************************************************************/
+/*!************************************************************************************************************************!*\
+  !*** F:/Projects/Work/维度小程序/weidu/pages/index/shop/shop.vue?vue&type=style&index=0&id=fd952dee&lang=scss&scoped=true& ***!
+  \************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -242,9 +264,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 83:
-/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--8-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--8-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-2!./node_modules/postcss-loader/src??ref--8-oneOf-1-3!./node_modules/sass-loader/dist/cjs.js??ref--8-oneOf-1-4!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-5!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!F:/Projects/vue-dome/维度小程序/weidu/pages/index/shop/shop.vue?vue&type=style&index=0&id=fd952dee&lang=scss&scoped=true& ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--8-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--8-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-2!./node_modules/postcss-loader/src??ref--8-oneOf-1-3!./node_modules/sass-loader/dist/cjs.js??ref--8-oneOf-1-4!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-5!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!F:/Projects/Work/维度小程序/weidu/pages/index/shop/shop.vue?vue&type=style&index=0&id=fd952dee&lang=scss&scoped=true& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

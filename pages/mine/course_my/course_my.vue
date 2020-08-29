@@ -2,32 +2,38 @@
 	<div class="coures">
 		<img mode="widthFix" class="radian" src="../../../static/images/radian_1.png" alt="">
 		<div class="content">
-			<p>MY WEODOO课程</p>
+			<div class="coures_list" v-for="(value,index) in course_list" :key="value.student_id">
+				<!-- <navigator url="../../course_list/Details_course/Details_course" hover-class="none"> -->
+				<div @click='selectItem(value)'>
 
-			<div class="coures_list" v-for="(value,index) in single_list" :key="index">
-				<navigator url="../../course_list/Details_course/Details_course" hover-class="none">
 					<div class="single">
+						<!-- 头像 -->
 						<div class="left">
-							<img :src="value.head_img" />
+							<img :src="img_http + value.avatar+ img_end" />
 						</div>
+						<!-- 信息 -->
 						<div class="right">
-							<p class="grade" v-text="value.grade">幼儿班</p>
+							<p class="grade" v-text="value.name">幼儿班</p>
 							<div class="label">
-								<p class="grade_label"><span v-text="value.grade_label">7-12</span>岁</p>
+								<p class="grade_label"><span v-text="value.year">7-12</span></p>
 							</div>
-							<p class="text">学生名：<span v-text="value.stu_name">卢本伟</span></p>
+							<p class="text">学生名：<span v-text="value.student_name">卢本伟</span></p>
 							<div>
-								<p class="text" style="padding-bottom: 0rpx;">课程进度：<span v-text="value.off+'/'+value.task">8/8</span></p>
-								<cmd-progress :percent="value.off/value.task*100" :show-info="false" stroke-color="#7f8971" :stroke-width="3"></cmd-progress>
+								<p class="text" style="padding-bottom: 0rpx;">课程进度：
+									<span v-text="value.setion_current+'/'+value.setion_total">8/8</span>
+								</p>
+								<cmd-progress :percent="value.setion_current/value.setion_total*100" :show-info="false" stroke-color="#7f8971"
+								 :stroke-width="3">
+								 </cmd-progress>
 							</div>
 							<div>
-								<p class="text">剩余请假次数：<span v-text="value.leave_res +'/' +value.leave_sum">1/3</span></p>
+								<p class="text">剩余请假次数：<span v-text="value.setion_current +'/' +value.absent_total">1/3</span></p>
 								<!-- 剩余请假次数 -->
 								<div style="display: flex;">
-									<!--请假总次数是固定的（value.leave_sum） -->
-									<div class="leave" v-for="(value2,index) in value.leave_sum" :key="index">
-										<!-- 判断索引是否小于等于leave_res剩余请假次数 -->
-										<img :src="'/static/images/' + (index+1 <= value.leave_res?'leave2':'leave1') + '.png'" alt="">
+									<!--请假总次数是固定的（value.absent_total） -->
+									<div class="leave" v-for="(value2,index) in value.absent_total" :key="index">
+										<!-- 判断索引是否小于等于setion_current剩余请假次数 -->
+										<img :src="'/static/images/' + (index+1 <= value.setion_current?'leave2':'leave1') + '.png'" alt="">
 									</div>
 								</div>
 
@@ -40,7 +46,7 @@
 
 						</div>
 					</div>
-				</navigator>
+				</div>
 			</div>
 
 			<p class="PScript">
@@ -52,38 +58,56 @@
 
 <script>
 	import cmdProgress from "@/components/cmd-progress/cmd-progress.vue"
+	import {
+		mapActions,
+		mapState
+	} from 'vuex'
 	export default {
 		data() {
 			return {
-				single_list: [{
-						head_img: 'https://s1.ax1x.com/2020/08/11/aOMxmD.th.jpg',
-						grade: '幼儿启蒙班',
-						grade_label: "7-13",
-						leave_text: "2/3",
-						stu_name: "迪丽热巴",
-						pro_bar: "8/12",
-						off: 4, //已完成
-						task: 12, //总进度
-						leave_res: 1, //剩余次数
-						leave_sum: 3, //总请假次数
-					},
-					{
-						head_img: 'https://s1.ax1x.com/2020/08/11/aOMxmD.th.jpg',
-						grade: '创意绘画班',
-						grade_label: "7-13",
-						leave_text: "2/3",
-						stu_name: "迪丽巴巴",
-						pro_bar: "8/12",
-						off: 8, //已完成
-						task: 12, //总进度
-						leave_res: 3, //剩余次数
-						leave_sum: 3, //总请假次数
-					},
-				]
+				course_list: [],
 			}
 		},
+		//小程序生命周期
+		onLoad() { //进来就加载
+			this.getData()
+		},
+		//计算属性
+		computed: {
+			...mapState(['info', 'img_http', 'img_end'])
+		},
 		methods: {
+			// 请求模块
+			...mapActions(['onRequest']),
+			//获取数据
+			getData(index) {
+				this.loading = true;
+				let url = this.$urls.find_user_course;
+				console.log("完整的url地址" + url);
+				this.onRequest({
+					url,
+					data: {
+						uiid: this.info.uiid, //用户id
+					},
 
+				}).then(res => {
+					let data = res.data.data;
+					console.log(res)
+
+					console.log(res.data.data)
+					//以下status都必须都等于 1才才算成功
+					if (res.data.status == 1) {
+						this.course_list = res.data.data
+					}
+				})
+			},
+			//点击事件 根据id跳转到相应的课程详情页
+			selectItem(value) {
+				console.log('id', value.course_id);
+				uni.navigateTo({
+					url: `/pages/course_list/Details_course/Details_course?id=${value.course_id}`
+				})
+			},
 		},
 		// 组件
 		components: {
@@ -105,13 +129,14 @@
 	}
 
 	.content {
-		margin: 8.33% 5% 0% 5%;
+		margin: 64rpx 5% 0% 5%;
 	}
 
 	.content>p:nth-child(1) {
 		// width:29.2vw;
 		height: 7.2vw;
 		font-size: 4.8vw;
+		// font-size: 32rpx;
 		font-family: Noto Sans CJK SC;
 		font-weight: bold;
 		line-height: 7.2vw;
@@ -124,11 +149,12 @@
 			margin-top: 5%;
 			padding: 5% 5% 5% 5%;
 			// width:89.33vw;
-			height: 58.4vw;
+			// height: 58.4vw;
+			height: 51.4vw;
 			background: rgba(255, 255, 255, 1);
 			box-shadow: 0vw 0vw 5vw rgba(0, 0, 0, 0.1);
 			opacity: 1;
-			border-radius: 2vw;
+			border-radius: 20rpx;
 			display: flex;
 			position: relative; //相對postscript 的
 
@@ -147,7 +173,7 @@
 				margin-left: 5%;
 
 				.label {
-					margin: 6% 0% 8% 0%;
+					margin: 8rpx 0% 16rpx 0%;
 					background-color: #a49888;
 					border-radius: 6rpx;
 					width: 94rpx;
@@ -189,7 +215,7 @@
 					line-height: 4.8vw;
 					color: rgba(127, 137, 113, 1);
 					opacity: 1;
-					padding-bottom: 10rpx;
+					padding-top: 12rpx;
 				}
 
 				.leave {

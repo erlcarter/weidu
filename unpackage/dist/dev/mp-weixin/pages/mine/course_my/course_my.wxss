@@ -30,7 +30,7 @@
   top: 0;
 }
 .content.data-v-c5b5bae4 {
-  margin: 8.33% 5% 0% 5%;
+  margin: 64rpx 5% 0% 5%;
 }
 .content > ._p.data-v-c5b5bae4:nth-child(1) {
   height: 7.2vw;
@@ -44,11 +44,11 @@
 .coures_list .single.data-v-c5b5bae4 {
   margin-top: 5%;
   padding: 5% 5% 5% 5%;
-  height: 58.4vw;
+  height: 51.4vw;
   background: white;
   box-shadow: 0vw 0vw 5vw rgba(0, 0, 0, 0.1);
   opacity: 1;
-  border-radius: 2vw;
+  border-radius: 20rpx;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -66,7 +66,7 @@
   margin-left: 5%;
 }
 .coures_list .single .right .label.data-v-c5b5bae4 {
-  margin: 6% 0% 8% 0%;
+  margin: 8rpx 0% 16rpx 0%;
   background-color: #a49888;
   border-radius: 6rpx;
   width: 94rpx;
@@ -103,7 +103,7 @@
   line-height: 4.8vw;
   color: #7f8971;
   opacity: 1;
-  padding-bottom: 10rpx;
+  padding-top: 12rpx;
 }
 .coures_list .single .right .leave.data-v-c5b5bae4 {
   display: -webkit-box;

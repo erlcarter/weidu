@@ -429,7 +429,8 @@
   }
 
   .cmd-progress-inner {
-    display: inline-block;
+	margin: 8rpx 0 0 0;
+    display: block;
     width: 100%;
     background-color: #f5f5f5;
     border-radius: 200upx;

@@ -44,7 +44,7 @@
 }
 ._header .head_title {
   /*318*76*/
-  width: calc(750rpx * 106 / 375);
-  height: calc(750rpx * 26 / 375);
+  width: calc(750rpx * 116 / 375);
+  height: calc(750rpx * 48 / 375);
 }
 

@@ -35,7 +35,8 @@
 		
 		position: fixed;
 		bottom: 0;
-		padding: 4% 5% 8% 5%;	
+		padding: 16rpx 40rpx 50rpx 40rpx;
+		// padding: 4% 5% 8% 5%;	
 		display: flex;
 		background-color: #ffffff;
 		width: 100%;
@@ -45,39 +46,56 @@
 		// position: fixed;
 
 		.foo_left {
-	
-			
 			margin-right: 4%;
-			border-radius: 9rpx;
+			border-radius: 2vw;
 			border: 2rpx solid #7f8971;
 			width: 318rpx;
-			height: 78rpx;
+			height: 96rpx;
+			 line-height: 96rpx;
 			overflow: hidden;
-
-			p {
+			color:#FFFFFF;
+			button{
+				width: 318rpx;
+				height: 96rpx;
 				text-align: center;
-				line-height: 78rpx;
-				font-size: 28rpx;
-				font-weight: 600;
-				letter-spacing: 1.4rpx;
-				color: #7f8971;
+				background-color:#FFFFFF;
+				
+				p {
+					text-align: center;
+					line-height: 96rpx;
+					font-size: 28rpx;
+					font-weight: 600;
+					letter-spacing: 1.4rpx;
+					background-color:#FFFFFF ;
+					color: #7f8971;
+					
+					display: flex;
+					justify-content: center;
+					align-items: center;
+				}
 			}
+		
 		}
 
 		.foo_right {
 			background-color: #7f8971;
-			border-radius: 10rpx;
+			border-radius: 2vw;
 			width: 320rpx;
-			height: 80rpx;
+			height: 98rpx;
 			overflow: hidden;
-
+			line-height: 98rpx;
+		
 			p {
 				text-align: center;
-				line-height: 80rpx;
+				line-height: 98rpx;
 				font-size: 28rpx;
 				font-weight: 600;
 				letter-spacing: 1.4rpx;
 				color: #ffffff;
+				
+				display: flex;
+				justify-content: center;
+				align-items: center;
 
 			}
 		}

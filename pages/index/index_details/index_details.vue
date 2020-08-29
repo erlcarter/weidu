@@ -4,12 +4,12 @@
 		<div class="details_btn">
 			<p class="text1" v-text="data.name">维度 - 维度艺术&招商银行</p>
 			<p class="date" v-text="data.active_date">2017-03-08</p>
-
-			<div class="content">
-				<img mode="widthFix" v-if="img" v-for="img in data.imgs" :src="img_http + img + img_end" 
-				alt="afe0QU.jpg" border="0" />
-			</div>
-
+		</div>
+		<div class="content">
+			<!-- 压缩 -->
+			<!-- <img mode="widthFix" v-if="img" v-for="img in data.imgs" :src="img_http + img + img_end_2" alt="afe0QU.jpg" border="0" /> -->
+			<!-- 去压缩 -->
+			<img mode="widthFix" v-if="img" v-for="img in data.imgs" :src="img_http + img " alt="afe0QU.jpg" border="0" />
 		</div>
 		<!-- <footer />  -->
 		<Foote></Foote>
@@ -44,7 +44,7 @@
 		onLoad(e) {
 			console.log(e.id)
 			this.id = e.id;
-			
+
 			this.getData()
 		},
 		methods: {
@@ -82,9 +82,22 @@
 			Foote
 		},
 		computed: {
-			...mapState(['img_http', 'img_end'])
+			...mapState(['img_http', 'img_end', 'img_end_2'])
+		},
+		// 分享
+		onShareAppMessage: function() {
+			return {
+				title: '最新活动',
+				// path: '/index/index?id=123'
+			}
+		},
+		//分享到朋友圈
+		onShareTimeline() {
+			return {
+				title: '最新活动',
+				// path: '/index/index?id=123'
+			}
 		}
-
 
 	}
 </script>
@@ -97,8 +110,8 @@
 	}
 
 	.details_btn {
-		padding-bottom: 160rpx;
-		margin: 8.53% 5% 10% 5%;
+		// padding-bottom: 160rpx;
+		margin: 8.53% 5% 0% 5%;
 
 		// background-color: #4CD964;
 		.text1 {
@@ -114,16 +127,21 @@
 			color: #7f8971;
 		}
 
-		.content img {
-			width: 100%;
-			height: 888rpx;
-		}
 
-		.content p {
-			margin-top: 3%;
-			font-size: 24rpx;
-			font-weight: 300;
-			color: #606060;
-		}
+	}
+	.content{
+		margin-bottom: 180rpx;
+	}
+	.content img {
+		display: block;
+		width: 100%;
+		height: 888rpx;
+	}
+
+	.content p {
+		margin-top: 3%;
+		font-size: 24rpx;
+		font-weight: 300;
+		color: #606060;
 	}
 </style>
