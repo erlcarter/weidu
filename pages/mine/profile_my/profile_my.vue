@@ -73,7 +73,8 @@
 					url,
 					data: {
 						uiid: this.info.uiid, //用户id
-						list: JSON.stringify(this.data)
+						list: JSON.stringify(this.data),
+						username: this.info.username
 					},
 				}).then(res => {
 					console.log(res)

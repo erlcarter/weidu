@@ -11,6 +11,7 @@
 					<div class="frame">
 						<img class="border_top" src="/static/images/frame2.png" alt="">
 						<img class="border" src="/static/images/border.png" alt="">
+						<!-- 压缩 -->
 						<img class="middle" mode="widthFix" v-if='Rende.avatar' :src="img_http + Rende.avatar + img_end_2" />
 						<img class="border_bottom" src="/static/images/frame1.png" alt="">
 						<!-- 水印 -->
@@ -38,9 +39,12 @@
 
 				<!--自己页面需新增-->
 				<div class="mine" v-if="Rende.mine">
-					<p class="mine_title">作品花絮</p>
+					<p class="mine_title"  v-if="Rende.imgs">作品花絮</p>
 					<div v-for="img in Rende.imgs" :key="value">
-						<img mode="widthFix" :src="img_http + img + img_end_2" v-if="img" />
+						<!-- 压缩 -->
+						<!-- <img mode="widthFix" :src="img_http + img + img_end_2" v-if="img" /> -->
+						<!-- 原图 -->
+						<img mode="widthFix" :src="img_http + img" v-if="img" />
 					</div>
 					<!-- 保存按钮 -->
 					<div class="_phone">
@@ -113,7 +117,6 @@
 
 						this.Rende.imgs = this.Rende.imgs.split(',')
 						console.log(this.Rende)
-
 
 					}
 				})

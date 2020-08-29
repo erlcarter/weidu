@@ -30,7 +30,7 @@
   width: 100%;
 }
 .content.data-v-1cbb92b9 {
-  margin: 8.53% 5% 25% 5%;
+  margin: 8.53% 5% 0% 5%;
 }
 .content .titile.data-v-1cbb92b9 {
   font-size: 32rpx;
@@ -68,8 +68,8 @@
   opacity: 1;
   margin-bottom: 64rpx;
 }
-.content .img_list ._img.data-v-1cbb92b9 {
+.img_list ._img.data-v-1cbb92b9 {
   display: block;
-  width: 89.55vw;
+  width: 100%;
 }
 

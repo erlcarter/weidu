@@ -9,8 +9,15 @@
 			<p class="text" v-text="data.c_desc">
 				集合思维、想象、多感体验、情感表达为一体，
 			</p>
+
+		</div>
+
+		<div style="margin-bottom: 180rpx;">
 			<div v-for='value in data.imgs' class="img_list">
-				<img mode="widthFix" :src="img_http + value+ img_end_2" alt="" />
+				<!-- 压缩 -->
+				<!-- <img mode="widthFix" :src="img_http + value+ img_end_2" alt="" /> -->
+				<!-- 原图 -->
+				 <img mode="widthFix" :src="img_http + value" alt="" />
 			</div>
 		</div>
 
@@ -78,7 +85,7 @@
 			Foote
 		},
 		computed: {
-			...mapState(['img_http', 'img_end','img_end_2'])
+			...mapState(['img_http', 'img_end', 'img_end_2'])
 		},
 		// 分享
 		onShareAppMessage: function() {
@@ -88,7 +95,7 @@
 			}
 		},
 		//分享到朋友圈
-		onShareTimeline(){
+		onShareTimeline() {
 			return {
 				title: '课程详情',
 				// path: '/index/index?id=123'
@@ -104,7 +111,7 @@
 	}
 
 	.content {
-		margin: 8.53% 5% 25% 5%;
+		margin: 8.53% 5% 0% 5%;
 		// width: 100%;
 
 		.titile {
@@ -153,9 +160,11 @@
 			margin-bottom: 64rpx;
 		}
 
-		.img_list img {
-			display: block;
-			width: 89.55vw;
-		}
+
+	}
+
+	.img_list img {
+		display: block;
+		width: 100%;
 	}
 </style>

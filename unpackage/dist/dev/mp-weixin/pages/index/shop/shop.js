@@ -192,7 +192,10 @@ var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerab
       if (avatar == null || avatar == "") {
         return "/static/images/default_img.png";
       } else {
-        return this.img_http + avatar + this.img_end_2;
+        // 压缩
+        // return  this.img_http+avatar+this.img_end_2
+        // 去压缩
+        return this.img_http + avatar;
       }
 
     },
